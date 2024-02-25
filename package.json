@@ -1,0 +1,43 @@
+{
+  "name": "landing-page-ui",
+  "version": "1.0.0",
+  "description": "React Landing Page UI Components",
+  "main": "src/index.jsx",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NafisMahmudAyon/ui.git"
+  },
+  "keywords": [
+    "ui"
+  ],
+  "author": "Nafis Mahmud Ayon <nafismahmudayon@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NafisMahmudAyon/ui/issues"
+  },
+  "homepage": "https://github.com/NafisMahmudAyon/ui#readme",
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.0"
+  },
+  "dependencies": {
+    "imagesloaded": "^5.0.0",
+    "masonry-layout": "^4.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
