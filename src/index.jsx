@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 
 // * package for masonry grid
 
-import Masonry from "masonry-layout";
+import {Masonry} from "masonry-layout";
 import imagesLoaded from "imagesloaded";
 
 
