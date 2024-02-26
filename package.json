@@ -1,12 +1,14 @@
 {
   "name": "landing-page-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Landing Page UI Components",
-  "main": "src/index.jsx",
+  "main": "dist/index.jsx",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
     "dev": "vite",
-    "build": "vite build"
+    "buildX": "vite build",
+    "watch": "npx tailwindcss -i ./src/index.css -o ./css/output.css --watch",
+    "build": "npx babel src/index.jsx --out-file dist/index.jsx"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,9 @@
   },
   "homepage": "https://github.com/NafisMahmudAyon/ui#readme",
   "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react-swc": "^3.5.0",
