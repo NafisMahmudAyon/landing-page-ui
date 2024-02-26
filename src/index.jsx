@@ -3,8 +3,8 @@ import React, { useEffect, useState, useRef } from "react";
 
 // * package for masonry grid
 
-import {Masonry} from "masonry-layout";
-import imagesLoaded from "imagesloaded";
+// import {Masonry} from "masonry-layout";
+// import imagesLoaded from "imagesloaded";
 
 
 ///////
@@ -1066,4 +1066,4 @@ const AccordionDetails = ({
 	);
 };
 
-export { Text, Wrapper, Tabs, TabsNav, Tab, TabPanel, MasonryGrid, MasonryGridItem, List, ImageGallery, Image, IconButton, Icon, Grid, GridItem, Flex, FlexItem, ComboList, ComboListItem, Accordion, AccordionDetails, AccordionHeader};
+export { Text, Wrapper, Tabs, TabsNav, Tab, TabPanel,  List, ImageGallery, Image, IconButton, Icon, Grid, GridItem, Flex, FlexItem, ComboList, ComboListItem, Accordion, AccordionDetails, AccordionHeader};
