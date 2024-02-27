@@ -522,7 +522,7 @@ const Image = ({
 	isLink,
 	linkTo,
 	target,
-	wrapperTag,
+	tagName,
 	style = "",
 	imageStyle,
 	lightBox,
@@ -539,7 +539,7 @@ const Image = ({
 	closeButtonStyle,
 	lazyLoad,
 }) => {
-	const [customTag, setCustomTag] = useState(wrapperTag || "div");
+	const [customTag, setCustomTag] = useState(tagName || "div");
 	const [isOpen, setIsOpen] = useState(false);
 	const [lightboxSrc, setLightboxSrc] = useState("");
 
@@ -547,9 +547,9 @@ const Image = ({
 		if (isLink) {
 			setCustomTag("a");
 		} else {
-			setCustomTag(wrapperTag || "div");
+			setCustomTag(tagName || "div");
 		}
-	}, [isLink, wrapperTag]);
+	}, [isLink, tagName]);
 
 	const openLightbox = () => {
 		setLightboxSrc(src);
