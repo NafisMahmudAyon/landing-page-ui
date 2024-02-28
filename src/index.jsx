@@ -1,21 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 
-
 // * package for masonry grid
 
 // import {Masonry} from "masonry-layout";
 // import imagesLoaded from "imagesloaded";
 
-
 ///////
 // import Text from "./Text";
 
-
 // *css
 import "../css/output.css";
-
-
-
 
 // * Text
 const Text = ({
@@ -26,6 +20,7 @@ const Text = ({
 	target,
 	children,
 	variant,
+	onClick,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const [variantValue, setVariantValue] = useState("");
@@ -50,6 +45,7 @@ const Text = ({
 
 	return (
 		<CustomTag
+			onClick={onClick}
 			className={`${style} ${variantValue}  block`}
 			{...(isLink && {
 				href: linkTo,
@@ -61,8 +57,6 @@ const Text = ({
 		</CustomTag>
 	);
 };
-
-
 
 // * Wrapper
 const Wrapper = ({ tagName, style = "", children, isLink, linkTo, target }) => {
@@ -88,8 +82,6 @@ const Wrapper = ({ tagName, style = "", children, isLink, linkTo, target }) => {
 		</CustomTag>
 	);
 };
-
-
 
 // * Tabs
 const Tabs = ({
@@ -134,7 +126,6 @@ const Tabs = ({
 		</div>
 	);
 };
-
 
 // * TabsNav
 const TabsNav = ({
@@ -217,10 +208,7 @@ const TabsNav = ({
 					/>
 				)}
 			</button>
-			<div
-				ref={tabsRef}
-				className={` ${tabAreaStyle}`}
-				style={{  }}>
+			<div ref={tabsRef} className={` ${tabAreaStyle}`} style={{}}>
 				{React.Children.map(children, (child) => {
 					return React.cloneElement(child, {
 						isActive: child.props.value === activeTab,
@@ -258,7 +246,6 @@ const TabsNav = ({
 	);
 };
 
-
 // * Tab
 const Tab = ({
 	style = "",
@@ -285,8 +272,6 @@ const Tab = ({
 const TabPanel = ({ style = "", value, children }) => {
 	return <div className={` ${style} `}>{children}</div>;
 };
-
-
 
 // * MasonryGrid
 
@@ -387,7 +372,6 @@ const MasonryGrid = ({
 	);
 };
 
-
 // * MasonryGridItem
 const MasonryGridItem = ({
 	tagName,
@@ -409,7 +393,6 @@ const MasonryGridItem = ({
 		</CustomTag>
 	);
 };
-
 
 // * List
 const List = ({
@@ -451,7 +434,6 @@ const List = ({
 		</CustomTag>
 	);
 };
-
 
 // * ImageGallery
 
@@ -513,8 +495,6 @@ const ImageGallery = ({
 		</CustomTag>
 	);
 };
-
-
 
 // * Image
 const Image = ({
@@ -653,6 +633,8 @@ const IconButton = ({
 	prefixStyle = "",
 	postfix,
 	postfixStyle = "",
+	textOnClick,
+	iconOnClick,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
@@ -661,7 +643,12 @@ const IconButton = ({
 	return (
 		<CustomTag className={` ${style} `}>
 			{iconPosition == "beforePrefix" && (
-				<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+				<Icon
+					iconLibrary={iconLibrary}
+					icon={icon}
+					iconStyle={iconStyle}
+					onClick={iconOnClick}
+				/>
 			)}
 			{prefix && (
 				<span
@@ -670,12 +657,22 @@ const IconButton = ({
 				/>
 			)}
 			{iconPosition == "afterPrefix" && (
-				<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+				<Icon
+					iconLibrary={iconLibrary}
+					icon={icon}
+					iconStyle={iconStyle}
+					onClick={iconOnClick}
+				/>
 			)}
 			{isLink && (
 				<>
 					{iconPosition == "beforeLink" && (
-						<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={icon}
+							iconStyle={iconStyle}
+							onClick={iconOnClick}
+						/>
 					)}
 
 					<a
@@ -693,6 +690,7 @@ const IconButton = ({
 						)}
 						<span
 							className={` ${textStyle} `}
+							onClick={textOnClick}
 							dangerouslySetInnerHTML={{ __html: text }}
 						/>
 						{iconPosition == "afterText" && (
@@ -705,7 +703,12 @@ const IconButton = ({
 					</a>
 
 					{iconPosition == "afterLink" && (
-						<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={icon}
+							iconStyle={iconStyle}
+							onClick={iconOnClick}
+						/>
 					)}
 				</>
 			)}
@@ -713,20 +716,36 @@ const IconButton = ({
 			{!isLink && (
 				<>
 					{iconPosition == "beforeText" && (
-						<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={icon}
+							iconStyle={iconStyle}
+							onClick={iconOnClick}
+						/>
 					)}
 					<span
 						className={` ${textStyle} `}
+						onClick={textOnClick}
 						dangerouslySetInnerHTML={{ __html: text }}
 					/>
 					{iconPosition == "afterText" && (
-						<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={icon}
+							iconStyle={iconStyle}
+							onClick={iconOnClick}
+						/>
 					)}
 				</>
 			)}
 
 			{iconPosition == "beforePostfix" && (
-				<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+				<Icon
+					iconLibrary={iconLibrary}
+					icon={icon}
+					iconStyle={iconStyle}
+					onClick={iconOnClick}
+				/>
 			)}
 			{prefix && (
 				<span
@@ -735,12 +754,16 @@ const IconButton = ({
 				/>
 			)}
 			{iconPosition == "afterPostfix" && (
-				<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+				<Icon
+					iconLibrary={iconLibrary}
+					icon={icon}
+					iconStyle={iconStyle}
+					onClick={iconOnClick}
+				/>
 			)}
 		</CustomTag>
 	);
 };
-
 
 // * Icon
 const Icon = ({
@@ -748,6 +771,7 @@ const Icon = ({
 	icon,
 	iconStyle,
 	iconLibrary = "material-icons",
+	onClick,
 }) => {
 	useEffect(() => {
 		const link = document.createElement("link");
@@ -783,11 +807,11 @@ const Icon = ({
 	return (
 		<span
 			className={` ${iconStyle ? iconStyle : ""} `}
+			onClick={onClick}
 			dangerouslySetInnerHTML={{ __html: icon }}
 		/>
 	);
 };
-
 
 // * Grid
 const Grid = ({ tagName, style, children }) => {
@@ -800,7 +824,6 @@ const Grid = ({ tagName, style, children }) => {
 		</CustomTag>
 	);
 };
-
 
 // * GridItem
 const GridItem = ({ style, children, isLink, linkTo, target, tagName }) => {
@@ -826,7 +849,6 @@ const GridItem = ({ style, children, isLink, linkTo, target, tagName }) => {
 	);
 };
 
-
 // * Flex
 const Flex = ({ tagName, style, children }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
@@ -838,7 +860,6 @@ const Flex = ({ tagName, style, children }) => {
 		</CustomTag>
 	);
 };
-
 
 // * FlexItem
 const FlexItem = ({ style, children, isLink, linkTo, target, tagName }) => {
@@ -863,7 +884,6 @@ const FlexItem = ({ style, children, isLink, linkTo, target, tagName }) => {
 		</CustomTag>
 	);
 };
-
 
 // *ComboList
 const ComboList = ({
@@ -896,7 +916,6 @@ const ComboList = ({
 	);
 };
 
-
 // * ComboListItem
 const ComboListItem = ({
 	tagName,
@@ -922,8 +941,6 @@ const ComboListItem = ({
 		</CustomTag>
 	);
 };
-
-
 
 // * Accordion
 const Accordion = ({ tagName, style = "", children, active, deactivate }) => {
@@ -951,7 +968,6 @@ const Accordion = ({ tagName, style = "", children, active, deactivate }) => {
 		</CustomTag>
 	);
 };
-
 
 // * AccordionHeader
 const AccordionHeader = ({
@@ -1039,7 +1055,6 @@ const AccordionHeader = ({
 	);
 };
 
-
 // * AccordionDetails
 const AccordionDetails = ({
 	tagName,
@@ -1066,4 +1081,114 @@ const AccordionDetails = ({
 	);
 };
 
-export { Text, Wrapper, Tabs, TabsNav, Tab, TabPanel,  List, ImageGallery, Image, IconButton, Icon, Grid, GridItem, Flex, FlexItem, ComboList, ComboListItem, Accordion, AccordionDetails, AccordionHeader};
+const Avatar = ({
+	style="",
+	name,
+	children,
+	src,
+	altText,
+	imageStyle="",
+	onClick
+}) => {
+	if (name) {
+		if (name.split(" ").length > 1) {
+			var nameX = `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`;
+		} else {
+			var nameX = `${name[0]}`;
+		}
+	}
+	return (
+		<div className={` ${style} flex justify-center items-center w-[40px] h-[40px] bg-slate-500 rounded-full text-[1.25rem] leading-none overflow-hidden `} onClick={onClick}>
+			{!children && (
+				<>
+					{src && (
+						<img
+							src={src}
+							alt={altText || "alt text"}
+							className={` ${imageStyle} w-full h-full object-cover text-transparent text-center `}
+						/>
+					)}
+
+					{!src && name && <>{nameX || "A"}</>}
+				</>
+			)}
+			{children}
+		</div>
+	);
+};
+
+// * HOOK
+
+const useThemeSwitcher = () => {
+	const preferDarkQuery = "(prefer-color-scheme: dark)";
+	const [mode, setMode] = useState("");
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia(preferDarkQuery);
+		const userPref = window.localStorage.getItem("theme");
+
+		const handleChange = () => {
+			if (userPref) {
+				let check = userPref === "dark" ? "dark" : "light";
+				setMode(check);
+				if (check === "dark") {
+					document.documentElement.classList.add("dark");
+				} else {
+					document.documentElement.classList.remove("dark");
+				}
+			} else {
+				let check = mediaQuery.matches ? "dark" : "light";
+				setMode(check);
+				if (check === "dark") {
+					document.documentElement.classList.add("dark");
+				} else {
+					document.documentElement.classList.remove("dark");
+				}
+			}
+		};
+
+		handleChange();
+
+		mediaQuery.addEventListener("change", handleChange);
+
+		return () => mediaQuery.removeEventListener("change", handleChange);
+	}, []);
+
+	useEffect(() => {
+		if (mode === "dark") {
+			window.localStorage.setItem("theme", "dark");
+			document.documentElement.classList.add("dark");
+		}
+		if (mode === "light") {
+			window.localStorage.setItem("theme", "light");
+			document.documentElement.classList.remove("dark");
+		}
+	}, [mode]);
+
+	return [mode, setMode];
+};
+
+export {
+	Text,
+	Wrapper,
+	Tabs,
+	TabsNav,
+	Tab,
+	TabPanel,
+	List,
+	ImageGallery,
+	Image,
+	IconButton,
+	Icon,
+	Grid,
+	GridItem,
+	Flex,
+	FlexItem,
+	ComboList,
+	ComboListItem,
+	Accordion,
+	AccordionDetails,
+	AccordionHeader,
+	Avatar,
+	useThemeSwitcher,
+};

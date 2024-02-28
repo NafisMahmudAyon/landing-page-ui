@@ -134,3 +134,7 @@ The `Icon Button` component is a clickable button element that displays an icon 
 ### 10. List
 
 The `List` component is used for displaying a collection of items in a vertical or horizontal list format. It supports various list types, including ordered lists (numbered) and unordered lists (bulleted). Lists are versatile components that can be customized and styled to meet different design requirements.
+
+### 11. Avatar
+
+### 12. Theme Switcher Hook
