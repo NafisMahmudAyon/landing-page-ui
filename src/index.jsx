@@ -1082,13 +1082,13 @@ const AccordionDetails = ({
 };
 
 const Avatar = ({
-	style="",
+	style = "",
 	name,
 	children,
 	src,
 	altText,
-	imageStyle="",
-	onClick
+	imageStyle = "",
+	onClick,
 }) => {
 	if (name) {
 		if (name.split(" ").length > 1) {
@@ -1098,7 +1098,9 @@ const Avatar = ({
 		}
 	}
 	return (
-		<div className={` ${style} flex justify-center items-center w-[40px] h-[40px] bg-slate-500 rounded-full text-[1.25rem] leading-none overflow-hidden `} onClick={onClick}>
+		<div
+			className={` ${style} flex justify-center items-center w-[40px] h-[40px] bg-slate-500 rounded-full text-[1.25rem] leading-none overflow-hidden `}
+			onClick={onClick}>
 			{!children && (
 				<>
 					{src && (
@@ -1114,6 +1116,64 @@ const Avatar = ({
 			)}
 			{children}
 		</div>
+	);
+};
+
+const Badge = ({
+	style,
+	position = "top right",
+	tagName,
+	content,
+	maxContent,
+	children
+}) => {
+	const [customTag, setCustomTag] = useState(tagName || "span");
+	const CustomTag = customTag.toLowerCase();
+	// Check if position contains "top" or "bottom" and "left" or "right"
+	const isTop = position.includes("top");
+	const isBottom = position.includes("bottom");
+	const isLeft = position.includes("left");
+	const isRight = position.includes("right");
+
+	// Assigning vertical and horizontal classes based on position values
+	const verticalClass = isTop ? "top" : isBottom ? "bottom" : "top";
+	const horizontalClass = isLeft ? "left" : isRight ? "right" : "right";
+
+	let displayContent = content; // By default, content remains the same
+
+	// If maxContent is not passed and content is divisible by 100, adjust content
+	if (!maxContent && content % 100 === 0 && content !== "0") {
+		content -= 1;
+		content += "+";
+		displayContent = content;
+	} else if (!maxContent && content === 0) {
+		displayContent = "0";
+	}
+	// Adjust content based on maxContent
+	if (maxContent !== undefined) {
+		if (content > maxContent) {
+			displayContent = maxContent + "+"; // If content is greater than maxContent, set to maxContent and add plus sign
+		} else {
+			displayContent = content; // If content is less than or equal to maxContent, keep it as it is
+		}
+	}
+	console.log(displayContent);
+	return (
+		<CustomTag className={`relative inline-flex align-middle `}>
+			{children}
+			<span
+				className={` ${style} ${isTop ? "top-0" : ""} ${isLeft ? "left-0" : ""} ${
+					isRight ? "right-0" : ""
+				} ${isBottom ? "bottom-0" : ""} ${
+					isTop && isRight ? "translate-x-1/2 -translate-y-1/2 " : ""
+				}  ${isTop && isLeft ? "-translate-x-1/2 -translate-y-1/2 " : ""}  ${
+					isBottom && isRight ? "translate-x-1/2 translate-y-1/2 " : ""
+				}  ${
+					isBottom && isLeft ? "-translate-x-1/2 translate-y-1/2 " : ""
+				} flex flex-wrap place-content-center items-center absolute font-medium text-[0.75rem] min-w-[20px] h-[20px] bg-gray-900 text-white leading-none px-[6px] rounded-[10px] `}>
+				{displayContent}
+			</span>
+		</CustomTag>
 	);
 };
 
@@ -1190,5 +1250,6 @@ export {
 	AccordionDetails,
 	AccordionHeader,
 	Avatar,
+	Badge,
 	useThemeSwitcher,
 };

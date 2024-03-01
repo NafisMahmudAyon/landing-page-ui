@@ -137,4 +137,6 @@ The `List` component is used for displaying a collection of items in a vertical 
 
 ### 11. Avatar
 
+### 12. Badge
+
 ### 12. Theme Switcher Hook
