@@ -58,8 +58,8 @@ const Text = ({
 	);
 };
 
-// * Wrapper
-const Wrapper = ({ tagName, style = "", children, isLink, linkTo, target }) => {
+// * Block
+const Block = ({ tagName, style = "", children, isLink, linkTo, target }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div"); // *Use prop value or default to "div"
 
 	useEffect(() => {
@@ -991,6 +991,7 @@ const AccordionHeader = ({
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 	const [isActive, setIsActive] = useState(false);
+	console.log(isActive)
 
 	const toggleExpansion = () => {
 		if (!deactivate) {
@@ -1230,7 +1231,7 @@ const useThemeSwitcher = () => {
 
 export {
 	Text,
-	Wrapper,
+	Block,
 	Tabs,
 	TabsNav,
 	Tab,
