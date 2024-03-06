@@ -23,16 +23,16 @@ npm install landing-page-ui
 
 ## Components
 
-### 1. Wrapper
+### 1. Block
 
-The `Wrapper` component is a container element that allows you to wrap other components or content within it. It provides flexibility in styling and layout, allowing you to apply custom styles or classes to encapsulate specific sections of your UI.
+The `Block` component is a container element that allows you to wrap other components or content within it. It provides flexibility in styling and layout, allowing you to apply custom styles or classes to encapsulate specific sections of your UI.
 
 ```jsx
-import { Wrapper } from 'landing-page-ui'
+import { Block } from 'landing-page-ui'
 
-<Wrapper>
+<Block>
   ...
-</Wrapper>
+</Block>
 ```
 
 #### props:
@@ -40,11 +40,11 @@ import { Wrapper } from 'landing-page-ui'
 | Prop | Type | Description |
 |---|---|----------|
 | tagName | String | It can be any HTML Tag name. `h1`, `h2`, `h3`, ...., `p`, `div` etc. Default value is `div`. |
-| style | String | This props is like className for the `Wrapper` component. |
-|isLink| Boolean | Indicates whether the Wrapper should behave as a link. |
-| linkTo | String | The URL to which the Wrapper should navigate if it is a link. |
+| style | String | This props is like className for the `Block` component. |
+|isLink| Boolean | Indicates whether the Block should behave as a link. |
+| linkTo | String | The URL to which the Block should navigate if it is a link. |
 | target | String | Specifies the target window or frame when the link is clicked. |
-| variant | String | Specifies the variant of the `Wrapper` component. This prop can be used to apply predefined styles or behavior variations to the wrapper. |
+| variant | String | Specifies the variant of the `Block` component. This prop can be used to apply predefined styles or behavior variations to the Block. |
 
 ### 2. Text
 
@@ -127,16 +127,20 @@ The `Accordion` component is a collapsible content container that allows users t
 
 The `Tabs` component is a navigational interface that organizes content into separate tabs. Each tab represents a distinct section of content, allowing users to switch between them easily. Tabs are useful for presenting multiple pieces of related information within a confined space while maintaining a clear and structured layout.
 
-### 9. Icon Button
+### 9. Icon
+
+This Icon component allows you to display an icon or image and supports various icon libraries like Material Icons, Bootstrap Icons, and Font Awesome. It also provides options for styling the icon and handling click events. Additionally, it dynamically loads the necessary stylesheet based on the specified icon library.
+
+### 10. Icon Button
 
 The `Icon Button` component is a clickable button element that displays an icon or image. It is commonly used for triggering actions or functions within the application, such as submitting forms, navigating to different pages, or toggling menu items. Icon buttons provide a visually intuitive way to interact with the user interface.
 
-### 10. List
+### 11. List
 
 The `List` component is used for displaying a collection of items in a vertical or horizontal list format. It supports various list types, including ordered lists (numbered) and unordered lists (bulleted). Lists are versatile components that can be customized and styled to meet different design requirements.
 
-### 11. Avatar
+### 12. Avatar
 
-### 12. Badge
+### 13. Badge
 
-### 12. Theme Switcher Hook
+### 14. Theme Switcher Hook

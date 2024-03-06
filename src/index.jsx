@@ -17,7 +17,7 @@ const Text = ({
 	tagName,
 	isLink,
 	linkTo,
-	target,
+	target="_self",
 	children,
 	variant,
 	onClick,
@@ -59,7 +59,7 @@ const Text = ({
 };
 
 // * Block
-const Block = ({ tagName, style = "", children, isLink, linkTo, target }) => {
+const Block = ({ tagName, style = "", children, isLink, linkTo, target="_self" }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div"); // *Use prop value or default to "div"
 
 	useEffect(() => {
@@ -501,7 +501,7 @@ const Image = ({
 	src,
 	isLink,
 	linkTo,
-	target,
+	target="_self",
 	tagName,
 	style = "",
 	imageStyle,
@@ -771,6 +771,9 @@ const Icon = ({
 	icon,
 	iconStyle,
 	iconLibrary = "material-icons",
+	isLink,
+	linkTo = "#",
+  target = "_self",
 	onClick,
 }) => {
 	useEffect(() => {
@@ -814,40 +817,7 @@ const Icon = ({
 };
 
 // * Grid
-const Grid = ({ tagName, style, children }) => {
-	const [customTag, setCustomTag] = useState(tagName || "div");
-	const CustomTag = customTag.toLowerCase();
-
-	return (
-		<CustomTag className={` ${style ? style : ""} grid grid-cols-3 `}>
-			{children}
-		</CustomTag>
-	);
-};
-
-// * GridItem
-const GridItem = ({ style, children, isLink, linkTo, target, tagName }) => {
-	const [customTag, setCustomTag] = useState(tagName || "div");
-	const CustomTag = customTag.toLowerCase();
-	useEffect(() => {
-		if (isLink) {
-			setCustomTag("a");
-		} else {
-			setCustomTag(tagName || "div");
-		}
-	}, [isLink, tagName]);
-
-	return (
-		<CustomTag
-			className={`itemstyle ${style}`}
-			{...(isLink && {
-				href: linkTo,
-				target: target,
-			})}>
-			{children}
-		</CustomTag>
-	);
-};
+give me text about this component
 
 // * Flex
 const Flex = ({ tagName, style, children }) => {
@@ -862,7 +832,7 @@ const Flex = ({ tagName, style, children }) => {
 };
 
 // * FlexItem
-const FlexItem = ({ style, children, isLink, linkTo, target, tagName }) => {
+const FlexItem = ({ style, children, isLink, linkTo, target="_self", tagName }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 	useEffect(() => {
@@ -1082,6 +1052,7 @@ const AccordionDetails = ({
 	);
 };
 
+// * Avatar
 const Avatar = ({
 	style = "",
 	name,
@@ -1120,6 +1091,8 @@ const Avatar = ({
 	);
 };
 
+
+// * Badge
 const Badge = ({
 	style,
 	position = "top right",
