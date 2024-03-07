@@ -46,7 +46,7 @@ const Text = ({
 	return (
 		<CustomTag
 			onClick={onClick}
-			className={`${style} ${variantValue}  block`}
+			className={`${style} ${variantValue}`}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -817,7 +817,40 @@ const Icon = ({
 };
 
 // * Grid
-give me text about this component
+const Grid = ({ tagName, style, children }) => {
+	const [customTag, setCustomTag] = useState(tagName || "div");
+	const CustomTag = customTag.toLowerCase();
+
+	return (
+		<CustomTag className={` ${style ? style : ""} grid grid-cols-3 `}>
+			{children}
+		</CustomTag>
+	);
+};
+
+// * GridItem
+const GridItem = ({ style, children, isLink, linkTo, target, tagName }) => {
+	const [customTag, setCustomTag] = useState(tagName || "div");
+	const CustomTag = customTag.toLowerCase();
+	useEffect(() => {
+		if (isLink) {
+			setCustomTag("a");
+		} else {
+			setCustomTag(tagName || "div");
+		}
+	}, [isLink, tagName]);
+
+	return (
+		<CustomTag
+			className={`itemstyle ${style}`}
+			{...(isLink && {
+				href: linkTo,
+				target: target,
+			})}>
+			{children}
+		</CustomTag>
+	);
+};
 
 // * Flex
 const Flex = ({ tagName, style, children }) => {
