@@ -396,7 +396,7 @@ const MasonryGridItem = ({
 
 // * List
 const List = ({
-	list,
+	list=[],
 	tagName,
 	style = "",
 	listStyle = "",
