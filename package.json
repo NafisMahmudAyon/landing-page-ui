@@ -1,6 +1,6 @@
 {
   "name": "landing-page-ui",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "React Landing Page UI Components",
   "main": "dist/index.jsx",
   "scripts": {
