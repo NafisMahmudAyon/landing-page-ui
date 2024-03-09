@@ -1,9 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, Children } from "react";
 
 // * package for masonry grid
 
 // import {Masonry} from "masonry-layout";
 // import imagesLoaded from "imagesloaded";
+
+// * package for code snippets
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 ///////
 // import Text from "./Text";
@@ -635,13 +639,14 @@ const IconButton = ({
 	postfixStyle = "",
 	textOnClick,
 	iconOnClick,
+	onClick,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 	const [iconX, setIconX] = useState(false);
 
 	return (
-		<CustomTag className={` ${style} `}>
+		<CustomTag className={` ${style} `} onClick={onClick}>
 			{iconPosition == "beforePrefix" && (
 				<Icon
 					iconLibrary={iconLibrary}
@@ -1128,6 +1133,7 @@ const Avatar = ({
 // * Badge
 const Badge = ({
 	style,
+	badgeStyle,
 	position = "top right",
 	tagName,
 	content,
@@ -1166,12 +1172,12 @@ const Badge = ({
 	}
 	console.log(displayContent);
 	return (
-		<CustomTag className={`relative inline-flex align-middle `}>
+		<CustomTag className={` ${style} relative inline-flex align-middle `}>
 			{children}
 			<span
-				className={` ${style} ${isTop ? "top-0" : ""} ${isLeft ? "left-0" : ""} ${
-					isRight ? "right-0" : ""
-				} ${isBottom ? "bottom-0" : ""} ${
+				className={` ${badgeStyle} ${isTop ? "top-0" : ""} ${
+					isLeft ? "left-0" : ""
+				} ${isRight ? "right-0" : ""} ${isBottom ? "bottom-0" : ""} ${
 					isTop && isRight ? "translate-x-1/2 -translate-y-1/2 " : ""
 				}  ${isTop && isLeft ? "-translate-x-1/2 -translate-y-1/2 " : ""}  ${
 					isBottom && isRight ? "translate-x-1/2 translate-y-1/2 " : ""
@@ -1183,6 +1189,43 @@ const Badge = ({
 		</CustomTag>
 	);
 };
+
+
+// * Code
+const Code = ({
+	style,
+	content,
+	tagName = "pre",
+	languages = "css",
+	styles,
+	children
+}) => {
+	const [customTag, setCustomTag] = useState(tagName || "pre");
+	const CustomTag = customTag.toLowerCase();
+
+	return (
+		<CustomTag className={` ${style} `} >
+			{/* <SyntaxHighlighter language={languages} style={styles || "vscDarkPlus"}>
+				{content}
+			</SyntaxHighlighter> */}
+			{children}
+		</CustomTag>
+	);
+};
+
+// * CodeHeader
+const CodeHeader = ({ tagName, style, children })=> {
+	const [customTag, setCustomTag] = useState(tagName || "div");
+	const CustomTag = customTag.toLowerCase();
+	return <CustomTag className={` ${style} `}>{children}</CustomTag>;
+}
+
+// * CodeBody
+const CodeBody = ({ tagName, style, content })=> {
+	const [customTag, setCustomTag] = useState(tagName || "code");
+	const CustomTag = customTag.toLowerCase();
+	return <CustomTag className={` ${style} `}>{content}</CustomTag>;
+}
 
 // * HOOK
 
@@ -1258,5 +1301,8 @@ export {
 	AccordionHeader,
 	Avatar,
 	Badge,
+	Code,
+	CodeHeader,
+	CodeBody,
 	useThemeSwitcher,
 };
