@@ -6,8 +6,8 @@ import React, { useEffect, useState, useRef, Children } from "react";
 // import imagesLoaded from "imagesloaded";
 
 // * package for code snippets
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 ///////
 // import Text from "./Text";
