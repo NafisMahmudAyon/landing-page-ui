@@ -5785,11 +5785,14 @@ const Icon = ({
 				return "";
 		}
 	};
+
+	const iconHtml = `<i class="${icon}"></i>`;
+
 	return (
 		<span
 			className={` ${iconStyle ? iconStyle : ""} `}
 			onClick={onClick}
-			dangerouslySetInnerHTML={{ __html: icon }}
+			dangerouslySetInnerHTML={{ __html: iconHtml }}
 		/>
 	);
 };
