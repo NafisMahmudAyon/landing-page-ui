@@ -5786,7 +5786,12 @@ const Icon = ({
 		}
 	};
 
-	const iconHtml = `<i class="${icon}"></i>`;
+	// const iconHtml = `<i class="${icon}"></i>`;
+	const iconHtml =
+		iconLibrary === "font-awesome"
+			? `<i class="fa-solid ${icon}"></i>`
+			: `<i class="${icon}"></i>`;
+
 
 	return (
 		<span
