@@ -1872,7 +1872,6 @@ const bootstrapIcons = [
 	"bi-fuel-pump",
 ];
 
-
 const fontawesomeClasses = [
 	"fas fa-address-book",
 	"fas fa-address-card",
@@ -2864,7 +2863,6 @@ const fontawesomeClasses = [
 	"fab fa-youtube",
 	"fab fa-youtube-square",
 ];
-
 
 const iconfontClasses = [
 	"icofont-angry-monster",
@@ -4983,16 +4981,13 @@ const iconfontClasses = [
 	"icofont-pulse",
 ];
 
-
-
-
 // * Text
 const Text = ({
 	style = "",
 	tagName,
 	isLink,
 	linkTo,
-	target="_self",
+	target = "_self",
 	children,
 	variant,
 	onClick,
@@ -5034,7 +5029,14 @@ const Text = ({
 };
 
 // * Block
-const Block = ({ tagName, style = "", children, isLink, linkTo, target="_self" }) => {
+const Block = ({
+	tagName,
+	style = "",
+	children,
+	isLink,
+	linkTo,
+	target = "_self",
+}) => {
 	const [customTag, setCustomTag] = useState(tagName || "div"); // *Use prop value or default to "div"
 
 	useEffect(() => {
@@ -5124,9 +5126,11 @@ const TabsNav = ({
 	prevIcon,
 	nextIconPosition = "right",
 	prevIconPosition = "left",
-	buttonTextEnabled = true,
+	buttonTextEnabled = false,
 }) => {
 	const tabsRef = useRef(null);
+
+	console.log("buttonTextEnabled: ", buttonTextEnabled);
 
 	const scrollPrev = () => {
 		const tabs = Array.from(tabsRef.current.children);
@@ -5161,28 +5165,30 @@ const TabsNav = ({
 			className={`${style} ${
 				orientation === "vertical" ? "flex-col" : "flex"
 			}`}>
-			<button
-				className={` ${buttonStyle} ${prevButtonStyle} ${
-					showButton ? "" : "hidden"
-				} ${isFirstTabActive ? "disabled " + disabledStyle : ""}`}
-				onClick={scrollPrev}
-				disabled={isFirstTabActive}>
-				{prevIconPosition == "left" && (
-					<Icon
-						iconLibrary={iconLibrary}
-						icon={prevIcon}
-						iconStyle={iconButtonStyle}
-					/>
-				)}
-				{buttonTextEnabled && prevButtonText}
-				{prevIconPosition == "right" && (
-					<Icon
-						iconLibrary={iconLibrary}
-						icon={prevIcon}
-						iconStyle={iconButtonStyle}
-					/>
-				)}
-			</button>
+			{showButton == true && (
+				<button
+					className={` ${buttonStyle} ${prevButtonStyle} ${
+						showButton ? "" : "hidden"
+					} ${isFirstTabActive ? "disabled " + disabledStyle : ""}`}
+					onClick={scrollPrev}
+					disabled={isFirstTabActive}>
+					{prevIconPosition == "left" && (
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={prevIcon}
+							iconStyle={iconButtonStyle}
+						/>
+					)}
+					{buttonTextEnabled == true && prevButtonText}
+					{prevIconPosition == "right" && (
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={prevIcon}
+							iconStyle={iconButtonStyle}
+						/>
+					)}
+				</button>
+			)}
 			<div ref={tabsRef} className={` ${tabAreaStyle}`} style={{}}>
 				{React.Children.map(children, (child) => {
 					return React.cloneElement(child, {
@@ -5195,28 +5201,30 @@ const TabsNav = ({
 					});
 				})}
 			</div>
-			<button
-				className={` ${buttonStyle} ${nextButtonStyle} ${
-					showButton ? "" : "hidden"
-				}  ${isLastTabActive ? "disabled " + disabledStyle : ""}`}
-				onClick={scrollNext}
-				disabled={isLastTabActive}>
-				{nextIconPosition == "left" && (
-					<Icon
-						iconLibrary={iconLibrary}
-						icon={nextIcon}
-						iconStyle={iconButtonStyle}
-					/>
-				)}
-				{buttonTextEnabled && nextButtonText}
-				{nextIconPosition == "right" && (
-					<Icon
-						iconLibrary={iconLibrary}
-						icon={nextIcon}
-						iconStyle={iconButtonStyle}
-					/>
-				)}
-			</button>
+			{showButton == true && (
+				<button
+					className={` ${buttonStyle} ${nextButtonStyle} ${
+						showButton ? "" : "hidden"
+					}  ${isLastTabActive ? "disabled " + disabledStyle : ""}`}
+					onClick={scrollNext}
+					disabled={isLastTabActive}>
+					{nextIconPosition == "left" && (
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={nextIcon}
+							iconStyle={iconButtonStyle}
+						/>
+					)}
+					{buttonTextEnabled == true && nextButtonText}
+					{nextIconPosition == "right" && (
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={nextIcon}
+							iconStyle={iconButtonStyle}
+						/>
+					)}
+				</button>
+			)}
 		</div>
 	);
 };
@@ -5371,7 +5379,7 @@ const MasonryGridItem = ({
 
 // * List
 const List = ({
-	list=[],
+	list = [],
 	tagName,
 	style = "",
 	listStyle = "",
@@ -5476,7 +5484,7 @@ const Image = ({
 	src,
 	isLink,
 	linkTo,
-	target="_self",
+	target = "_self",
 	tagName,
 	style = "",
 	imageStyle,
@@ -5749,7 +5757,7 @@ const Icon = ({
 	iconLibrary = "material-icons",
 	isLink,
 	linkTo = "#",
-  target = "_self",
+	target = "_self",
 	onClick,
 }) => {
 	useEffect(() => {
@@ -5791,7 +5799,6 @@ const Icon = ({
 		iconLibrary === "font-awesome"
 			? `<i class="fa-solid ${icon}"></i>`
 			: `<i class="${icon}"></i>`;
-
 
 	return (
 		<span
@@ -5851,7 +5858,14 @@ const Flex = ({ tagName, style, children }) => {
 };
 
 // * FlexItem
-const FlexItem = ({ style, children, isLink, linkTo, target="_self", tagName }) => {
+const FlexItem = ({
+	style,
+	children,
+	isLink,
+	linkTo,
+	target = "_self",
+	tagName,
+}) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 	useEffect(() => {
@@ -5980,7 +5994,7 @@ const AccordionHeader = ({
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 	const [isActive, setIsActive] = useState(false);
-	console.log(isActive)
+	console.log(isActive);
 
 	const toggleExpansion = () => {
 		if (!deactivate) {
@@ -6110,7 +6124,6 @@ const Avatar = ({
 	);
 };
 
-
 // * Badge
 const Badge = ({
 	style,
@@ -6119,7 +6132,7 @@ const Badge = ({
 	tagName,
 	content,
 	maxContent,
-	children
+	children,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "span");
 	const CustomTag = customTag.toLowerCase();
@@ -6171,7 +6184,6 @@ const Badge = ({
 	);
 };
 
-
 // * Code
 const Code = ({
 	style,
@@ -6179,13 +6191,13 @@ const Code = ({
 	tagName = "pre",
 	languages = "css",
 	styles,
-	children
+	children,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "pre");
 	const CustomTag = customTag.toLowerCase();
 
 	return (
-		<CustomTag className={` ${style} `} >
+		<CustomTag className={` ${style} `}>
 			{/* <SyntaxHighlighter language={languages} style={styles || "vscDarkPlus"}>
 				{content}
 			</SyntaxHighlighter> */}
@@ -6195,18 +6207,18 @@ const Code = ({
 };
 
 // * CodeHeader
-const CodeHeader = ({ tagName, style, children })=> {
+const CodeHeader = ({ tagName, style, children }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 	return <CustomTag className={` ${style} `}>{children}</CustomTag>;
-}
+};
 
 // * CodeBody
-const CodeBody = ({ tagName, style, content })=> {
+const CodeBody = ({ tagName, style, content }) => {
 	const [customTag, setCustomTag] = useState(tagName || "code");
 	const CustomTag = customTag.toLowerCase();
 	return <CustomTag className={` ${style} `}>{content}</CustomTag>;
-}
+};
 
 // * HOOK
 
