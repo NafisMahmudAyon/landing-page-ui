@@ -6065,7 +6065,7 @@ const AccordionDetails = ({
 	}, [active]);
 
 	return (
-		<CustomTag id={id} className={` ${style} ${active ? "h-auto " : ""} `}>
+		<CustomTag id={id} className={` ${style} `}>
 			{children}
 		</CustomTag>
 	);
