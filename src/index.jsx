@@ -5165,7 +5165,7 @@ const TabsNav = ({
 			className={`${style} ${
 				orientation === "vertical" ? "flex-col" : "flex"
 			}`}>
-			{showButton == true && (
+			{showButton == "true" && (
 				<button
 					className={` ${buttonStyle} ${prevButtonStyle} ${
 						showButton ? "" : "hidden"
@@ -5179,7 +5179,7 @@ const TabsNav = ({
 							iconStyle={iconButtonStyle}
 						/>
 					)}
-					{buttonTextEnabled == true && prevButtonText}
+					{buttonTextEnabled == "true" && prevButtonText}
 					{prevIconPosition == "right" && (
 						<Icon
 							iconLibrary={iconLibrary}
@@ -5201,7 +5201,7 @@ const TabsNav = ({
 					});
 				})}
 			</div>
-			{showButton == true && (
+			{showButton == "true" && (
 				<button
 					className={` ${buttonStyle} ${nextButtonStyle} ${
 						showButton ? "" : "hidden"
@@ -5215,7 +5215,7 @@ const TabsNav = ({
 							iconStyle={iconButtonStyle}
 						/>
 					)}
-					{buttonTextEnabled == true && nextButtonText}
+					{buttonTextEnabled == "true" && nextButtonText}
 					{nextIconPosition == "right" && (
 						<Icon
 							iconLibrary={iconLibrary}
