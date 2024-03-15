@@ -5129,7 +5129,8 @@ const TabsNav = ({
 	buttonTextEnabled = false,
 }) => {
 	const tabsRef = useRef(null);
-
+console.log("showButton : ", showButton)
+console.log(typeof showButton);
 	console.log("buttonTextEnabled: ", buttonTextEnabled);
 
 	const scrollPrev = () => {
@@ -5165,7 +5166,7 @@ const TabsNav = ({
 			className={`${style} ${
 				orientation === "vertical" ? "flex-col" : "flex"
 			}`}>
-			{showButton == "true" && (
+			{showButton == true && (
 				<button
 					className={` ${buttonStyle} ${prevButtonStyle} ${
 						showButton ? "" : "hidden"
@@ -5179,7 +5180,7 @@ const TabsNav = ({
 							iconStyle={iconButtonStyle}
 						/>
 					)}
-					{buttonTextEnabled == "true" && prevButtonText}
+					{buttonTextEnabled && <>{prevButtonText}</>}
 					{prevIconPosition == "right" && (
 						<Icon
 							iconLibrary={iconLibrary}
@@ -5201,7 +5202,7 @@ const TabsNav = ({
 					});
 				})}
 			</div>
-			{showButton == "true" && (
+			{showButton == true && (
 				<button
 					className={` ${buttonStyle} ${nextButtonStyle} ${
 						showButton ? "" : "hidden"
@@ -5215,7 +5216,7 @@ const TabsNav = ({
 							iconStyle={iconButtonStyle}
 						/>
 					)}
-					{buttonTextEnabled == "true" && nextButtonText}
+					{buttonTextEnabled && <>{nextButtonText}</>}
 					{nextIconPosition == "right" && (
 						<Icon
 							iconLibrary={iconLibrary}
