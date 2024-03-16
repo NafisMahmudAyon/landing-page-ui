@@ -14,6 +14,8 @@ import React, { useEffect, useState, useRef, Children } from "react";
 
 // *css
 import "../css/output.css";
+// import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
 
 const bootstrapIcons = [
 	"bi-123",
@@ -5129,8 +5131,8 @@ const TabsNav = ({
 	buttonTextEnabled = false,
 }) => {
 	const tabsRef = useRef(null);
-console.log("showButton : ", showButton)
-console.log(typeof showButton);
+	console.log("showButton : ", showButton);
+	console.log(typeof showButton);
 	console.log("buttonTextEnabled: ", buttonTextEnabled);
 
 	const scrollPrev = () => {
@@ -5996,29 +5998,64 @@ const AccordionHeader = ({
 	const CustomTag = customTag.toLowerCase();
 	const [isActive, setIsActive] = useState(false);
 	console.log(isActive);
-
+	var ids = `#${id}`;
+	console.log(ids);
 	const toggleExpansion = () => {
 		if (!deactivate) {
 			setIsActive(!isActive);
+
+			// if (isActive) {
+			// 	gsap.to(`#${id}`, {
+			// 		y: 0,
+			// 		height: "auto",
+			// 		display: "block",
+			// 		ease: "power1.inOut",
+			// 		duration: 0.3,
+			// 	});
+			// }
+			// if (!isActive) {
+			// 	gsap.to(`#${id}`, {
+			// 		y: 0,
+			// 		height: 0,
+			// 		display: "none",
+			// 		ease: "power1.inOut",
+			// 		duration: 0.3,
+			// 	});
+			// }
 			const contentElement = document.querySelector(`#${id}`);
 			if (contentElement) {
 				contentElement.style.display = !isActive ? "block" : "none";
 			}
 		}
 	};
-	// const [activeStyles, setActiveStyles] = useState("")
+	// useEffect(() => {
+	// 	console.log("isActive: ",isActive)
+	// 	if(isActive){
+	// 	gsap.to(`#${id}`, {
+	// 		y: 0,
+	// 		height: "auto",
+	// 		display: "block",
+	// 		ease: "power1.inOut",
+	// 		duration: 1,
+	// 	});
+
+	// 	}
+	// 	if(!isActive){
+	// 	gsap.to(`#${id}`, {
+	// 		y: 0,
+	// 		height: 0,
+	// 		display: "none",
+	// 		ease: "power1.inOut",
+	// 		duration: 1,
+	// 	});
+	// }}, [isActive])
+	
+
 	useEffect(() => {
 		if (active) {
 			setIsActive(true);
 		}
-		// setActiveStyles(addExclamationSign(activeStyle))
 	}, [active]);
-	// 	const addExclamationSign = (classNames) => {
-	// 		return classNames
-	// 			.split(" ")
-	// 			.map((className) => `!${className}`)
-	// 			.join(" ");
-	// 	};
 
 	return (
 		<CustomTag
@@ -6069,6 +6106,7 @@ const AccordionDetails = ({
 	active,
 	deactivate,
 }) => {
+	console.log("active: ", active);
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
