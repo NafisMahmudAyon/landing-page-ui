@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/NafisMahmudAyon/ui/issues"
   },
-  "homepage": "https://github.com/NafisMahmudAyon/ui#readme",
+  "homepage": "https://ui.nafisbd.com",
   "devDependencies": {
     "@babel/cli": "^7.23.9",
     "@babel/core": "^7.23.9",
