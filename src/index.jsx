@@ -5949,7 +5949,17 @@ const ComboListItem = ({
 };
 
 // * Accordion
-const Accordion = ({ tagName, style = "", children, active, deactivate }) => {
+const Accordion = ({
+	tagName,
+	style = "",
+	children,
+	active,
+	deactivate,
+	HeaderStyle = "",
+	activeHeaderStyle = "",
+	deactivateHeaderStyle = "",
+	DetailsStyle = "",
+}) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
@@ -5962,15 +5972,55 @@ const Accordion = ({ tagName, style = "", children, active, deactivate }) => {
 
 	const id = generateUniqueId();
 
+	const [isActive, setIsActive] = useState(false);
+
+	useEffect(() => {
+		if (active == true) {
+			setIsActive(true);
+		}
+	}, [active, isActive, id]);
+
+	var max = "400px";
+	var min = `max-h-[${max}]`;
+
 	return (
 		<CustomTag className={` ${style} `}>
-			{React.Children.map(children, (child) => {
-				return React.cloneElement(child, {
-					id: id,
-					active: active,
-					deactivate: deactivate,
-				});
-			})}
+			<div
+				className={` select-none ${isActive ? activeHeaderStyle : ""} ${
+					deactivate ? deactivateHeaderStyle : ""
+				} ${HeaderStyle}`}
+				onClick={() => {
+					if (!deactivate) {
+						setIsActive(!isActive);
+					}
+				}}>
+				{React.Children.map(children, (child) => {
+					if (child.type === AccordionHeader) {
+						return React.cloneElement(child, {
+							id: id,
+							active: active,
+							isActive: isActive,
+							deactivate: deactivate,
+						});
+					}
+					return null;
+				})}
+			</div>
+			<div
+				className={`  ${
+					isActive ? "max-h-[400px]" : "max-h-0 overflow-hidden"
+				} transition-all duration-300 ${DetailsStyle} `}>
+				{React.Children.map(children, (child) => {
+					if (child.type === AccordionDetails) {
+						return React.cloneElement(child, {
+							id: id,
+							active: active,
+							deactivate: deactivate,
+						});
+					}
+					return null;
+				})}
+			</div>
 		</CustomTag>
 	);
 };
@@ -5990,79 +6040,42 @@ const AccordionHeader = ({
 	iconStyle,
 	id,
 	active,
+	isActive,
 	deactivate,
 	deactivateStyle = "",
 	labelStyle = "",
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
-	const [isActive, setIsActive] = useState(false);
-	console.log(isActive);
+	// const [isActive, setIsActive] = useState(false);
+	// console.log(isActive);
 	var ids = `#${id}`;
 	console.log(ids);
 	const toggleExpansion = () => {
 		if (!deactivate) {
-			setIsActive(!isActive);
+			// setIsActive(!isActive);
 
-			// if (isActive) {
-			// 	gsap.to(`#${id}`, {
-			// 		y: 0,
-			// 		height: "auto",
-			// 		display: "block",
-			// 		ease: "power1.inOut",
-			// 		duration: 0.3,
-			// 	});
-			// }
-			// if (!isActive) {
-			// 	gsap.to(`#${id}`, {
-			// 		y: 0,
-			// 		height: 0,
-			// 		display: "none",
-			// 		ease: "power1.inOut",
-			// 		duration: 0.3,
-			// 	});
-			// }
 			const contentElement = document.querySelector(`#${id}`);
 			if (contentElement) {
-				contentElement.style.display = !isActive ? "block" : "none";
+				// contentElement.style.display = !isActive ? "block" : "none";
 			}
 		}
 	};
-	// useEffect(() => {
-	// 	console.log("isActive: ",isActive)
-	// 	if(isActive){
-	// 	gsap.to(`#${id}`, {
-	// 		y: 0,
-	// 		height: "auto",
-	// 		display: "block",
-	// 		ease: "power1.inOut",
-	// 		duration: 1,
-	// 	});
-
-	// 	}
-	// 	if(!isActive){
-	// 	gsap.to(`#${id}`, {
-	// 		y: 0,
-	// 		height: 0,
-	// 		display: "none",
-	// 		ease: "power1.inOut",
-	// 		duration: 1,
-	// 	});
-	// }}, [isActive])
-	
 
 	useEffect(() => {
 		if (active) {
-			setIsActive(true);
+			// setIsActive(true);
 		}
 	}, [active]);
 
 	return (
-		<CustomTag
+		<>
+			{/* <CustomTag
 			className={` ${isActive ? activeStyle : ""} ${
 				deactivate ? deactivateStyle : ""
 			} ${style}`}
-			onClick={toggleExpansion}>
+			// onClick={toggleExpansion}
+		> */}
 			{iconPosition === "before" && icon && (
 				<>
 					{!isActive && (
@@ -6093,7 +6106,8 @@ const AccordionHeader = ({
 					)}
 				</>
 			)}
-		</CustomTag>
+			{/* </CustomTag> */}
+		</>
 	);
 };
 
@@ -6106,16 +6120,8 @@ const AccordionDetails = ({
 	active,
 	deactivate,
 }) => {
-	console.log("active: ", active);
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
-
-	useEffect(() => {
-		const contentElement = document.querySelector(`#${id}`);
-		if (contentElement && !active) {
-			contentElement.style.display = "none";
-		}
-	}, [active]);
 
 	return (
 		<CustomTag id={id} className={` ${style} `}>
