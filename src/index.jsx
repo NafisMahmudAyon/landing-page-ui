@@ -13,7 +13,7 @@ import React, { useEffect, useState, useRef, Children } from "react";
 // import Text from "./Text";
 
 // *css
-import "../css/output.css";
+// import "../css/output.css";
 // import { useGSAP } from "@gsap/react";
 // import gsap from "gsap";
 
@@ -5974,11 +5974,14 @@ const Accordion = ({
 
 	const [isActive, setIsActive] = useState(false);
 
+	console.log(isActive);
+	console.log(active);
+
 	useEffect(() => {
 		if (active == true) {
 			setIsActive(true);
 		}
-	}, [active, isActive, id]);
+	}, [active]);
 
 	var max = "400px";
 	var min = `max-h-[${max}]`;
@@ -6008,7 +6011,7 @@ const Accordion = ({
 			</div>
 			<div
 				className={`  ${
-					isActive ? "max-h-[400px]" : "max-h-0 overflow-hidden"
+					isActive ? min : "max-h-0 overflow-hidden"
 				} transition-all duration-300 ${DetailsStyle} `}>
 				{React.Children.map(children, (child) => {
 					if (child.type === AccordionDetails) {
@@ -6124,9 +6127,24 @@ const AccordionDetails = ({
 	const CustomTag = customTag.toLowerCase();
 
 	return (
-		<CustomTag id={id} className={` ${style} `}>
+		<CustomTag id={id} className={` ${style}  `}>
 			{children}
 		</CustomTag>
+	);
+};
+
+const AvatarGroup = ({ style = "", children }) => {
+	return (
+		<div className={` ${style} flex items-center -space-x-2 `}>
+			{!children ? (
+				<>
+					<Avatar />
+					<Avatar />
+				</>
+			) : (
+				<>{children}</>
+			)}
+		</div>
 	);
 };
 
@@ -6134,13 +6152,13 @@ const AccordionDetails = ({
 const Avatar = ({
 	style = "",
 	name,
-	children,
+	// children,
 	src,
 	altText,
 	imageStyle = "",
 	onClick,
 }) => {
-	if (name) {
+	if (name !== undefined) {
 		if (name.split(" ").length > 1) {
 			var nameX = `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`;
 		} else {
@@ -6149,22 +6167,23 @@ const Avatar = ({
 	}
 	return (
 		<div
-			className={` ${style} flex justify-center items-center w-[40px] h-[40px] bg-slate-500 rounded-full text-[1.25rem] leading-none overflow-hidden `}
+			className={` ${style} flex justify-center items-center w-12 h-12 bg-gray-500  rounded-full text-[1.25rem] leading-none overflow-hidden `}
 			onClick={onClick}>
-			{!children && (
-				<>
-					{src && (
-						<img
-							src={src}
-							alt={altText || "alt text"}
-							className={` ${imageStyle} w-full h-full object-cover text-transparent text-center `}
-						/>
-					)}
-
-					{!src && name && <>{nameX || "A"}</>}
-				</>
+			{/* {!children && (
+				<> */}
+			{src && (
+				<img
+					src={src}
+					alt={altText || "alt text"}
+					className={` ${imageStyle} max-w-full h-auto object-cover text-transparent text-center rounded-full `}
+				/>
 			)}
-			{children}
+
+			{!src && name && <>{nameX || "A"}</>}
+			{!src && !name && <Icon icon="fa-user" iconLibrary="font-awesome" />}
+			{/* </>
+			)} */}
+			{/* {children} */}
 		</div>
 	);
 };
@@ -6265,6 +6284,52 @@ const CodeBody = ({ tagName, style, content }) => {
 	return <CustomTag className={` ${style} `}>{content}</CustomTag>;
 };
 
+// * Divider
+const Divider = ({
+	tagName,
+	style = "",
+	children,
+	position = "center",
+	contentStyle = "",
+}) => {
+	return (
+		<>
+			{!children && (
+				<hr
+					className={` ${style} max-w-full border-b-0 border-t border-t-gray-500 my-1 `}
+				/>
+			)}
+			{children && (
+				<>
+					{position == "center" && (
+						<div className="flex items-center ">
+							<span
+								className={` ${style} flex-1 border-b-0 border-t border-t-gray-500`}></span>
+							<span className={` ${contentStyle} px-2 mx-2 `}>{children}</span>
+							<span
+								className={` ${style} flex-1 border-b-0 border-t border-t-gray-500`}></span>
+						</div>
+					)}
+					{position == "left" && (
+						<div className="flex items-center ">
+							<span className={` ${contentStyle} pr-2 mr-2 `}>{children}</span>
+							<span
+								className={` ${style} flex-1 border-b-0 border-t border-t-gray-500`}></span>
+						</div>
+					)}
+					{position == "right" && (
+						<div className="flex items-center ">
+							<span
+								className={` ${style} flex-1 border-b-0 border-t border-t-gray-500`}></span>
+							<span className={` ${contentStyle} pl-2 ml-2 `}>{children}</span>
+						</div>
+					)}
+				</>
+			)}
+		</>
+	);
+};
+
 // * HOOK
 
 const useThemeSwitcher = () => {
@@ -6337,10 +6402,12 @@ export {
 	Accordion,
 	AccordionDetails,
 	AccordionHeader,
+	AvatarGroup,
 	Avatar,
 	Badge,
 	Code,
 	CodeHeader,
 	CodeBody,
+	Divider,
 	useThemeSwitcher,
 };
