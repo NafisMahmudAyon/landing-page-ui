@@ -6228,7 +6228,6 @@ const Badge = ({
 			displayContent = content; // If content is less than or equal to maxContent, keep it as it is
 		}
 	}
-	console.log(displayContent);
 	return (
 		<CustomTag className={` ${style} relative inline-flex align-middle `}>
 			{children}
@@ -6330,6 +6329,77 @@ const Divider = ({
 	);
 };
 
+// * Card
+const Card = ({ children, style = "" }) => {
+	return (
+		<div
+			className={` ${style} bg-gray-500 rounded shadow text-white overflow-hidden xs:w-full sm:w-full md:w-1/2 lg:w-1/3 xl:1/4 `}>
+			{children}
+		</div>
+	);
+};
+
+const CardContent = ({ children, style = "" }) => {
+	return <div className={` ${style} p-3 text-left `}>{children}</div>;
+};
+
+// * CardMedia
+const CardMedia = ({
+	children,
+	mediaStyle = "",
+	style = "",
+	src = "https://mui.com/static/images/cards/contemplative-reptile.jpg",
+	badge,
+	badgePosition,
+	badgeStyle = "",
+}) => {
+	const isTop = badgePosition.includes("top");
+	const isBottom = badgePosition.includes("bottom");
+	const isLeft = badgePosition.includes("left");
+	const isRight = badgePosition.includes("right");
+	return (
+		<span className={` ${style} block w-full relative`}>
+			{!children && (
+				<img
+					src={src}
+					className={` ${mediaStyle} object-cover w-full min-h-40 `}
+				/>
+			)}
+			{badge && (
+				<span
+					className={` ${badgeStyle} ${isTop ? "top-2" : ""} ${
+						isLeft ? "left-2" : ""
+					} ${isRight ? "right-2" : ""} ${isBottom ? "bottom-2  " : ""} ${
+						isTop && isRight ? "top-2 right-2 " : ""
+					}  ${isTop && isLeft ? "top-2 left-2" : ""}  ${
+						isBottom && isRight ? "bottom-2 right-2 " : ""
+					}  ${
+						isBottom && isLeft ? "bottom-2 left-2 " : ""
+					} absolute bg-red-500 px-3 py-0.5 rounded-full inline-block  `}>
+					{badge}
+				</span>
+			)}
+			{children}
+		</span>
+	);
+};
+
+// * CardAction
+const CardAction = ({ children, style = "", link = "#", target = "_self" }) => {
+	const handleClick = (e) => {
+		e.preventDefault();
+		// window.location.href = link;
+		window.open(link, target);
+	};
+	return (
+		<button
+			className={` ${style} bg-red-500 block bg-transparent outline-0 border-0 m-0 p-0 cursor-pointer select-none w-full text-inherit hover:opacity-80 `}
+			onClick={handleClick}>
+			{children}
+		</button>
+	);
+};
+
 // * HOOK
 
 const useThemeSwitcher = () => {
@@ -6409,5 +6479,9 @@ export {
 	CodeHeader,
 	CodeBody,
 	Divider,
+	Card,
+	CardContent,
+	CardMedia,
+	CardAction,
 	useThemeSwitcher,
 };
