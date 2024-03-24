@@ -5761,7 +5761,7 @@ const Icon = ({
 	iconStyle,
 	iconLibrary = "material-icons",
 	isLink,
-	linkTo = "#",
+	linkTo = "",
 	target = "_self",
 	onClick,
 }) => {
