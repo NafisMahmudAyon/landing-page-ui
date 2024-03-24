@@ -5764,7 +5764,6 @@ const Icon = ({
 	linkTo = "#",
 	target = "_self",
 	onClick,
-	href,
 }) => {
 	useEffect(() => {
 		const link = document.createElement("link");
@@ -5807,11 +5806,24 @@ const Icon = ({
 			: `<i class="${icon}"></i>`;
 
 	return (
-		<span
-			className={` ${iconStyle ? iconStyle : ""} `}
-			onClick={onClick}
-			dangerouslySetInnerHTML={{ __html: iconHtml }}
-		/>
+		<>
+			{(isLink || linkTo) && (
+				<a
+					href={linkTo || "#"}
+					target={target}
+					className={` ${iconStyle ? iconStyle : ""} `}
+					onClick={onClick}
+					dangerouslySetInnerHTML={{ __html: iconHtml }}
+				/>
+			)}
+			{(isLink || linkTo) && (
+				<span
+					className={` ${iconStyle ? iconStyle : ""} `}
+					onClick={onClick}
+					dangerouslySetInnerHTML={{ __html: iconHtml }}
+				/>
+			)}
+		</>
 	);
 };
 
@@ -6953,5 +6965,4 @@ export {
 	ProgressBar,
 	CircularProgressBar,
 	useThemeSwitcher,
-
 };
