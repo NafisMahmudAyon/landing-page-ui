@@ -5764,6 +5764,7 @@ const Icon = ({
 	linkTo = "#",
 	target = "_self",
 	onClick,
+	href,
 }) => {
 	useEffect(() => {
 		const link = document.createElement("link");
