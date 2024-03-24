@@ -5816,7 +5816,7 @@ const Icon = ({
 					dangerouslySetInnerHTML={{ __html: iconHtml }}
 				/>
 			)}
-			{(isLink || linkTo) && (
+			{(!isLink || !linkTo) && (
 				<span
 					className={` ${iconStyle ? iconStyle : ""} `}
 					onClick={onClick}
@@ -6965,5 +6965,4 @@ export {
 	ProgressBar,
 	CircularProgressBar,
 	useThemeSwitcher,
-	
 };
