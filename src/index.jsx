@@ -4994,6 +4994,7 @@ const Text = ({
 	children,
 	variant,
 	onClick,
+	...rest
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const [variantValue, setVariantValue] = useState("");
@@ -5018,6 +5019,7 @@ const Text = ({
 
 	return (
 		<CustomTag
+			{...rest}
 			onClick={onClick}
 			id={id}
 			className={` ${style} ${variantValue}  text-inherit font-normal `}
@@ -5040,6 +5042,7 @@ const Block = ({
 	isLink,
 	linkTo,
 	target = "_self",
+	...rest
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div"); // *Use prop value or default to "div"
 
@@ -5054,6 +5057,7 @@ const Block = ({
 	const CustomTag = customTag.toLowerCase();
 	return (
 		<CustomTag
+			{...rest}
 			className={` ${style} `}
 			{...(isLink && {
 				href: linkTo,
@@ -5072,6 +5076,7 @@ const Tabs = ({
 	orientation,
 	navWrapStyle = "",
 	panelWrapStyle = "",
+	...rest
 }) => {
 	const [activeTab, setActiveTab] = useState(active || null);
 
@@ -5080,7 +5085,9 @@ const Tabs = ({
 	};
 
 	return (
-		<div className={`${style} ${orientation === "vertical" ? "flex" : ""}`}>
+		<div
+			{...rest}
+			className={`${style} ${orientation === "vertical" ? "flex" : ""}`}>
 			<div
 				className={` ${navWrapStyle} ${
 					orientation === "vertical" ? "flex-col" : ""
@@ -5131,6 +5138,7 @@ const TabsNav = ({
 	nextIconPosition = "right",
 	prevIconPosition = "left",
 	buttonTextEnabled = false,
+	...rest
 }) => {
 	const tabsRef = useRef(null);
 	console.log("showButton : ", showButton);
@@ -5167,6 +5175,7 @@ const TabsNav = ({
 
 	return (
 		<div
+			{...rest}
 			className={`${style} ${
 				orientation === "vertical" ? "flex-col" : "flex"
 			}`}>
@@ -5243,9 +5252,11 @@ const Tab = ({
 	onClick,
 	children,
 	orientation,
+	...rest
 }) => {
 	return (
 		<button
+			{...rest}
 			className={`${style} ${isActive ? activeTabStyle : ""} ${
 				orientation === "vertical" ? "block" : "inline-block"
 			}`}
@@ -5257,8 +5268,12 @@ const Tab = ({
 };
 
 // * TabPanel
-const TabPanel = ({ style = "", value, children }) => {
-	return <div className={` ${style} `}>{children}</div>;
+const TabPanel = ({ style = "", value, children, ...rest }) => {
+	return (
+		<div {...rest} className={` ${style} `}>
+			{children}
+		</div>
+	);
 };
 
 // * MasonryGrid
@@ -5392,11 +5407,12 @@ const List = ({
 	icon,
 	iconStyle = "",
 	iconPosition = "before",
+	...rest
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "ol");
 	const CustomTag = customTag.toLowerCase();
 	return (
-		<CustomTag className={` ${style ? style : ""} `}>
+		<CustomTag {...rest} className={` ${style ? style : ""} `}>
 			{list.map((item, index) => {
 				return (
 					<li key={index} className={` ${listStyle ? listStyle : ""} `}>
