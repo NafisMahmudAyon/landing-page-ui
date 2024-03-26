@@ -6,8 +6,8 @@ import React, { useEffect, useState, useRef, Children } from "react";
 // import imagesLoaded from "imagesloaded";
 
 // * package for code snippets
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 ///////
 // import Text from "./Text";
@@ -5160,7 +5160,7 @@ const TabsNav = ({
 			nextTab.scrollIntoView({ behavior: "smooth", block: "nearest" });
 		}
 	};
-
+	//  console.log(children[0])
 	const isFirstTabActive = activeTab === children[0].props.value;
 	const isLastTabActive =
 		activeTab === children[children.length - 1].props.value;
@@ -6264,7 +6264,13 @@ const Badge = ({
 };
 
 // * CodeSnippet
-const CodeSnippet = ({ content, lang = "HTML", HeaderStyle, bodyStyle }) => {
+const CodeSnippet = ({
+	content,
+	lang = "html",
+	style = "",
+	headerStyle = "",
+	bodyStyle = "",
+}) => {
 	const [copySuccess, setCopySuccess] = useState(null);
 
 	const handleCopyClick = () => {
@@ -6279,9 +6285,9 @@ const CodeSnippet = ({ content, lang = "HTML", HeaderStyle, bodyStyle }) => {
 		}, 2000);
 	};
 	return (
-		<Code style=" bg-hoverBgColor !font-code rounded-t-lg rounded-b-lg relative">
+		<Code style={` ${style}  rounded-t-lg rounded-b-lg relative`}>
 			<CodeHeader
-				style={` ${HeaderStyle} flex items-center justify-between   p-2 w-full bg-[#b4b4b4] text-white rounded-t-lg pl-4 `}>
+				style={` ${headerStyle} flex items-center justify-between   p-2 w-full bg-[#b4b4b4] text-white rounded-t-lg pl-4 `}>
 				<Text style="">{lang}</Text>
 				<IconButton
 					tagName="button"
@@ -6296,12 +6302,13 @@ const CodeSnippet = ({ content, lang = "HTML", HeaderStyle, bodyStyle }) => {
 							? "Code copied"
 							: "Failed to copy"
 					}
-					style="absolute top-0 right-0 p-2 text-white z-10 pr-4 cursor-pointer "
+					style="absolute top-0 right-0 p-2 text-inherit z-10 pr-4 cursor-pointer "
 				/>
 			</CodeHeader>
 			<CodeBody
 				content={content}
-				style={` ${bodyStyle} font-code pt-1 px-4 pb-1 text-sm overflow-y-scroll  max-w-full block  `}
+				language={lang}
+				style={` ${bodyStyle} pt-1 px-4 pb-1 text-sm overflow-y-scroll block  `}
 			/>
 		</Code>
 	);
@@ -6337,10 +6344,17 @@ const CodeHeader = ({ tagName, style, children }) => {
 };
 
 // * CodeBody
-const CodeBody = ({ tagName, style, content }) => {
+const CodeBody = ({ tagName, style, language, content }) => {
 	const [customTag, setCustomTag] = useState(tagName || "code");
 	const CustomTag = customTag.toLowerCase();
-	return <CustomTag className={` ${style} `}>{content}</CustomTag>;
+	return (
+		<SyntaxHighlighter
+			className={` ${style} `}
+			language={language}
+			style={vscDarkPlus}>
+			{content}
+		</SyntaxHighlighter>
+	);
 };
 
 // * Divider
@@ -6875,6 +6889,445 @@ const CircularProgressBar = ({
 	);
 };
 
+const ScrollTop = () => {
+	const [isVisible, setIsVisible] = useState(false);
+	console.log(isVisible);
+
+	const handleScroll = () => {
+		console.log("first");
+		const scrollTop = window.scrollY;
+		if (scrollTop > 300) {
+			setIsVisible(true);
+		} else {
+			setIsVisible(false);
+		}
+	};
+
+	let scrolling = false;
+	console.log(scrolling);
+
+	window.scroll = () => {
+		scrolling = true;
+	};
+
+	setInterval(() => {
+		if (scrolling) {
+			scrolling = false;
+			// place the scroll handling logic here
+		}
+	}, 300);
+
+	const scrollToTop = () => {
+		console.log("first");
+		window.scrollTo(0, 0);
+	};
+	window.onscroll = function (e) {
+		console.log("firstsdsds");
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", (event) => {
+			console.log("Scrolling...");
+		});
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	return (
+		<div
+			className={`fixed flex items-center justify-center p-4 bg-red-500 bottom-5 right-5 cursor-pointer transition-all duration-300 ease-in-out ${
+				isVisible ? "opacity-100 visible" : "opacity-1 visible"
+			}`}
+			onClick={scrollToTop}>
+			^
+		</div>
+	);
+};
+
+// * Carousel
+
+// const Carousel = ({ slides }) => {
+// 	const [currentSlide, setCurrentSlide] = useState(0);
+
+// 	const nextSlide = () => {
+// 		setCurrentSlide((prevSlide) =>
+// 			prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+// 		);
+// 	};
+
+// 	const prevSlide = () => {
+// 		setCurrentSlide((prevSlide) =>
+// 			prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+// 		);
+// 	};
+
+// 	return (
+// 		<div className="relative">
+// 			<div className="carousel-container flex overflow-x-hidden">
+// 				{slides.map((slide, index) => (
+// 					<div
+// 						key={index}
+// 						className={`slide ${
+// 							index === currentSlide ? "block" : "hidden"
+// 						} w-full`}>
+// 						<img
+// 							src={slide.image}
+// 							alt={`Slide ${index}`}
+// 							className="w-full"
+// 						/>
+// 						<div className="slide-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
+// 							<h2 className="text-3xl font-bold">{slide.title}</h2>
+// 							<p className="text-lg">{slide.description}</p>
+// 						</div>
+// 					</div>
+// 				))}
+// 			</div>
+// 			<button
+// 				className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl focus:outline-none"
+// 				onClick={prevSlide}>
+// 				&#8249;
+// 			</button>
+// 			<button
+// 				className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl focus:outline-none"
+// 				onClick={nextSlide}>
+// 				&#8250;
+// 			</button>
+// 		</div>
+// 	);
+// };
+
+// * tessst
+
+// const Carousel = ({ children }) => {
+// 	const [currentIndex, setCurrentIndex] = useState(0);
+// 	const carouselRef = useRef(null);
+
+// 	const handlePrev = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === 0 ? children.length - 1 : prevIndex - 1
+// 		);
+// 	};
+
+// 	const handleNext = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === children.length - 1 ? 0 : prevIndex + 1
+// 		);
+// 	};
+
+// 	const handleSlide = (index) => {
+// 		setCurrentIndex(index);
+// 	};
+
+// 	return (
+// 		<div className="relative overflow-hidden">
+// 			<div	className="flex transition-transform duration-300 ease-in-out"
+// 				style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+// 				ref={carouselRef}>
+// 				{React.Children.map(children, (child, index) => (
+
+// 					<div className="w-full bg-black mx-3 ">{index}{child}</div>
+
+// 				))}
+// 			</div>
+// 			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handlePrev}>
+// 					&#8249;
+// 				</button>
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handleNext}>
+// 					&#8250;
+// 				</button>
+// 			</div>
+// 			<div className="absolute bottom-0 left-0 w-full flex justify-center">
+// 				<div className="flex mt-2">
+// 					{React.Children.map(children, (child, index) => (
+// 						<button
+// 							key={index}
+// 							className={`h-2 w-2 mx-1 rounded-full focus:outline-none ${
+// 								index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+// 							}`}
+// 							onClick={() => handleSlide(index)}></button>
+// 					))}
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
+
+// const Carousel = () => {
+// 	// Define your static data
+// 	const slides = [
+// 		{
+// 			id: 1,
+// 			title: "Slide 1",
+// 			description: "Description for Slide 1",
+// 			imageUrl: "https://via.placeholder.com/400x200",
+// 		},
+// 		{
+// 			id: 2,
+// 			title: "Slide 2",
+// 			description: "Description for Slide 2",
+// 			imageUrl: "https://via.placeholder.com/400x200",
+// 		},
+// 		{
+// 			id: 3,
+// 			title: "Slide 3",
+// 			description: "Description for Slide 3",
+// 			imageUrl: "https://via.placeholder.com/400x200",
+// 		},
+// 	];
+
+// 	// State to track current slide index
+// 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+// 	// Function to handle next slide
+// 	const handleNext = () => {
+// 		setCurrentSlideIndex((prevIndex) =>
+// 			prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+// 		);
+// 	};
+
+// 	// Function to handle previous slide
+// 	const handlePrev = () => {
+// 		setCurrentSlideIndex((prevIndex) =>
+// 			prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+// 		);
+// 	};
+
+// 	return (
+// 		<div className="carousel">
+// 			{/* Display current slide */}
+// 			<div className="slide">
+// 				<img
+// 					src={slides[currentSlideIndex].imageUrl}
+// 					alt={slides[currentSlideIndex].title}
+// 				/>
+// 				<h2>{slides[currentSlideIndex].title}</h2>
+// 				<p>{slides[currentSlideIndex].description}</p>
+// 			</div>
+
+// 			{/* Navigation buttons */}
+// 			<button onClick={handlePrev}>Previous</button>
+// 			<button onClick={handleNext}>Next</button>
+// 		</div>
+// 	);
+// };
+
+// const Carousel = ({ children }) => {
+// 	const [currentIndex, setCurrentIndex] = useState(0);
+// 	console.log(currentIndex)
+// 	const carouselRef = useRef(null);
+
+// 	const handlePrev = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === 0 ? children.length - 1 : prevIndex - 1
+// 		);
+// 	};
+
+// 	const handleNext = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === children.length - 1 ? 0 : prevIndex + 1
+// 		);
+// 	};
+
+// 	return (
+// 		<div className="relative overflow-hidden">
+// 				<div
+// 					className="flex transition-transform duration-300 ease-in-out"
+// 					style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+// 					>
+// 					{children[currentIndex]}
+
+// 				</div>
+// 			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handlePrev}>
+// 					&#8249;
+// 				</button>
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handleNext}>
+// 					&#8250;
+// 				</button>
+// 			</div>
+// 			<div className="absolute bottom-0 left-0 w-full flex justify-center">
+// 				<div className="flex mt-2">
+// 					{React.Children.map(children, (_, index) => (
+// 						<button
+// 							key={index}
+// 							className={`h-2 w-2 mx-1 rounded-full focus:outline-none ${
+// 								index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+// 							}`}
+// 							onClick={() => setCurrentIndex(index)}></button>
+// 					))}
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
+
+// const Carousel = ({ children }) => {
+// 	const [currentIndex, setCurrentIndex] = useState(0);
+// 	const [transitionEnabled, setTransitionEnabled] = useState(true); // State to manage transition
+// 	const carouselRef = useRef(null);
+
+// 	const handlePrev = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === 0 ? children.length - 1 : prevIndex - 1
+// 		);
+// 	};
+
+// 	const handleNext = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === children.length - 1 ? 0 : prevIndex + 1
+// 		);
+// 	};
+
+// 	const handleSlideChange = (index) => {
+// 		setCurrentIndex(index);
+// 		setTransitionEnabled(true); // Enable transition
+// 	};
+
+// 	const handleTransitionEnd = () => {
+// 		setTransitionEnabled(false); // Disable transition after it ends
+// 	};
+
+// 	return (
+// 		<div className="relative overflow-hidden">
+// 			<div
+// 				className={
+// 					`flex transition-transform duration-300 ease-in-out ${
+// 						transitionEnabled ? "transition-all" : ""
+// 					}` /* Add a CSS class to enable/disable transition */
+// 				}
+// 				// style={{ transform: `translateX(-${0}%)` }}
+// 				// ref={carouselRef}
+// 				onTransitionEnd={handleTransitionEnd} // Handle transition end event
+// 			>
+// 				{/* {children[currentIndex]} */}
+// 				{React.Children.map(children, (child, index) => (
+
+// 					<div className={` ${index === currentIndex ? "block" : "hidden"} w-full bg-black mx-3  `}>{index}{child}</div>
+
+// 				))}
+// 			</div>
+// 			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handlePrev}>
+// 					&#8249;
+// 				</button>
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handleNext}>
+// 					&#8250;
+// 				</button>
+// 			</div>
+// 			<div className="absolute bottom-0 left-0 w-full flex justify-center">
+// 				<div className="flex mt-2">
+// 					{React.Children.map(children, (_, index) => (
+// 						<button
+// 							key={index}
+// 							className={`h-2 w-2 mx-1 rounded-full focus:outline-none ${
+// 								index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+// 							}`}
+// 							onClick={() => handleSlideChange(index)} // Handle slide change
+// 						></button>
+// 					))}
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
+
+const Carousel = ({ children }) => {
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const [transitionEnabled, setTransitionEnabled] = useState(true);
+
+	const handlePrev = () => {
+		setCurrentIndex((prevIndex) =>
+			prevIndex === 0 ? children.length - 1 : prevIndex - 1
+		);
+	};
+
+	const handleNext = () => {
+		setCurrentIndex((prevIndex) =>
+			prevIndex === children.length - 1 ? 0 : prevIndex + 1
+		);
+	};
+
+	const handleSlideChange = (index) => {
+		setCurrentIndex(index);
+		setTransitionEnabled(true);
+	};
+
+	const handleTransitionEnd = () => {
+		setTransitionEnabled(false);
+	};
+
+	return (
+		<div className="relative overflow-hidden">
+			<div
+				className={`flex flex-row overflow-hidden `}
+				onTransitionEnd={handleTransitionEnd}>
+				{React.Children.map(children, (child, index) => (
+					<div
+						className={` overflow-hidden duration-1000 ease-in-out bg-black  ${
+							transitionEnabled ? "transition-[width]" : ""
+						} ${index === currentIndex ? "w-full h-auto " : "w-0 h-0"}`}
+						key={index}>
+						{child}
+					</div>
+				))}
+			</div>
+			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+				<button
+					className="text-2xl text-gray-500 focus:outline-none"
+					onClick={handlePrev}>
+					&#8249;
+				</button>
+				<button
+					className="text-2xl text-gray-500 focus:outline-none"
+					onClick={handleNext}>
+					&#8250;
+				</button>
+			</div>
+			<div className="absolute bottom-0 left-0 w-full flex justify-center">
+				<div className="flex mt-2">
+					{React.Children.map(children, (_, index) => (
+						<button
+							key={index}
+							className={`h-2 w-2 mx-1 rounded-full focus:outline-none ${
+								index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+							}`}
+							onClick={() => handleSlideChange(index)}></button>
+					))}
+				</div>
+			</div>
+		</div>
+	);
+};
+
+const XXX = ({ children }) => {
+	return (
+		<div>
+			{children}
+			{React.Children.map(children, (child, index) => (
+				<div key={index}>
+					hello{index}
+					{child}
+				</div>
+			))}
+		</div>
+	);
+};
+
 // * HOOK
 
 const useThemeSwitcher = () => {
@@ -6927,6 +7380,9 @@ const useThemeSwitcher = () => {
 };
 
 export {
+	XXX,
+	Carousel,
+	// Slide,
 	Text,
 	Block,
 	Tabs,
@@ -6964,5 +7420,6 @@ export {
 	TextArea,
 	ProgressBar,
 	CircularProgressBar,
+	// ScrollTop,
 	useThemeSwitcher,
 };
