@@ -5022,7 +5022,7 @@ const Text = ({
 			{...rest}
 			onClick={onClick}
 			id={id}
-			className={` ${style} ${variantValue}  text-inherit font-normal `}
+			className={` ${style} ${variantValue} `}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -5986,13 +5986,36 @@ const Accordion = ({
 	children,
 	active,
 	deactivate,
-	HeaderStyle = "",
+	headerStyle = "",
 	activeHeaderStyle = "",
 	deactivateHeaderStyle = "",
-	DetailsStyle = "",
+	detailsStyle = "",
+	variant,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
+
+	const [variantValue, setVariantValue] = useState({
+		style: "",
+		headerStyle: "",
+		activeHeaderStyle: "",
+		deactivateHeaderStyle: "",
+		detailsStyle: "",
+	});
+
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				style: "my-2",
+				headerStyle:
+					"flex gap-2 bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
+				activeHeaderStyle: "!rounded-t-lg rounded-b-none",
+				deactivateHeaderStyle:
+					"!bg-neutral-700 hover:!bg-neutral-700 !cursor-default",
+				detailsStyle: "",
+			});
+		}
+	}, [variant]);
 
 	function generateUniqueId() {
 		const randomPart = Math.random().toString(36).substr(2, 9);
@@ -6005,9 +6028,6 @@ const Accordion = ({
 
 	const [isActive, setIsActive] = useState(false);
 
-	console.log(isActive);
-	console.log(active);
-
 	useEffect(() => {
 		if (active == true) {
 			setIsActive(true);
@@ -6018,11 +6038,15 @@ const Accordion = ({
 	var min = `max-h-[${max}]`;
 
 	return (
-		<CustomTag className={` ${style} `}>
+		<CustomTag className={` ${style} ${variant ? variantValue.style : ""} `}>
 			<div
 				className={` select-none ${isActive ? activeHeaderStyle : ""} ${
 					deactivate ? deactivateHeaderStyle : ""
-				} ${HeaderStyle}`}
+				} ${headerStyle} ${
+					variant ? (isActive ? variantValue.activeHeaderStyle : "") : ""
+				}  ${
+					variant ? (deactivate ? variantValue.deactivateHeaderStyle : "") : ""
+				} ${variant ? variantValue.headerStyle : ""}`}
 				onClick={() => {
 					if (!deactivate) {
 						setIsActive(!isActive);
@@ -6035,6 +6059,7 @@ const Accordion = ({
 							active: active,
 							isActive: isActive,
 							deactivate: deactivate,
+							variant: variant,
 						});
 					}
 					return null;
@@ -6043,13 +6068,16 @@ const Accordion = ({
 			<div
 				className={`  ${
 					isActive ? min : "max-h-0 overflow-hidden"
-				} transition-all duration-300 ${DetailsStyle} `}>
+				} transition-all duration-300 ${detailsStyle} ${
+					variant ? variantValue.detailsStyle : ""
+				} `}>
 				{React.Children.map(children, (child) => {
 					if (child.type === AccordionDetails) {
 						return React.cloneElement(child, {
 							id: id,
 							active: active,
 							deactivate: deactivate,
+							variant: variant,
 						});
 					}
 					return null;
@@ -6078,9 +6106,32 @@ const AccordionHeader = ({
 	deactivate,
 	deactivateStyle = "",
 	labelStyle = "",
+	variant,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
+
+	const [iconStyleX, setIconStyleX] = useState(iconStyle);
+	const [toggleIconStyleX, setToggleIconStyleX] = useState(toggleIconStyle);
+
+	const [variantValue, setVariantValue] = useState({
+		iconStyle: "",
+		labelStyle: "",
+		toggleIconStyle: "",
+	});
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				iconStyle: "",
+				labelStyle: "",
+				toggleIconStyle: "",
+			});
+		}
+		if (variant == true) {
+			setIconStyleX(iconStyle + " " + variantValue.iconStyle);
+			setToggleIconStyleX(toggleIconStyle + " " + variantValue.toggleIconStyle);
+		}
+	}, [variant]);
 	// const [isActive, setIsActive] = useState(false);
 	// console.log(isActive);
 	var ids = `#${id}`;
@@ -6113,29 +6164,40 @@ const AccordionHeader = ({
 			{iconPosition === "before" && icon && (
 				<>
 					{!isActive && (
-						<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={icon}
+							iconStyle={iconStyleX}
+						/>
 					)}
 					{isActive && toggleIcon && (
 						<Icon
 							iconLibrary={toggleIconLibrary ? toggleIconLibrary : iconLibrary}
 							icon={toggleIcon ? toggleIcon : icon}
-							iconStyle={toggleIconStyle ? toggleIconStyle : iconStyle}
+							iconStyle={toggleIconStyle ? toggleIconStyleX : iconStyleX}
 						/>
 					)}
 				</>
 			)}
-			<span className={` ${labelStyle} `}>{children}</span>
+			<span
+				className={` ${labelStyle} ${variant ? variantValue.labelStyle : ""} `}>
+				{children}
+			</span>
 
 			{iconPosition === "after" && icon && (
 				<>
 					{!isActive && (
-						<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={icon}
+							iconStyle={iconStyleX}
+						/>
 					)}
 					{isActive && toggleIcon && (
 						<Icon
 							iconLibrary={toggleIconLibrary}
 							icon={toggleIcon}
-							iconStyle={toggleIconStyle}
+							iconStyle={toggleIconStyle ? toggleIconStyleX : iconStyleX}
 						/>
 					)}
 				</>
@@ -6153,12 +6215,26 @@ const AccordionDetails = ({
 	id,
 	active,
 	deactivate,
+	variant,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
+	const [variantValue, setVariantValue] = useState({
+		style: "",
+	});
+
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				style:
+					"bg-neutral-900 px-4 py-4 rounded-b-lg dark:bg-gray-900 border-x border-b !text-gray-200",
+			});
+		}
+	}, [variant]);
+
 	return (
-		<CustomTag id={id} className={` ${style}  `}>
+		<CustomTag id={id} className={` ${style} ${variantValue.style} `}>
 			{children}
 		</CustomTag>
 	);
