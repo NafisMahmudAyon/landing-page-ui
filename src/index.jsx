@@ -6008,11 +6008,34 @@ const Accordion = ({
 			setVariantValue({
 				style: "my-2",
 				headerStyle:
-					"flex gap-2 bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
+					"flex gap-2 items-center bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
 				activeHeaderStyle: "!rounded-t-lg rounded-b-none",
 				deactivateHeaderStyle:
 					"!bg-neutral-700 hover:!bg-neutral-700 !cursor-default",
 				detailsStyle: "",
+			});
+		}
+		if (variant == "2") {
+			setVariantValue({
+				style: "my-2",
+				headerStyle:
+					"flex gap-2 items-center bg-white border-2 border-transparent hover:border-2 hover:border-black px-4 py-2 rounded-lg !text-black text-xl !font-medium cursor-pointer",
+				activeHeaderStyle: "!rounded-t-lg rounded-b-none !bg-black !text-white",
+				deactivateHeaderStyle:
+					"!bg-neutral-700 hover:!bg-neutral-700 !text-white !cursor-default",
+				detailsStyle: "bg-black rounded-b-lg ",
+			});
+		}
+		if (variant == "3") {
+			setVariantValue({
+				style:
+					"my-3 drop-shadow-[5px_5px_0px_#0A0A0A] hover:drop-shadow-[5px_5px_4px_#0A0A0A] ",
+				headerStyle:
+					"flex gap-2 items-center bg-zinc-800 px-4 py-2 !text-amber-400 text-xl !font-medium cursor-pointer",
+				activeHeaderStyle: "",
+				deactivateHeaderStyle:
+					"!bg-neutral-700 !text-amber-200 !cursor-default",
+				detailsStyle: " ",
 			});
 		}
 	}, [variant]);
@@ -6098,7 +6121,7 @@ const AccordionHeader = ({
 	toggleIcon,
 	toggleIconLibrary,
 	toggleIconStyle,
-	iconPosition,
+	iconPosition = "before",
 	iconStyle,
 	id,
 	active,
@@ -6170,7 +6193,7 @@ const AccordionHeader = ({
 							iconStyle={iconStyleX}
 						/>
 					)}
-					{isActive && toggleIcon && (
+					{isActive && (icon || toggleIcon) && (
 						<Icon
 							iconLibrary={toggleIconLibrary ? toggleIconLibrary : iconLibrary}
 							icon={toggleIcon ? toggleIcon : icon}
@@ -6229,6 +6252,16 @@ const AccordionDetails = ({
 			setVariantValue({
 				style:
 					"bg-neutral-900 px-4 py-4 rounded-b-lg dark:bg-gray-900 border-x border-b !text-gray-200",
+			});
+		}
+		if (variant == "2") {
+			setVariantValue({
+				style: "px-4 py-1 pb-3 ",
+			});
+		}
+		if (variant == "3") {
+			setVariantValue({
+				style: "px-4 py-1 pb-3 bg-zinc-800 ",
 			});
 		}
 	}, [variant]);
@@ -7515,4 +7548,3 @@ export {
 	// ScrollTop,
 	useThemeSwitcher,
 };
-
