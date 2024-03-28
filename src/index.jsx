@@ -13,7 +13,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 // import Text from "./Text";
 
 // *css
-// import "../css/output.css";
+import "../css/output.css";
 // import { useGSAP } from "@gsap/react";
 // import gsap from "gsap";
 
