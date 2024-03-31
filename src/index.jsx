@@ -7439,17 +7439,90 @@ const Carousel = ({ children }) => {
 	);
 };
 
-const XXX = ({ children }) => {
+// * Table
+
+const Table = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("w-full text-sm text-left text-gray-500");
+		}
+	}, [variant]);
 	return (
-		<div>
+		<table className={`${variantValue} ${style}`} {...rest}>
+			{React.Children.map(children, (child) => {
+				return React.cloneElement(child, {
+					variant: variant,
+				});
+			})}
+		</table>
+	);
+};
+const TableCaption = ({ children, style = "", position, variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("text-slate-500 dark:text-slate-400 py-4 text-xs");
+		}
+	}, [variant]);
+	return (
+		<caption
+			className={`${
+				position == "top" ? "caption-top" : "caption-bottom"
+			} ${variantValue} ${style}`}
+			{...rest}>
 			{children}
-			{React.Children.map(children, (child, index) => (
-				<div key={index}>
-					hello{index}
-					{child}
-				</div>
-			))}
-		</div>
+		</caption>
+	);
+};
+const TableHead = ({ children, style = "", ...rest }) => {
+	return (
+		<thead className={`${style}`} {...rest}>
+			{children}
+		</thead>
+	);
+};
+const TableBody = ({ children, style = "", ...rest }) => {
+	return (
+		<tbody className={`${style}`} {...rest}>
+			{children}
+		</tbody>
+	);
+};
+const TableFooter = ({ children, style = "", ...rest }) => {
+	return (
+		<tfoot className={`${style}`} {...rest}>
+			{children}
+		</tfoot>
+	);
+};
+const TableRow = ({ children, style = "", ...rest }) => {
+	return (
+		<tr className={`${style}`} {...rest}>
+			{children}
+		</tr>
+	);
+};
+const TableCell = ({
+	children,
+	tagName,
+	header,
+	thStyle = "",
+	tdStyle = "",
+	style = "",
+	scope,
+	...rest
+}) => {
+	const [customTag, setCustomTag] = useState(tagName || (header ? "th" : "td"));
+	const CustomTag = customTag.toLowerCase();
+
+	return (
+		<CustomTag
+			className={` ${thStyle} ${tdStyle} ${style}`}
+			{...(scope && { scope: scope })}
+			{...rest}>
+			{children}
+		</CustomTag>
 	);
 };
 
@@ -7505,7 +7578,7 @@ const useThemeSwitcher = () => {
 };
 
 export {
-	XXX,
+	// XXX,
 	Carousel,
 	// Slide,
 	Text,
@@ -7545,6 +7618,13 @@ export {
 	TextArea,
 	ProgressBar,
 	CircularProgressBar,
+	Table,
+	TableCaption,
+	TableHead,
+	TableBody,
+	TableFooter,
+	TableRow,
+	TableCell,
 	// ScrollTop,
 	useThemeSwitcher,
 };
