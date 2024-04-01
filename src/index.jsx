@@ -7558,13 +7558,15 @@ const TableCell = ({
 		}
 	}, [variant]);
 
+	console.log(variantValue);
+
 	return (
 		<CustomTag
-			className={`  ${
+			className={` ${
 				header
 					? thStyle + " " + variantValue.thStyle
 					: tdStyle + " " + variantValue.tdStyle
-			} ${style}`}
+			} ${variantValue.style} ${style}`}
 			{...(scope && { scope: scope })}
 			{...rest}>
 			{children}
