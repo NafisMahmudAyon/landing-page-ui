@@ -7462,7 +7462,7 @@ const TableCaption = ({ children, style = "", position, variant, ...rest }) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
-			setVariantValue("text-slate-500 dark:text-slate-400 py-4 text-xs");
+			setVariantValue("text-slate-500 py-4 text-xs");
 		}
 	}, [variant]);
 	return (
@@ -7475,30 +7475,56 @@ const TableCaption = ({ children, style = "", position, variant, ...rest }) => {
 		</caption>
 	);
 };
-const TableHead = ({ children, style = "", ...rest }) => {
+const TableHead = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("text-gray-200 uppercase bg-gray-500");
+		}
+	}, [variant]);
 	return (
-		<thead className={`${style}`} {...rest}>
+		<thead className={` ${variantValue} ${style}`} {...rest}>
 			{children}
 		</thead>
 	);
 };
-const TableBody = ({ children, style = "", ...rest }) => {
+const TableBody = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("");
+		}
+	}, [variant]);
 	return (
-		<tbody className={`${style}`} {...rest}>
+		<tbody className={` ${variantValue} ${style}`} {...rest}>
 			{children}
 		</tbody>
 	);
 };
-const TableFooter = ({ children, style = "", ...rest }) => {
+const TableFooter = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("");
+		}
+	}, [variant]);
 	return (
-		<tfoot className={`${style}`} {...rest}>
+		<tfoot className={` ${variantValue} ${style}`} {...rest}>
 			{children}
 		</tfoot>
 	);
 };
-const TableRow = ({ children, style = "", ...rest }) => {
+const TableRow = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue(
+				"border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700"
+			);
+		}
+	}, [variant]);
 	return (
-		<tr className={`${style}`} {...rest}>
+		<tr className={` ${variantValue} ${style}`} {...rest}>
 			{children}
 		</tr>
 	);
@@ -7509,16 +7535,37 @@ const TableCell = ({
 	header,
 	thStyle = "",
 	tdStyle = "",
+	variant,
 	style = "",
 	scope,
 	...rest
 }) => {
+	const [variantValue, setVariantValue] = useState({
+		style: "",
+		thStyle: "",
+		tdStyle: "",
+	});
 	const [customTag, setCustomTag] = useState(tagName || (header ? "th" : "td"));
 	const CustomTag = customTag.toLowerCase();
 
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				style: "my-2",
+				thStyle:
+					"flex gap-2 items-center bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
+				tdStyle: "!rounded-t-lg rounded-b-none",
+			});
+		}
+	}, [variant]);
+
 	return (
 		<CustomTag
-			className={` ${thStyle} ${tdStyle} ${style}`}
+			className={`  ${
+				header
+					? thStyle + " " + variantValue.thStyle
+					: tdStyle + " " + variantValue.tdStyle
+			} ${style}`}
 			{...(scope && { scope: scope })}
 			{...rest}>
 			{children}
