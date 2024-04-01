@@ -7551,10 +7551,9 @@ const TableCell = ({
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue({
-				style: "my-2",
-				thStyle:
-					"flex gap-2 items-center bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
-				tdStyle: "!rounded-t-lg rounded-b-none",
+				style: "px-6 py-4",
+				thStyle: "font-medium text-gray-200 whitespace-nowrap",
+				tdStyle: "",
 			});
 		}
 	}, [variant]);
