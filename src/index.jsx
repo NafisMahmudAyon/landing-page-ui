@@ -6298,6 +6298,7 @@ const Avatar = ({
 	src,
 	altText,
 	imageStyle = "",
+	variant,
 	onClick,
 }) => {
 	if (name !== undefined) {
@@ -7521,7 +7522,7 @@ const TableRow = ({ children, style = "", variant, ...rest }) => {
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue(
-				"border-b border-gray-500 odd:bg-gray-200 even:bg-gray-300"
+				"border-b border-gray-500 last:border-b-0 odd:bg-gray-200 even:bg-gray-300"
 			);
 		}
 	}, [variant]);
