@@ -5627,7 +5627,7 @@ const IconButton = ({
 	textStyle = "",
 	linkStyle = "",
 	iconLibrary = "font-awesome",
-	icon,
+	icon = "fa-user",
 	iconPosition = "beforePrefix",
 	iconStyle = "",
 	isLink = false,
@@ -6258,12 +6258,12 @@ const AccordionDetails = ({
 		}
 		if (variant == "2") {
 			setVariantValue({
-				style: "px-4 py-1 pb-3 ",
+				style: "px-4 py-1 pb-3 !text-gray-200 ",
 			});
 		}
 		if (variant == "3") {
 			setVariantValue({
-				style: "px-4 py-1 pb-3 bg-zinc-800 ",
+				style: "px-4 py-1 pb-3 bg-zinc-800 !text-gray-200 ",
 			});
 		}
 	}, [variant]);
@@ -6384,7 +6384,7 @@ const Badge = ({
 					isBottom && isRight ? "translate-x-1/2 translate-y-1/2 " : ""
 				}  ${
 					isBottom && isLeft ? "-translate-x-1/2 translate-y-1/2 " : ""
-				} flex flex-wrap place-content-center items-center absolute font-medium text-[0.75rem] min-w-[20px] h-[20px] bg-gray-900 text-white leading-none px-[6px] rounded-[10px] `}>
+				} flex flex-wrap place-content-center items-center absolute font-medium text-[0.75rem] min-w-[20px] h-[20px] bg-gray-500 text-white leading-none px-[6px] rounded-[10px] `}>
 				{displayContent}
 			</span>
 		</CustomTag>
@@ -6535,7 +6535,7 @@ const Divider = ({
 const Card = ({ children, style = "" }) => {
 	return (
 		<div
-			className={` ${style} bg-gray-500 rounded shadow text-white overflow-hidden xs:w-full sm:w-full md:w-1/2 lg:w-1/3 xl:1/4 `}>
+			className={` ${style} bg-gray-500 rounded shadow text-white overflow-hidden w-full `}>
 			{children}
 		</div>
 	);
@@ -6552,7 +6552,7 @@ const CardMedia = ({
 	style = "",
 	src = "https://mui.com/static/images/cards/contemplative-reptile.jpg",
 	badge,
-	badgePosition,
+	badgePosition = "bottom left",
 	badgeStyle = "",
 }) => {
 	const isTop = badgePosition.includes("top");
@@ -7406,9 +7406,11 @@ const Carousel = ({ children }) => {
 				onTransitionEnd={handleTransitionEnd}>
 				{React.Children.map(children, (child, index) => (
 					<div
-						className={` overflow-hidden duration-1000 ease-in-out bg-black  ${
+						className={` overflow-hidden duration-300 ease-in-out bg-black  ${
 							transitionEnabled ? "transition-[width]" : ""
-						} ${index === currentIndex ? "w-full h-auto " : "w-0 h-0"}`}
+						} 
+					 ${index === currentIndex ? "w-full  " : "w-0 "}
+					 `}
 						key={index}>
 						{child}
 					</div>
