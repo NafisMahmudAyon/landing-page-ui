@@ -5072,7 +5072,7 @@ const Block = ({
 const Tabs = ({
 	style = "",
 	children,
-	active,
+	active = "1",
 	orientation,
 	navWrapStyle = "",
 	panelWrapStyle = "",
@@ -5416,7 +5416,7 @@ const List = ({
 			{list.map((item, index) => {
 				return (
 					<li key={index} className={` ${listStyle ? listStyle : ""} `}>
-						{iconPosition == "before" && (
+						{icon && iconPosition == "before" && (
 							<Icon
 								iconLibrary={iconLibrary}
 								icon={icon}
@@ -5425,7 +5425,7 @@ const List = ({
 						)}
 
 						<span dangerouslySetInnerHTML={{ __html: item }} />
-						{iconPosition == "after" && (
+						{icon && iconPosition == "after" && (
 							<Icon
 								iconLibrary={iconLibrary}
 								icon={icon}
@@ -5622,31 +5622,54 @@ const Image = ({
 
 const IconButton = ({
 	tagName,
-	style = "",
-	text,
-	textStyle = "",
-	linkStyle = "",
-	iconLibrary = "font-awesome",
 	icon = "fa-user",
-	iconPosition = "beforePrefix",
-	iconStyle = "",
+	iconLibrary = "font-awesome",
+	iconPosition = "before",
+	text,
 	isLink = false,
-	linkTo = "#",
+	linkTo,
 	target = "_self",
+	style = "",
+	textStyle = "",
+	iconStyle = "",
+	variant,
+	onClick,
+	children,
+	linkStyle = "",
 	prefix,
 	prefixStyle = "",
 	postfix,
 	postfixStyle = "",
 	textOnClick,
 	iconOnClick,
-	onClick,
+	...rest
 }) => {
-	const [customTag, setCustomTag] = useState(tagName || "div");
+	const [customTag, setCustomTag] = useState(tagName || "button");
 	const CustomTag = customTag.toLowerCase();
 	const [iconX, setIconX] = useState(false);
+	useEffect(() => {
+		if (isLink || linkTo) {
+			setCustomTag("a");
+		}
+	});
 
 	return (
-		<CustomTag className={` ${style} `} onClick={onClick}>
+		<CustomTag
+			className={` ${style} `}
+			{...(isLink && {
+				href: linkTo || "#",
+				target: target,
+			})}
+			onClick={onClick}
+			{...rest}>
+			{iconPosition == "before" && (
+				<Icon
+					iconLibrary={iconLibrary}
+					icon={icon}
+					iconStyle={iconStyle}
+					onClick={iconOnClick}
+				/>
+			)}
 			{iconPosition == "beforePrefix" && (
 				<Icon
 					iconLibrary={iconLibrary}
@@ -5669,7 +5692,19 @@ const IconButton = ({
 					onClick={iconOnClick}
 				/>
 			)}
-			{isLink && (
+			{children && (
+				<sapn className={` ${textStyle} `} onClick={textOnClick}>
+					{children}
+				</sapn>
+			)}
+			{!children && text && (
+				<span
+					className={` ${textStyle} `}
+					onClick={textOnClick}
+					dangerouslySetInnerHTML={{ __html: text }}
+				/>
+			)}
+			{/* {(isLink || linkTo) && (
 				<>
 					{iconPosition == "beforeLink" && (
 						<Icon
@@ -5679,33 +5714,58 @@ const IconButton = ({
 							onClick={iconOnClick}
 						/>
 					)}
-
-					<a
-						className={` ${textStyle} `}
-						{...(isLink && {
-							href: linkTo,
-							target: target,
-						})}>
-						{iconPosition == "beforeText" && (
-							<Icon
-								iconLibrary={iconLibrary}
-								icon={icon}
-								iconStyle={iconStyle}
-							/>
-						)}
-						<span
+					{children && (
+						<a
 							className={` ${textStyle} `}
-							onClick={textOnClick}
-							dangerouslySetInnerHTML={{ __html: text }}
-						/>
-						{iconPosition == "afterText" && (
-							<Icon
-								iconLibrary={iconLibrary}
-								icon={icon}
-								iconStyle={iconStyle}
+							{...(isLink && {
+								href: linkTo || "#",
+								target: target,
+							})}>
+							{iconPosition == "beforeText" && (
+								<Icon
+									iconLibrary={iconLibrary}
+									icon={icon}
+									iconStyle={iconStyle}
+								/>
+							)}
+							{children}
+							{iconPosition == "afterText" && (
+								<Icon
+									iconLibrary={iconLibrary}
+									icon={icon}
+									iconStyle={iconStyle}
+								/>
+							)}
+						</a>
+					)}
+					{!children && (
+						<a
+							className={` ${textStyle} `}
+							{...(isLink && {
+								href: linkTo,
+								target: target,
+							})}>
+							{iconPosition == "beforeText" && (
+								<Icon
+									iconLibrary={iconLibrary}
+									icon={icon}
+									iconStyle={iconStyle}
+								/>
+							)}
+							<span
+								className={` ${textStyle} `}
+								onClick={textOnClick}
+								dangerouslySetInnerHTML={{ __html: text }}
 							/>
-						)}
-					</a>
+							{iconPosition == "afterText" && (
+								<Icon
+									iconLibrary={iconLibrary}
+									icon={icon}
+									iconStyle={iconStyle}
+								/>
+							)}
+						</a>
+					)}
 
 					{iconPosition == "afterLink" && (
 						<Icon
@@ -5728,11 +5788,14 @@ const IconButton = ({
 							onClick={iconOnClick}
 						/>
 					)}
-					<span
-						className={` ${textStyle} `}
-						onClick={textOnClick}
-						dangerouslySetInnerHTML={{ __html: text }}
-					/>
+					{children && <>{children}</>}
+					{!children && (
+						<span
+							className={` ${textStyle} `}
+							onClick={textOnClick}
+							dangerouslySetInnerHTML={{ __html: text }}
+						/>
+					)}
 					{iconPosition == "afterText" && (
 						<Icon
 							iconLibrary={iconLibrary}
@@ -5742,7 +5805,7 @@ const IconButton = ({
 						/>
 					)}
 				</>
-			)}
+			)} */}
 
 			{iconPosition == "beforePostfix" && (
 				<Icon
@@ -5759,6 +5822,14 @@ const IconButton = ({
 				/>
 			)}
 			{iconPosition == "afterPostfix" && (
+				<Icon
+					iconLibrary={iconLibrary}
+					icon={icon}
+					iconStyle={iconStyle}
+					onClick={iconOnClick}
+				/>
+			)}
+			{iconPosition == "after" && (
 				<Icon
 					iconLibrary={iconLibrary}
 					icon={icon}
@@ -6116,9 +6187,9 @@ const AccordionHeader = ({
 	style = "",
 	activeStyle = "",
 	children,
-	iconLibrary,
-	icon,
-	toggleIcon,
+	iconLibrary = "font-awesome",
+	icon = "fa-caret-right",
+	toggleIcon = "fa-caret-down",
 	toggleIconLibrary,
 	toggleIconStyle,
 	iconPosition = "before",
@@ -6338,8 +6409,8 @@ const Badge = ({
 	badgeStyle,
 	position = "top right",
 	tagName,
-	content,
-	maxContent,
+	content = "0",
+	maxCount,
 	children,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "span");
@@ -6356,25 +6427,36 @@ const Badge = ({
 
 	let displayContent = content; // By default, content remains the same
 
-	// If maxContent is not passed and content is divisible by 100, adjust content
-	if (!maxContent && content % 100 === 0 && content !== "0") {
+	// If maxCount is not passed and content is divisible by 100, adjust content
+	if (!maxCount && content % 100 === 0 && content !== "0") {
 		content -= 1;
 		content += "+";
 		displayContent = content;
-	} else if (!maxContent && content === 0) {
+	} else if (!maxCount && content === 0) {
 		displayContent = "0";
 	}
-	// Adjust content based on maxContent
-	if (maxContent !== undefined) {
-		if (content > maxContent) {
-			displayContent = maxContent + "+"; // If content is greater than maxContent, set to maxContent and add plus sign
+	// Adjust content based on maxCount
+	if (maxCount !== undefined) {
+		if (content > maxCount) {
+			displayContent = maxCount + "+"; // If content is greater than maxCount, set to maxCount and add plus sign
 		} else {
-			displayContent = content; // If content is less than or equal to maxContent, keep it as it is
+			displayContent = content; // If content is less than or equal to maxCount, keep it as it is
 		}
 	}
 	return (
 		<CustomTag className={` ${style} relative inline-flex align-middle `}>
 			{children}
+			{!children ? (
+				<>
+					<Icon
+						icon="fa-envelope"
+						iconLibrary="font-awesome"
+						iconStyle="text-lg"
+					/>
+				</>
+			) : (
+				""
+			)}
 			<span
 				className={` ${badgeStyle} ${isTop ? "top-0" : ""} ${
 					isLeft ? "left-0" : ""
