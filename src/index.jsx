@@ -5073,7 +5073,7 @@ const Tabs = ({
 	style = "",
 	children,
 	active = "1",
-	orientation,
+	orientation = "horizontal",
 	navWrapStyle = "",
 	panelWrapStyle = "",
 	...rest
@@ -5131,19 +5131,16 @@ const TabsNav = ({
 	prevButtonText,
 	nextButtonText,
 	activeTabStyle = "",
-	iconButtonStyle = "",
-	iconLibrary,
-	nextIcon,
-	prevIcon,
+	iconStyle = "",
+	iconLibrary = "font-awesome",
+	nextIcon = "fa-caret-right",
+	prevIcon = "fa-caret-left",
 	nextIconPosition = "right",
 	prevIconPosition = "left",
 	buttonTextEnabled = false,
 	...rest
 }) => {
 	const tabsRef = useRef(null);
-	console.log("showButton : ", showButton);
-	console.log(typeof showButton);
-	console.log("buttonTextEnabled: ", buttonTextEnabled);
 
 	const scrollPrev = () => {
 		const tabs = Array.from(tabsRef.current.children);
@@ -5190,7 +5187,7 @@ const TabsNav = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={prevIcon}
-							iconStyle={iconButtonStyle}
+							iconStyle={iconStyle}
 						/>
 					)}
 					{buttonTextEnabled && <>{prevButtonText}</>}
@@ -5198,7 +5195,7 @@ const TabsNav = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={prevIcon}
-							iconStyle={iconButtonStyle}
+							iconStyle={iconStyle}
 						/>
 					)}
 				</button>
@@ -5226,7 +5223,7 @@ const TabsNav = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={nextIcon}
-							iconStyle={iconButtonStyle}
+							iconStyle={iconStyle}
 						/>
 					)}
 					{buttonTextEnabled && <>{nextButtonText}</>}
@@ -5234,7 +5231,7 @@ const TabsNav = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={nextIcon}
-							iconStyle={iconButtonStyle}
+							iconStyle={iconStyle}
 						/>
 					)}
 				</button>
@@ -7663,7 +7660,7 @@ const TableCell = ({
 
 // * HOOK
 
-const useThemeSwitcher = () => {
+const UseThemeSwitcher = () => {
 	const preferDarkQuery = "(prefer-color-scheme: dark)";
 	const [mode, setMode] = useState("");
 
@@ -7761,5 +7758,5 @@ export {
 	TableRow,
 	TableCell,
 	// ScrollTop,
-	useThemeSwitcher,
+	UseThemeSwitcher,
 };
