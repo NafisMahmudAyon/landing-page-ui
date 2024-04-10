@@ -5105,7 +5105,7 @@ const Tabs = ({
 			</div>
 			<div className={` ${panelWrapStyle} `}>
 				{React.Children.map(children, (child) => {
-					if (child.type === TabPanel && child.props.value === activeTab) {
+					if (child.type === TabsPanel && child.props.value === activeTab) {
 						return child;
 					}
 					return null;
@@ -5190,7 +5190,7 @@ const TabsNav = ({
 							iconStyle={iconStyle}
 						/>
 					)}
-					{buttonTextEnabled && <>{prevButtonText}</>}
+					{(buttonTextEnabled || prevButtonText) && <>{prevButtonText}</>}
 					{prevIconPosition == "right" && (
 						<Icon
 							iconLibrary={iconLibrary}
@@ -5226,7 +5226,7 @@ const TabsNav = ({
 							iconStyle={iconStyle}
 						/>
 					)}
-					{buttonTextEnabled && <>{nextButtonText}</>}
+					{(buttonTextEnabled || nextButtonText) && <>{nextButtonText}</>}
 					{nextIconPosition == "right" && (
 						<Icon
 							iconLibrary={iconLibrary}
@@ -5264,8 +5264,8 @@ const Tab = ({
 	);
 };
 
-// * TabPanel
-const TabPanel = ({ style = "", value, children, ...rest }) => {
+// * TabsPanel
+const TabsPanel = ({ style = "", value, children, ...rest }) => {
 	return (
 		<div {...rest} className={` ${style} `}>
 			{children}
@@ -7718,7 +7718,7 @@ export {
 	Tabs,
 	TabsNav,
 	Tab,
-	TabPanel,
+	TabsPanel,
 	List,
 	ImageGallery,
 	Image,
