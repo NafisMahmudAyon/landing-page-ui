@@ -5500,25 +5500,26 @@ const ImageGallery = ({
 // * Image
 const Image = ({
 	src,
-	isLink,
-	linkTo,
-	target = "_self",
-	tagName,
-	style = "",
-	imageStyle,
-	lightBox,
 	altText,
 	imageCaption,
 	captionEnabled,
+	isLink,
+	linkTo,
+	target = "_self",
+	lightBox,
+	lightBoxImageSrc,
+	lightBoxCaptionEnabled,
+	lightBoxCaption,
+	imageStyle,
 	captionStyle,
 	lightBoxStyle,
 	lightBoxImageStyle,
-	lightBoxImageSrc,
-	lightBoxCaption,
-	lightBoxCaptionEnabled,
 	lightBoxCaptionStyle,
 	closeButtonStyle,
+	tagName,
+	style = "",
 	lazyLoad,
+	...rest
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const [isOpen, setIsOpen] = useState(false);
@@ -5563,6 +5564,7 @@ const Image = ({
 					}
 					alt={altText || imageCaption || "Description of the image"}
 					onClick={linkTo ? undefined : lightBox ? openLightbox : undefined}
+					{...rest}
 				/>
 				{captionEnabled && (
 					<figcaption
@@ -5577,7 +5579,7 @@ const Image = ({
 				<div
 					className={` ${
 						lightBoxStyle ? lightBoxStyle : ""
-					} fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 flex justify-center items-center z-20 overflow-auto `}>
+					} fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 flex justify-center items-center z-[9999] overflow-auto `}>
 					<div className="relative p-3 flex flex-col items-center">
 						<button
 							className={` ${
