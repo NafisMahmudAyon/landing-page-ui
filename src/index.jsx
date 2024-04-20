@@ -5439,20 +5439,21 @@ const List = ({
 // * ImageGallery
 
 const ImageGallery = ({
-	tagName,
-	style = "",
-	children,
 	imageCaption,
 	captionEnabled,
-	captionStyle,
 	lightBox,
+	lightBoxCaptionEnabled,
+	children,
+	style = "",
+	imageStyle,
+	captionStyle,
 	lightBoxStyle,
 	lightBoxImageStyle,
-	lightBoxImageSrc,
-	lightBoxCaption,
-	lightBoxCaptionEnabled,
 	lightBoxCaptionStyle,
 	closeButtonStyle,
+	lightBoxCaption,
+	lightBoxImageSrc,
+	tagName,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
@@ -5470,6 +5471,9 @@ const ImageGallery = ({
 						? child.props.captionStyle
 						: captionStyle,
 					lightBox: child.props.lightBox ? child.props.lightBox : lightBox,
+					imageStyle: child.props.imageStyle
+						? child.props.imageStyle
+						: imageStyle,
 					lightBoxStyle: child.props.lightBoxStyle
 						? child.props.lightBoxStyle
 						: lightBoxStyle,
@@ -5579,7 +5583,7 @@ const Image = ({
 				<div
 					className={` ${
 						lightBoxStyle ? lightBoxStyle : ""
-					} fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 flex justify-center items-center z-[9999] overflow-auto `}>
+					} fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 flex justify-center items-center z-[9999] overflow-auto  `}>
 					<div className="relative p-3 flex flex-col items-center">
 						<button
 							className={` ${
@@ -5597,7 +5601,7 @@ const Image = ({
 							alt={altText || "lightbox"}
 							className={` ${
 								lightBoxImageStyle ? lightBoxImageStyle : ""
-							} max-w-[95%] w-full rounded-md  max-h-full`}
+							} max-w-[95%] w-full rounded-md`}
 						/>
 						{lightBoxCaptionEnabled && (
 							<figcaption
@@ -5919,7 +5923,7 @@ const Grid = ({ tagName, style, children }) => {
 	const CustomTag = customTag.toLowerCase();
 
 	return (
-		<CustomTag className={` ${style ? style : ""} grid grid-cols-3 `}>
+		<CustomTag className={` ${style ? style : ""} grid grid-cols-3 gap-2 `}>
 			{children}
 		</CustomTag>
 	);
@@ -6628,13 +6632,13 @@ const CardContent = ({ children, style = "" }) => {
 
 // * CardMedia
 const CardMedia = ({
-	children,
-	mediaStyle = "",
-	style = "",
-	src = "https://mui.com/static/images/cards/contemplative-reptile.jpg",
+	src = "https://source.unsplash.com/random/800x600?nature",
 	badge,
 	badgePosition = "bottom left",
+	style = "",
+	mediaStyle = "",
 	badgeStyle = "",
+	children,
 }) => {
 	const isTop = badgePosition.includes("top");
 	const isBottom = badgePosition.includes("bottom");
@@ -6668,7 +6672,13 @@ const CardMedia = ({
 };
 
 // * CardAction
-const CardAction = ({ children, style = "", link = "#", target = "_self" }) => {
+const CardAction = ({
+	children,
+	style = "",
+	link = "#",
+	target = "_self",
+	...rest
+}) => {
 	const handleClick = (e) => {
 		e.preventDefault();
 		// window.location.href = link;
@@ -6922,7 +6932,7 @@ const ProgressBar = ({
 		((clampedValue - min) / (max - min)) * 100
 	);
 
-	console.log(percentage);
+	const durationValue = (duration * 1000) / value;
 
 	// Ref for the progress bar
 	const progressBarRef = useRef(null);
@@ -6970,14 +6980,15 @@ const ProgressBar = ({
 				} else {
 					clearInterval(interval);
 				}
-			}, duration);
+			}, durationValue);
 
 			return () => clearInterval(interval);
 		}
 	}, [animateOnVisible, isVisible, value]);
 
 	return (
-		<div className={` ${style} flex items-center gap-4 my-2 ${className}`}>
+		<div
+			className={` ${style} flex items-center gap-4 w-full my-2 ${className}`}>
 			{contentPosition === "left" && (
 				<span className={` ${contentStyle} min-w-8 `}>
 					{!children && <>{`${percentage}%`}</>}
@@ -7762,4 +7773,3 @@ export {
 	// ScrollTop,
 	UseThemeSwitcher,
 };
-
