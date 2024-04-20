@@ -6912,18 +6912,17 @@ const TextArea = ({
 // * Progress Bar
 const ProgressBar = ({
 	value,
-	min = 0,
-	max = 100,
-	className = "",
+	contentPosition = "right",
+	duration = 2,
+	animateOnLoad = true,
+	animateOnVisible = false,
+	children,
 	style = "",
 	containerStyle = "",
 	fillStyle = "",
 	contentStyle = "",
-	contentPosition = "right",
-	duration = 10,
-	animateOnLoad = true,
-	animateOnVisible = false,
-	children,
+	min = 0,
+	max = 100,
 }) => {
 	// Ensure value is within min and max range
 	const clampedValue = Math.min(Math.max(value, min), max);
@@ -6987,8 +6986,7 @@ const ProgressBar = ({
 	}, [animateOnVisible, isVisible, value]);
 
 	return (
-		<div
-			className={` ${style} flex items-center gap-4 w-full my-2 ${className}`}>
+		<div className={`${style} flex items-center gap-4 w-full my-2`}>
 			{contentPosition === "left" && (
 				<span className={` ${contentStyle} min-w-8 `}>
 					{!children && <>{`${percentage}%`}</>}
@@ -7022,16 +7020,19 @@ const CircularProgressBar = ({
 	// max = 100,
 	style = "",
 	onVisible,
-	duration = 10,
-	stroke = "#6b7280",
+	duration = 2,
+	strokeColor = "#CCCCCC",
+	strokeFillColor = "#333333",
 	strokeWidth = 2,
-	textStyle = "",
+	contentStyle = "",
 	children,
 	onClick,
 }) => {
 	const [isVisible, setIsVisible] = useState(false);
 	const [percentage, setPercentage] = useState(0);
 	const svgRef = useRef(null);
+
+	const durationValue = (duration * 1000) / value;
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -7068,7 +7069,7 @@ const CircularProgressBar = ({
 				} else {
 					clearInterval(interval);
 				}
-			}, duration);
+			}, durationValue);
 
 			return () => clearInterval(interval);
 		}
@@ -7079,9 +7080,15 @@ const CircularProgressBar = ({
 	// console.log((percentage * 100) / max);
 
 	return (
-		<div className="relative h-24 w-24 " onClick={onClick} role="progressbar">
+		<div
+			className={`${style} relative h-24 w-24 `}
+			onClick={onClick}
+			role="progressbar">
 			<div className="absolute top-0 left-0 w-full h-full transform -rotate-90 origin-center">
-				<svg className="" viewBox="0 0 24 24" ref={svgRef}>
+				<svg
+					className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full text-red-400"
+					viewBox="0 0 24 24"
+					ref={svgRef}>
 					<circle
 						className=" "
 						cx="12"
@@ -7089,7 +7096,28 @@ const CircularProgressBar = ({
 						r="10"
 						fill="none"
 						// width="300px" height="300px"
-						stroke={stroke}
+						stroke={strokeColor}
+						strokeLinecap="round"
+						// strokeDasharray="62.83"
+						strokeWidth={strokeWidth}
+						// style={{
+						// 	strokeDashoffset: `${((100 - percentage) * 62.83) / 100}`,
+						// 	// strokeDashoffset: `${(percentage * 100) / max}`,
+						// }}
+					/>
+				</svg>
+				<svg
+					className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full"
+					viewBox="0 0 24 24"
+					ref={svgRef}>
+					<circle
+						className=" "
+						cx="12"
+						cy="12"
+						r="10"
+						fill="none"
+						// width="300px" height="300px"
+						stroke={strokeFillColor}
 						strokeLinecap="round"
 						strokeDasharray="62.83"
 						strokeWidth={strokeWidth}
@@ -7100,7 +7128,7 @@ const CircularProgressBar = ({
 					/>
 				</svg>
 				<span
-					className={` absolute inset-0 w-full h-full flex items-center justify-center text-gray-500 text-inherit rotate-90 `}>
+					className={`${contentStyle} absolute inset-0 w-full h-full flex items-center justify-center text-gray-500 text-inherit rotate-90 `}>
 					{!children && <>{percentage}%</>}
 					{children && <>{children}</>}
 				</span>
