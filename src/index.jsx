@@ -6077,7 +6077,7 @@ const Accordion = ({
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue({
-				styles: "my-2",
+				styles: "my-1",
 				headerStyles:
 					"flex gap-2 items-center bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
 				activeHeaderStyles: "!rounded-t-lg rounded-b-none",
@@ -6216,6 +6216,13 @@ const AccordionHeader = ({
 	});
 	useEffect(() => {
 		if (variant == "1") {
+			setVariantValue({
+				iconStyles: "",
+				labelStyles: "text-gray-200",
+				toggleIconStyles: "",
+			});
+		}
+		if (variant == "2") {
 			setVariantValue({
 				iconStyles: "",
 				labelStyles: "",
@@ -6566,7 +6573,7 @@ const CodeBody = ({ tagName, styles = "", language, content }) => {
 		<SyntaxHighlighter
 			className={` ${styles} `}
 			language={language}
-			styles={vscDarkPlus}>
+			style={vscDarkPlus}>
 			{content}
 		</SyntaxHighlighter>
 	);
@@ -7870,4 +7877,3 @@ export {
 	// ScrollTop,
 	UseThemeSwitcher,
 };
-
