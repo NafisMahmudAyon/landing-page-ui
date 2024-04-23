@@ -6434,9 +6434,45 @@ const AccordionDetails = ({
 	);
 };
 
-const AvatarGroup = ({ styles = "", children }) => {
+const AvatarGroup = ({ styles = "", children, variant }) => {
+	const [variantValue, setVariantValue] = useState({
+		styles: "",
+	});
+
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				styles: " -space-x-2",
+			});
+		}
+		if (variant == "2") {
+			setVariantValue({
+				styles: "-space-x-2 ",
+			});
+		}
+		if (variant == "3") {
+			setVariantValue({
+				styles: "-space-x-2 ",
+			});
+		}
+		if (variant == "4") {
+			setVariantValue({
+				styles: "-space-x-2 ",
+			});
+		}
+		if (variant == "5") {
+			setVariantValue({
+				styles: "-space-x-2 ",
+			});
+		}
+		if (variant == "6") {
+			setVariantValue({
+				styles: "-space-x-2",
+			});
+		}
+	}, [variant]);
 	return (
-		<div className={` ${styles} flex items-center -space-x-2 `}>
+		<div className={` ${styles} ${variantValue.styles} flex items-center `}>
 			{!children ? (
 				<>
 					<Avatar />
@@ -6467,9 +6503,58 @@ const Avatar = ({
 			var nameX = `${name[0]}`;
 		}
 	}
+	const [variantValue, setVariantValue] = useState({
+		styles: "",
+	});
+
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				styles: "bg-gray-500 w-16 h-16 text-[1.25rem] leading-none",
+				imageStyles: "object-cover text-transparent text-center rounded-full",
+			});
+		}
+		if (variant == "2") {
+			setVariantValue({
+				styles:
+					"bg-yellow-600 w-16 h-16 text-[1.25rem] leading-none border border-white",
+				imageStyles: "object-cover text-transparent text-center rounded-full",
+			});
+		}
+		if (variant == "3") {
+			setVariantValue({
+				styles:
+					"bg-green-600 w-16 h-16 text-[1.25rem] rounded-md leading-none border border-white",
+				imageStyles: "object-cover text-transparent text-center ",
+			});
+		}
+		if (variant == "4") {
+			setVariantValue({
+				styles:
+					"bg-gray-500 w-16 h-16 text-[1.25rem] rounded-md leading-none border border-white",
+				imageStyles: "object-cover text-transparent text-center rounded-full",
+			});
+		}
+		if (variant == "5") {
+			setVariantValue({
+				styles:
+					"bg-gray-500 w-20 h-20 text-[1.25rem] leading-none outline-2 outline-offset-2 outline-yellow-600 outline overflow-visible ",
+				imageStyles:
+					"object-cover text-transparent text-center rounded-full w-full border-2 border-yellow-600  ",
+			});
+		}
+		if (variant == "6") {
+			setVariantValue({
+				styles:
+					"bg-gray-500 w-20 h-20 text-[1.25rem] leading-none outline-4 outline-offset-[3px] outline-green-600 outline overflow-visible ",
+				imageStyles:
+					"object-cover text-transparent text-center rounded-full w-full   ",
+			});
+		}
+	}, [variant]);
 	return (
 		<div
-			className={` ${styles} flex justify-center items-center w-12 h-12 bg-gray-500  rounded-full text-[1.25rem] leading-none overflow-hidden `}
+			className={` ${styles} ${variantValue.styles} flex justify-center items-center w-12 h-12 rounded-full overflow-hidden`}
 			{...(name && { title: name })}
 			onClick={onClick}>
 			{/* {!children && (
@@ -6478,7 +6563,7 @@ const Avatar = ({
 				<img
 					src={src}
 					alt={altText || "alt text"}
-					className={` ${imageStyles} max-w-full h-auto object-cover text-transparent text-center rounded-full `}
+					className={` ${imageStyles} ${variantValue.imageStyles} max-w-full h-auto `}
 				/>
 			)}
 
