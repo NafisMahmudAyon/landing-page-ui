@@ -6082,7 +6082,7 @@ const Accordion = ({
 					"flex gap-2 items-center bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
 				activeHeaderStyles: "!rounded-t-lg rounded-b-none",
 				deactivateHeaderStyles:
-					"!bg-neutral-700 hover:!bg-neutral-700 !cursor-default",
+					"!bg-neutral-700 hover:!bg-neutral-700 !opacity-50 !cursor-not-allowed !text-gray-400",
 				detailsStyles: "",
 			});
 		}
@@ -6094,11 +6094,33 @@ const Accordion = ({
 				activeHeaderStyles:
 					"!rounded-t-lg rounded-b-none !bg-black !text-white",
 				deactivateHeaderStyles:
-					"!bg-neutral-700 hover:!bg-neutral-700 !text-white !cursor-default",
+					"!bg-neutral-700 hover:!bg-neutral-700 !opacity-50 !cursor-not-allowed !text-gray-400",
 				detailsStyles: "bg-black rounded-b-lg ",
 			});
 		}
 		if (variant == "3") {
+			setVariantValue({
+				styles: "my-1",
+				headerStyles:
+					"flex gap-2 items-center bg-[#28303d] px-4 py-5 rounded-lg text-white text-xl !font-medium cursor-pointer",
+				activeHeaderStyles: "!rounded-t-lg rounded-b-none",
+				deactivateHeaderStyles:
+					"!bg-neutral-700 !opacity-50 !cursor-not-allowed !text-gray-400 ",
+				detailsStyles: "bg-white rounded-b-lg ",
+			});
+		}
+		if (variant == "4") {
+			setVariantValue({
+				styles: " border-0 border-b border-b-[#343c46] py-1",
+				headerStyles:
+					"flex gap-2 items-center py-6 px-5 rounded-lg text-[#ffffffed] text-xl !font-medium cursor-pointer",
+				activeHeaderStyles: "",
+				deactivateHeaderStyles:
+					"!opacity-50 !cursor-not-allowed !text-gray-400 ",
+				detailsStyles: " ",
+			});
+		}
+		if (variant == "5") {
 			setVariantValue({
 				styles:
 					"my-3 drop-shadow-[5px_5px_0px_#0A0A0A] hover:drop-shadow-[5px_5px_4px_#0A0A0A] ",
@@ -6106,8 +6128,19 @@ const Accordion = ({
 					"flex gap-2 items-center bg-zinc-800 px-4 py-2 !text-amber-400 text-xl !font-medium cursor-pointer",
 				activeHeaderStyles: "",
 				deactivateHeaderStyles:
-					"!bg-neutral-700 !text-amber-200 !cursor-default",
+					"!bg-neutral-700 !text-amber-200 !opacity-70 !cursor-not-allowed",
 				detailsStyles: " ",
+			});
+		}
+		if (variant == "6") {
+			setVariantValue({
+				styles: "my-2 py-1 border-0 border-b border-dashed border-b-[#aeaeae] ",
+				headerStyles:
+					"flex gap-2 items-center px-5 py-6 text-[#1b1f24] text-xl font-medium cursor-pointer",
+				activeHeaderStyles: "",
+				deactivateHeaderStyles:
+					"!opacity-50 !cursor-not-allowed !text-gray-400",
+				detailsStyles: "",
 			});
 		}
 	}, [variant]);
@@ -6223,6 +6256,34 @@ const AccordionHeader = ({
 			});
 		}
 		if (variant == "2") {
+			setVariantValue({
+				iconStyles: "",
+				labelStyles: "",
+				toggleIconStyles: "",
+			});
+		}
+		if (variant == "3") {
+			setVariantValue({
+				iconStyles: "",
+				labelStyles: "",
+				toggleIconStyles: "",
+			});
+		}
+		if (variant == "4") {
+			setVariantValue({
+				iconStyles: "",
+				labelStyles: "",
+				toggleIconStyles: "",
+			});
+		}
+		if (variant == "5") {
+			setVariantValue({
+				iconStyles: "",
+				labelStyles: "",
+				toggleIconStyles: "",
+			});
+		}
+		if (variant == "6") {
 			setVariantValue({
 				iconStyles: "",
 				labelStyles: "",
@@ -6346,7 +6407,22 @@ const AccordionDetails = ({
 		}
 		if (variant == "3") {
 			setVariantValue({
+				styles: "p-5  text-[#626262] ",
+			});
+		}
+		if (variant == "4") {
+			setVariantValue({
+				styles: "p-5 !text-[#ffffff7d] ",
+			});
+		}
+		if (variant == "5") {
+			setVariantValue({
 				styles: "px-4 py-1 pb-3 bg-zinc-800 !text-gray-200 ",
+			});
+		}
+		if (variant == "6") {
+			setVariantValue({
+				styles: "p-5 text-[#908e8e] ",
 			});
 		}
 	}, [variant]);
@@ -7877,4 +7953,3 @@ export {
 	// ScrollTop,
 	UseThemeSwitcher,
 };
-
