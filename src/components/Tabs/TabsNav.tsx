@@ -87,7 +87,7 @@ export const TabsNav: React.FC<TabsNavProps> = ({
   const isFirstTabActive = Array.isArray(children) && children.length > 0 && activeTab === (children[0] as React.ReactElement)?.props?.value;
   const isLastTabActive = Array.isArray(children) && children.length > 0 && activeTab === (children[children.length - 1] as React.ReactElement)?.props?.value;
 
-
+console.log(showButton)
   return (
     <div {...rest} className={`${styles} ${orientation === "vertical" ? "flex-col" : "flex"}`}>
       {showButton && (
