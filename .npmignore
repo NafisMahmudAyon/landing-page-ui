@@ -3,3 +3,6 @@
 
 index.html
 tailwind.config.js
+postcss.config.cjs
+rollup.config.js
+tsconfig.json

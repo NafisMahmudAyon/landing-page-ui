@@ -2,13 +2,12 @@
   "name": "landing-page-ui",
   "version": "2.0.4",
   "description": "React Landing Page UI Components",
-  "main": "dist/index.jsx",
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "dev": "vite",
-    "buildX": "vite build",
-    "watch": "npx tailwindcss -i ./src/index.css -o ./css/output.css --watch",
-    "build": "npx babel src/index.jsx --out-file dist/index.jsx"
+    "build": "npx rollup -c",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./css/output.css --watch"
   },
   "repository": {
     "type": "git",
@@ -24,23 +23,17 @@
   },
   "homepage": "https://ui.nafisbd.com",
   "devDependencies": {
-    "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.23.9",
-    "@babel/preset-react": "^7.23.3",
-    "@types/react": "^18.2.55",
-    "@types/react-dom": "^18.2.19",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "autoprefixer": "^10.4.17",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
-    "vite": "^5.1.0"
-  },
-  "dependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rollup": "^4.16.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^3.4.3",
+    "tslib": "^2.6.2"
   }
 }
