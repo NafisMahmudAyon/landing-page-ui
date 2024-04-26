@@ -21,7 +21,7 @@ interface AccordionHeaderProps {
   deactivate?: boolean;
   deactivateStyles?: string;
   labelStyles?: string;
-  variant?: string | boolean;
+  variant?: string | boolean | number;
 }
 
 export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
@@ -126,7 +126,9 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
       // setIsActive(true);
     }
   }, [active]);
-
+  console.log(`${variant ? variantValue.labelStyles : ""
+    } ${labelStyles} ${isActive ? activeStyles : deactivateStyles
+    } ${styles}`)
   return (
     <>
       {iconPosition === "before" && icon && (

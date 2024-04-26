@@ -9,7 +9,7 @@ interface AccordionDetailsProps {
   id?: string;
   active?: boolean;
   deactivate?: boolean;
-  variant?: string;
+  variant?: string | number;
 }
 
 export const AccordionDetails: React.FC<AccordionDetailsProps> = ({
