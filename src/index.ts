@@ -21,7 +21,7 @@ import { TextArea } from './components/TextArea';
 import { Tabs, TabsNav, TabsPanel, Tab } from './components/Tabs';
 import { UseThemeSwitcher } from './hooks/UseThemeSwitcher';
 
-// import "../css/output.css"
+import "../css/output.css"
 
 
 
