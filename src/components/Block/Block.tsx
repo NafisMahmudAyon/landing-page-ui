@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface BlockProps extends React.HTMLAttributes<HTMLElement> {
   tagName?: string;
@@ -20,7 +20,7 @@ export const Block: React.FC<BlockProps> = ({
   target = "_self",
   ...rest
 }) => {
-  
+
   let [customTag, setCustomTag]: any = useState(tagName || "div");
   const CustomTag: any = customTag.toLowerCase();
 
@@ -32,15 +32,15 @@ export const Block: React.FC<BlockProps> = ({
     }
   }, [isLink, tagName]);
 
-  
+
 
   return (
     <CustomTag
-    className={` ${styles} `}
-    {...(isLink && {
-      href: linkTo,
-      target: target,
-    })}
+      className={` ${styles} `}
+      {...(isLink && {
+        href: linkTo,
+        target: target,
+      })}
       {...rest}
     >
       {children}

@@ -2,7 +2,7 @@ import React, { ReactNode, useState } from 'react';
 
 import { Image } from '../Image';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface ImageGalleryProps extends React.HTMLAttributes<HTMLDivElement> {
   imageCaption?: string;

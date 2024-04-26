@@ -1,4 +1,4 @@
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 export { Tabs } from "./Tabs"
 export { TabsNav } from "./TabsNav"

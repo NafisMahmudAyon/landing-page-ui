@@ -1,7 +1,7 @@
 import React, { useRef, ReactNode, ReactElement } from 'react';
 import { Icon } from '../Icon';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface TabsNavProps {
   showButton?: boolean;
@@ -83,11 +83,11 @@ export const TabsNav: React.FC<TabsNavProps> = ({
   // const isFirstTabActive = activeTab === children[0]?.props?.value;
   // const isLastTabActive = activeTab === children[children.length - 1]?.props?.value;
 
-  
+
   const isFirstTabActive = Array.isArray(children) && children.length > 0 && activeTab === (children[0] as React.ReactElement)?.props?.value;
   const isLastTabActive = Array.isArray(children) && children.length > 0 && activeTab === (children[children.length - 1] as React.ReactElement)?.props?.value;
 
-console.log(showButton)
+  console.log(showButton)
   return (
     <div {...rest} className={`${styles} ${orientation === "vertical" ? "flex-col" : "flex"}`}>
       {showButton && (

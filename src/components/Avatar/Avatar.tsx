@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Icon } from '../Icon';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 
 

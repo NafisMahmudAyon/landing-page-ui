@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface AccordionDetailsProps {
   tagName?: string;

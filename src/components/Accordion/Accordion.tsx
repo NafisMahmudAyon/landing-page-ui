@@ -2,7 +2,7 @@ import React, { useEffect, useState, cloneElement, Children, isValidElement } fr
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionDetails } from "./AccordionDetails";
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface AccordionProps {
   tagName: string;

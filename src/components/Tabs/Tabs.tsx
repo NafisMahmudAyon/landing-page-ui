@@ -2,7 +2,7 @@ import React, { useState, ReactNode, ReactElement } from 'react';
 import { TabsNav } from './TabsNav';
 import { TabsPanel } from './TabsPanel';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface TabsProps {
   styles?: string;

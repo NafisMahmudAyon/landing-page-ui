@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface TableCellProps extends React.HTMLAttributes<HTMLElement> {
   tagName?: string;

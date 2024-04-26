@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface IconProps {
   icon?: string;

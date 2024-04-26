@@ -1,4 +1,4 @@
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 export { Table } from "./Table"
 export { TableBody } from "./TableBody"

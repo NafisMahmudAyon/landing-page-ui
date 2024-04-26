@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   value?: string;

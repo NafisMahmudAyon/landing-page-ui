@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar } from './Avatar';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface AvatarGroupProps {
   styles?: string;

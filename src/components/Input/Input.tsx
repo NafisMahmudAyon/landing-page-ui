@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {Icon} from '../Icon';
+import { Icon } from '../Icon';
 
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   type?: string;

@@ -1,3 +1,3 @@
-import "../../../css/output.css"
+// import "../../../css/output.css"
 
 export {ImageGallery } from './ImageGallery';
