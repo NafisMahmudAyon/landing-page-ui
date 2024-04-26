@@ -58,7 +58,7 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
   });
 
   useEffect(() => {
-    if (variant === "1") {
+    if (variant == "1") {
       setVariantValue({
         iconStyles: "",
         labelStyles: "text-gray-200",

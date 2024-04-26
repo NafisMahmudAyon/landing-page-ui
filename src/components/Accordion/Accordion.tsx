@@ -122,14 +122,6 @@ export const Accordion: React.FC<AccordionProps> = ({
     }
   }, [variant]);
 
-  console.log(variant);
-
-  console.log(variantValue)
-  console.log(` select-none ${isActive ? activeHeaderStyles : ""}
-          ${deactivate ? deactivateHeaderStyles : ""}
-          ${headerStyles} ${variant ? (isActive ? variantValue.activeHeaderStyles : "") : ""}
-          ${variant ? (deactivate ? variantValue.deactivateHeaderStyles : "") : ""}
-          ${variant ? variantValue.headerStyles : ""}`)
 
 
 

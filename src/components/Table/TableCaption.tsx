@@ -13,7 +13,7 @@ export const TableCaption: React.FC<TableCaptionProps> = ({ children, styles = "
   const [variantValue, setVariantValue] = useState<string>("");
 
   useEffect(() => {
-    if (variant === "1") {
+    if (variant == "1") {
       setVariantValue("text-slate-500 py-4 text-xs");
     }
   }, [variant]);

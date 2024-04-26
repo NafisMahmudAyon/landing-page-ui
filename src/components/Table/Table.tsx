@@ -12,9 +12,9 @@ export const Table: React.FC<TableProps> = ({ children, styles = "", variant, ..
   const [variantValue, setVariantValue] = useState<string>("");
 
   useEffect(() => {
-    if (variant === "1") {
+    if (variant == "1") {
       setVariantValue("w-full text-sm text-left text-gray-500");
-    } else if (variant === "2") {
+    } else if (variant == "2") {
       setVariantValue("border-collapse w-full");
     }
   }, [variant]);

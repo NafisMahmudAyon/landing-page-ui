@@ -12,7 +12,7 @@ export const TableFooter: React.FC<TableFooterProps> = ({ children, styles = "",
   const [variantValue, setVariantValue] = useState<string>("");
 
   useEffect(() => {
-    if (variant === "1") {
+    if (variant == "1") {
       setVariantValue("");
     }
   }, [variant]);

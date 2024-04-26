@@ -12,9 +12,9 @@ export const TableRow: React.FC<TableRowProps> = ({ children, styles = "", varia
   const [variantValue, setVariantValue] = useState<string>("");
 
   useEffect(() => {
-    if (variant === "1") {
+    if (variant == "1") {
       setVariantValue("border-b border-gray-500 last:border-b-0 odd:bg-gray-200 even:bg-gray-300");
-    } else if (variant === "2") {
+    } else if (variant == "2") {
       setVariantValue("");
     }
   }, [variant]);
