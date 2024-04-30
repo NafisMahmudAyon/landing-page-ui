@@ -27,7 +27,7 @@ export const Accordion: React.FC<AccordionProps> = ({
   activeHeaderStyles = "",
   deactivateHeaderStyles = "",
   detailsStyles = "",
-  variant,
+  variant="1",
   ...rest
 }) => {
   function generateUniqueId() {

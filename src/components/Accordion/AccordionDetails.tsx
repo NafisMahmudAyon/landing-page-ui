@@ -19,7 +19,7 @@ export const AccordionDetails: React.FC<AccordionDetailsProps> = ({
   id,
   active,
   deactivate,
-  variant,
+  variant="1",
   ...rest
 }) => {
   let [customTag, setCustomTag]: any = useState(tagName || "div");

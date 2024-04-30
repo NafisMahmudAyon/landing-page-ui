@@ -81,7 +81,7 @@ export const Image: React.FC<ImageProps> = ({
     >
       <figure className="flex flex-col items-center">
         <img
-          className={` ${imageStyles} max-w-full h-auto shadow-lg `}
+          className={` ${imageStyles} max-w-full h-auto `}
           src={
             src ||
             "https://source.unsplash.com/random/800x600?nature"
