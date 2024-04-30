@@ -42,7 +42,7 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
   deactivate,
   deactivateStyles = "",
   labelStyles = "",
-  variant="1",
+  variant,
   ...rest
 }) => {
   const [customTag, setCustomTag] = useState(tagName || "div");
