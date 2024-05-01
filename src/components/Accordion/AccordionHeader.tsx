@@ -42,7 +42,7 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
   deactivate,
   deactivateStyles = "",
   labelStyles = "",
-  variant,
+  variant="1",
   ...rest
 }) => {
   const [customTag, setCustomTag] = useState(tagName || "div");
@@ -58,6 +58,13 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
   });
 
   useEffect(() => {
+    if (variant == "none") {
+      setVariantValue({
+        iconStyles: "",
+        labelStyles: "",
+        toggleIconStyles: "",
+      });
+    }
     if (variant == "1") {
       setVariantValue({
         iconStyles: "",

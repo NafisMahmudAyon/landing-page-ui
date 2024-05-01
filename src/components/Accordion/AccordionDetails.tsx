@@ -29,6 +29,11 @@ export const AccordionDetails: React.FC<AccordionDetailsProps> = ({
     styles: '',
   });
   useEffect(() => {
+    if (variant == "none") {
+      setVariantValue({
+        styles: "",
+      });
+    }
     if (variant == "1") {
       setVariantValue({
         styles: "bg-neutral-900 px-4 py-4 rounded-b-lg dark:bg-gray-900 border-x border-b !text-gray-200",

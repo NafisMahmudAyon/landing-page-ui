@@ -52,6 +52,17 @@ export const Accordion: React.FC<AccordionProps> = ({
   });
 
   useEffect(() => {
+    if (variant == "none") {
+      setVariantValue({
+        styles: "",
+        headerStyles:
+          "",
+        activeHeaderStyles: "",
+        deactivateHeaderStyles:
+          "",
+        detailsStyles: "",
+      });
+    }
     if (variant == "1") {
       setVariantValue({
         styles: "my-1",
