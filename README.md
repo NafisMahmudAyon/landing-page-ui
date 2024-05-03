@@ -1,3 +1,15 @@
+
+![NPM Downloads](https://img.shields.io/npm/dm/landing-page-ui)
+![NPM License](https://img.shields.io/npm/l/landing-page-ui)
+![npm bundle size](https://img.shields.io/bundlephobia/min/landing-page-ui)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/landing-page-ui)
+![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/landing-page-ui)
+![GitHub forks](https://img.shields.io/github/forks/NafisMahmudAyon/ui)
+![GitHub Repo stars](https://img.shields.io/github/stars/NafisMahmudAyon/ui)
+
+
+
+
 # Landing Page UI
 
 The Landing Page UI package is a collection of reusable React components designed to facilitate the creation of beautiful and responsive landing pages. This package aims to simplify the process of building landing pages by providing pre-styled components that are customizable and easy to integrate into your projects.
