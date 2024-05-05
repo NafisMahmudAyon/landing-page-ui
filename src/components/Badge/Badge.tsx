@@ -55,25 +55,20 @@ export const Badge: React.FC<BadgeProps> = ({
       });
     } else if (variant == "4") {
       setVariantValue({
-        styles: "bg-green-600 w-16 h-16 text-[1.25rem] rounded-md leading-none border border-white",
-        badgeStyles: "object-cover text-transparent text-center ",
+        styles: "w-[60px] h-[60px] border-2 rounded-full border-cyan-500 text-cyan-500 bg-white flex items-center justify-center outline-2 outline-offset-4 outline-cyan-500 outline ",
+        badgeStyles: "bg-cyan-500 rounded-full text-white flex items-center justify-center min-w-[20px] h-[20px] px-[6px] rounded-[10px]",
       });
     } else if (variant == "5") {
       setVariantValue({
-        styles: "bg-gray-500 w-16 h-16 text-[1.25rem] rounded-md leading-none border border-white",
-        badgeStyles: "object-cover text-transparent text-center rounded-md",
+        styles: "relative inline-flex align-middle text-red-500 ",
+        badgeStyles: "font-medium text-[0.75rem] min-w-[20px] h-[20px] bg-white text-red-500 leading-none px-[6px] rounded-[10px]",
       });
     } else if (variant == "6") {
       setVariantValue({
-        styles: "bg-gray-500 w-20 h-20 text-[1.25rem] leading-none outline-2 outline-offset-2 outline-yellow-600 outline overflow-visible ",
-        badgeStyles: "object-cover text-transparent text-center rounded-full w-full border-2 border-yellow-600  ",
+        styles: "relative inline-flex align-middle  ",
+        badgeStyles: "font-medium text-[0.75rem] min-w-[20px] h-[20px] bg-white text-red-500 leading-none px-[6px] rounded-[10px]",
       });
-    } else if (variant == "6") {
-      setVariantValue({
-        styles: "bg-gray-500 w-20 h-20 text-[1.25rem] leading-none outline-4 outline-offset-[3px] outline-green-600 outline overflow-visible ",
-        badgeStyles: "object-cover text-transparent text-center rounded-full w-full   ",
-      });
-    }
+    } 
   }, [variant]);
 
   const verticalClass = isTop ? "top" : isBottom ? "bottom" : "top";
