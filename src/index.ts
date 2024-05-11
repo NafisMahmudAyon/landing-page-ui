@@ -1,3 +1,4 @@
+import { Checkbox } from './components/Checkbox';
 import { Accordion, AccordionHeader, AccordionDetails} from './components/Accordion';
 import { Icon } from './components/Icon';
 import { Avatar, AvatarGroup } from './components/Avatar';
@@ -26,4 +27,4 @@ import "./input.css"
 
 
 
-export  {Accordion, AccordionHeader, AccordionDetails, Icon, Avatar, AvatarGroup, Badge, Block, Card, CardContent, CardMedia, CardAction, Image, ImageGallery, Text, IconButton,Table, TableHead, TableBody, TableFooter, TableCaption, TableRow, TableCell, Flex, FlexItem, Grid, GridItem, List, ProgressBar, CircularProgressBar, Divider, Label, Input, TextArea, Tabs, TabsNav, TabsPanel, Tab, UseThemeSwitcher }
+export  {Accordion, AccordionHeader, AccordionDetails, Icon, Avatar, AvatarGroup, Badge, Block, Card, CardContent, CardMedia, CardAction, Image, ImageGallery, Text, IconButton,Table, TableHead, TableBody, TableFooter, TableCaption, TableRow, TableCell, Flex, FlexItem, Grid, GridItem, List, ProgressBar, CircularProgressBar, Divider, Label, Input, TextArea, Tabs, TabsNav, TabsPanel, Tab, Checkbox, UseThemeSwitcher }

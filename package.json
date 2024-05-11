@@ -7,6 +7,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx rollup -c",
+    "start": "nodemon  --exec npm run build --watch",
     "watch": "npx tailwindcss -i ./src/input.css -o ./css/output.css --watch"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "autoprefixer": "^10.4.19",
+    "nodemon": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^4.16.4",
