@@ -65,7 +65,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     <>
       {icon && <>
         <span className="relative">
-          {label && labelPosition === "before" && <Label htmlFor={label} className={`${labelStyles}`}>{label}</Label>}
+          {label && labelPosition === "before" && <Label htmlFor={id? id : label ?label : ""} className={`${labelStyles}`}>{label}</Label>}
 
           <input
             type="checkbox"
@@ -81,10 +81,15 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             <Icon icon={icon} iconLibrary={iconLibrary} iconStyles={iconStyle} />}
           {checkedOn &&
             <Icon icon={checkedIcon ? checkedIcon : icon} iconLibrary={checkedIconLibrary ? checkedIconLibrary : iconLibrary} iconStyles={checkedIconStyle} />}
-          {label}
+          {label && labelPosition === "after" && <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>{label}</Label>}
         </span>
       </>}
-      {!icon &&
+      {!icon && <>
+      {/* {label && labelPosition === "before" && <Label htmlFor={label} className={`${labelStyles}`}>{label}</Label>} */}
+        {label && <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>
+        {labelPosition === "before" && <>{label}</>}
+
+
         <input
           type="checkbox"
           id={id}
@@ -94,7 +99,15 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           value={value}
           onChange={handleChange}
           className={`${styles}`}
-          {...rest} />}
+          {...rest} />
+        {labelPosition === "after" && <>{label}</>}
+        
+        
+      
+      
+      </Label>}
+        {/* {label && labelPosition === "after" && <Label htmlFor={label} className={`${labelStyles}`}>{label}</Label>} */}
+      </>}
     </>
   );
 }
