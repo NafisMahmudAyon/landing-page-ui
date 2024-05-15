@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Icon } from "../Icon";
-import { Label } from "../Label";
+import React, { useState } from 'react'
+import { Label } from '../Label';
+import { Icon } from '../Icon';
 
-interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface RadioProps {
   checked?: boolean;
   name?: string;
   onChange?: (checked: boolean | React.ChangeEvent<HTMLInputElement>) => void;
@@ -26,8 +26,7 @@ interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelStyles?: string;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
-  checked,
+export const Radio: React.FC<RadioProps> = ({ checked,
   name,
   onChange,
   disabled,
@@ -48,8 +47,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   label,
   labelPosition = "before",
   labelStyles = "",
-  ...rest
-}) => {
+  ...rest }) => {
   const [checkedOn, setCheckedOn] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,9 +63,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       {icon && <>
         <span className="relative">
           {label && labelPosition === "before" && <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>{label}</Label>}
-
           <input
-            type="checkbox"
+            type="radio"
             id={id}
             name={name}
             title={title}
@@ -88,10 +85,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         {/* {label && labelPosition === "before" && <Label htmlFor={label} className={`${labelStyles}`}>{label}</Label>} */}
         {label && <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>
           {labelPosition === "before" && <>{label}</>}
-
-
           <input
-            type="checkbox"
+            type="radio"
             id={id}
             name={name}
             title={title}
@@ -102,15 +97,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             className={`${styles}`}
             {...rest} />
           {labelPosition === "after" && <>{label}</>}
-
-
-
-
         </Label>}
         {/* {label && labelPosition === "after" && <Label htmlFor={label} className={`${labelStyles}`}>{label}</Label>} */}
       </>}
       {!icon && !label && <><input
-        type="checkbox"
+        type="radio"
         id={id}
         name={name}
         title={title}
@@ -121,5 +112,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         className={`${styles}`}
         {...rest} /></>}
     </>
-  );
+  )
 }
+

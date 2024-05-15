@@ -20,6 +20,7 @@ import { Label } from './components/Label';
 import { Input } from './components/Input';
 import { TextArea } from './components/TextArea';
 import { Tabs, TabsNav, TabsPanel, Tab } from './components/Tabs';
+import { Radio, RadioGroup } from './components/Radio';
 import { UseThemeSwitcher } from './hooks/UseThemeSwitcher';
 
 import "../css/output.css"
@@ -27,4 +28,4 @@ import "./input.css"
 
 
 
-export  {Accordion, AccordionHeader, AccordionDetails, Icon, Avatar, AvatarGroup, Badge, Block, Card, CardContent, CardMedia, CardAction, Image, ImageGallery, Text, IconButton,Table, TableHead, TableBody, TableFooter, TableCaption, TableRow, TableCell, Flex, FlexItem, Grid, GridItem, List, ProgressBar, CircularProgressBar, Divider, Label, Input, TextArea, Tabs, TabsNav, TabsPanel, Tab, Checkbox, UseThemeSwitcher }
+export  {Accordion, AccordionHeader, AccordionDetails, Icon, Avatar, AvatarGroup, Badge, Block, Card, CardContent, CardMedia, CardAction, Image, ImageGallery, Text, IconButton,Table, TableHead, TableBody, TableFooter, TableCaption, TableRow, TableCell, Flex, FlexItem, Grid, GridItem, List, ProgressBar, CircularProgressBar, Divider, Label, Input, TextArea, Tabs, TabsNav, TabsPanel, Tab, Checkbox, Radio, RadioGroup, UseThemeSwitcher }
