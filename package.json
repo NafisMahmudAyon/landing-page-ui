@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NafisMahmudAyon/ui.git"
+    "url": "git+https://github.com/NafisMahmudAyon/landing-page-ui.git"
   },
   "keywords": [
     "ui",
@@ -25,7 +25,7 @@
   "author": "Nafis Mahmud Ayon <nafismahmudayon@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NafisMahmudAyon/ui/issues"
+    "url": "https://github.com/NafisMahmudAyon/landing-page-ui/issues"
   },
   "homepage": "https://ui.nafisbd.com",
   "devDependencies": {
