@@ -97,6 +97,7 @@ export const Radio: React.FC<RadioProps> = ({ checked,
             className={`${styles}`}
             {...rest} />
           {labelPosition === "after" && <>{label}</>}
+          
         </Label>}
         {/* {label && labelPosition === "after" && <Label htmlFor={label} className={`${labelStyles}`}>{label}</Label>} */}
       </>}
