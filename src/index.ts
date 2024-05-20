@@ -23,7 +23,7 @@ import { Tabs, TabsNav, TabsPanel, Tab } from './components/Tabs';
 import { Radio, RadioGroup } from './components/Radio';
 import { UseThemeSwitcher } from './hooks/UseThemeSwitcher';
 
-import "./index.min.css"
+import "../css/output.css"
 import "./input.css"
 
 
