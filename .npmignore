@@ -1,4 +1,6 @@
-/src
+/app
+/components
+/public
 /node_modules
 
 index.html
@@ -6,4 +8,13 @@ tailwind.config.js
 postcss.config.cjs
 rollup.config.js
 tsconfig.json
+tsconfig.lib.json
 .babelrc
+.eslintrc.json
+.gitignore
+.global.d.ts
+next.env.d.ts
+next.config.js
+next.config.mjs
+postcss.config.mjs
+.next

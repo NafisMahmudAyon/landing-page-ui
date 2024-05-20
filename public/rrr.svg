@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 759.07 879.87">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-6);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-5);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient-4);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-13.06" y1="-17.17" x2="811.09" y2="834.25" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#87c1e6"/>
+      <stop offset=".5" stop-color="#929ee6"/>
+      <stop offset="1" stop-color="#9a8be6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-8.68" y1="-21.41" x2="815.47" y2="830" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="256.07" y1="-277.68" x2="1080.22" y2="573.73" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="48.46" y1="-76.73" x2="872.62" y2="774.69" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="-152.29" y1="117.6" x2="671.87" y2="969.01" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-6" x1="-206.37" y1="169.95" x2="617.78" y2="1021.36" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-5" width="224.5" height="224.57"/>
+      <rect class="cls-1" x="267.84" y="267.93" width="224.5" height="224.57"/>
+      <rect class="cls-4" x="523.46" y="2.22" width="224.5" height="224.57"/>
+      <rect class="cls-6" x="534.57" y="429.14" width="224.5" height="224.57"/>
+      <rect class="cls-3" x="446.51" y="738.51" width="141.31" height="141.36"/>
+      <rect class="cls-2" x="116.43" y="505.77" width="143.37" height="143.42"/>
+    </g>
+  </g>
+</svg>

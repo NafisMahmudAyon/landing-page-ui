@@ -2,13 +2,41 @@
   "name": "landing-page-ui",
   "version": "2.1.19",
   "description": "React Landing Page UI Components",
-  "main": "dist/index.js",
-  "type": "module",
-  "types": "dist/index.d.ts",
+  "files": [
+    "./lib/"
+  ],
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "default": "./lib/cjs/index.js"
+      }
+    },
+    
+    "./css": {
+      "default": "./lib/cjs/index.min.css"
+    }
+  },
+  
   "scripts": {
-    "build": "npx rollup -c",
-    "start": "nodemon  --exec npm run build --watch",
-    "watch": "npx tailwindcss -i ./src/input.css -o ./css/output.css"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build:lib": "rimraf ./lib/ && yarn build:lib:dev",
+    "build:lib:dev": "yarn watch && yarn build:lib:esm && yarn build:lib:cjs && yarn build:css",
+    "build:css": "css-minify -f ./app/src/index.css -o ./lib/cjs",
+    "watch": "npx tailwindcss -i ./app/src/input.css -o ./app/src/index.css",
+    "build:lib:cjs": "tsc -p tsconfig.lib.json",
+    "build:lib:esm": "tsc -p tsconfig.lib.json --module esnext --declaration --outDir ./lib/esm",
+    "lint": "eslint app --ext ts,tsx,js,jsx,cjs --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint app --ext js,jsx,ts,tsx,cjs --fix",
+    "format": "prettier --write 'app/**/*.{js,jsx,ts,tsx,css,html}'"
   },
   "repository": {
     "type": "git",
@@ -28,18 +56,23 @@
     "url": "https://github.com/NafisMahmudAyon/landing-page-ui/issues"
   },
   "homepage": "https://ui.nafisbd.com",
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-lottie": "^1.2.4"
+  },
   "devDependencies": {
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-typescript": "^11.1.6",
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.25",
-    "autoprefixer": "^10.4.19",
-    "nodemon": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rollup": "^4.16.4",
-    "rollup-plugin-postcss": "^4.0.2",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-lottie": "^1.2.10",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "css-minify": "^2.0.0",
+    "postcss": "^8",
+    "rimraf": "^5.0.7",
     "tailwindcss": "^3.4.1",
-    "tslib": "^2.6.2"
+    "typescript": "^5"
   }
 }

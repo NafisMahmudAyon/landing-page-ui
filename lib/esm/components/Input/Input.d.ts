@@ -1,0 +1,30 @@
+import React, { ReactElement } from 'react';
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    id?: string;
+    title?: string;
+    type?: string;
+    value?: string;
+    placeholder?: string;
+    onChange?: (value: string | React.ChangeEvent<HTMLInputElement>) => void;
+    disabled?: boolean;
+    required?: boolean;
+    autoComplete?: string;
+    styles?: string;
+    disabledStyles?: string;
+    requiredStyles?: string;
+    inputStyles?: string;
+    errorStyles?: string;
+    iconEnable?: boolean;
+    icon?: string;
+    iconLibrary?: string;
+    iconPosition?: string;
+    iconStyles?: string;
+    error?: boolean;
+    helperText?: string;
+    label?: string;
+    labelPosition?: "before" | "after" | "inside";
+    labelStyles?: string;
+    labelRequiredIcon?: string | ReactElement;
+}
+export declare const Input: React.FC<InputProps>;
+export {};
