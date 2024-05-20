@@ -66,15 +66,6 @@ export const AccordionDetails: React.FC<AccordionDetailsProps> = ({
     }
   }, [variant]);
 
-  console.log(variant)
-  console.log(variantValue)
-
-
-
-  console.log("styles: ", styles);
-  console.log("variantValue.styles: ", variantValue.styles);
-  console.log(` ${styles} ${variant ? variantValue.styles : ""} `)
-
   return (
     <CustomTag id={id} className={` ${styles} ${variant ? variantValue.styles : ""} `} {...rest}>
       {children}

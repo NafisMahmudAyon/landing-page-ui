@@ -157,7 +157,6 @@ export const Input: React.FC<InputProps> = ({
     setShowPassword(!showPassword);
   };
 
-  console.log(labelPosition)
 
   return (
     <>
