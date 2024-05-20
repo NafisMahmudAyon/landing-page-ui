@@ -1,6 +1,6 @@
 {
   "name": "landing-page-ui",
-  "version": "2.1.21",
+  "version": "2.1.22",
   "description": "React Landing Page UI Components",
   "files": [
     "./lib/"
@@ -54,8 +54,7 @@
     "url": "https://github.com/NafisMahmudAyon/landing-page-ui/issues"
   },
   "homepage": "https://ui.nafisbd.com",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "react": "^18",
     "react-dom": "^18",
