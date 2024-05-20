@@ -1,6 +1,6 @@
 {
   "name": "landing-page-ui",
-  "version": "2.1.19",
+  "version": "2.1.20",
   "description": "React Landing Page UI Components",
   "files": [
     "./lib/"
@@ -18,12 +18,10 @@
         "default": "./lib/cjs/index.js"
       }
     },
-    
     "./css": {
       "default": "./lib/cjs/index.min.css"
     }
   },
-  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
