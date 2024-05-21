@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react';
 
 export const UseThemeSwitcher = (): [string, React.Dispatch<React.SetStateAction<string>>] => {

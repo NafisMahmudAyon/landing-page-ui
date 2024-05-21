@@ -5,6 +5,6 @@
     "module": "ES2015",
     "outDir": "./lib/cjs"
   },
-  "exclude": ["app/**/*.stories.tsx"],
+  "exclude": ["app/**/*.stories.tsx", "./lib/"],
   "include": ["./app/src"]
 }

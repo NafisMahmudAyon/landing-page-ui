@@ -3,7 +3,7 @@
 import React from "react";
 // import UseThemeSwitcher from "../Hooks/UseThemeSwitcher";
 import { Logo, MoonIcon, SunIcon, UI } from "@/components/Icons";
-import { UseThemeSwitcher } from "landing-page-ui";
+import { UseThemeSwitcher } from "@/app/src";
 import Link from "next/link";
 
 const NavbarHome = () => {

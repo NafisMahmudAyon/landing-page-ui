@@ -6,6 +6,7 @@ interface IconProps {
     isLink?: boolean;
     linkTo?: string;
     target?: string;
+    title?: string;
     onClick?: React.MouseEventHandler<HTMLElement>;
 }
 export declare const Icon: React.FC<IconProps>;

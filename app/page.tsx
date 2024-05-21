@@ -1,18 +1,18 @@
-import ClickToCopy from "@/components/ClickToCopy";
-import { UI } from "@/components/Icons";
-import NavbarHome from "@/components/NavbarHome";
-import { Block, Image as LandingPageImage, Text } from "landing-page-ui";
+import { Text } from "@/app/src";
 import Image from "next/image";
 import Link from "next/link";
 
 import HeroImage from "@/public/hero-img.png"
 
+import { UI } from "@/components/Icons";
+import NavbarHome from "@/components/NavbarHome";
+import ClickToCopy from "@/components/ClickToCopy";
+import GetStarted from "@/components/GetStarted";
+
 
 export default function Home() {
   
-  // const handleGetStarted = () => {
-  //   window.location.href = "/install";
-  // };
+  
   
   return (
     <main className="relative w-full text-textColor dark:text-darkTextColor transition-all duration-300 ease-in-out ">
@@ -51,7 +51,7 @@ export default function Home() {
                 Elevate your designs today!
               </Text>
             </p>
-            {/* <div className="mt-7 flex flex-col lg:flex-row items-center gap-5">
+            <div className="mt-7 flex flex-col lg:flex-row items-center gap-5">
               <div className="flex items-center gap-3 border border-gray-500 hover:border-gray-950 hover:dark:border-[#6fb8e6] group px-3 py-2 rounded-md">
                 <p className="font-code flex gap-2">
                   <Text
@@ -67,13 +67,7 @@ export default function Home() {
                 </p>
                 <ClickToCopy />
               </div>
-              <Block
-                tagName="button"
-                styles="px-6 py-2 dark:bg-bgColor dark:text-textColor bg-darkBgColor text-darkTextColor transition-all duration-300 ease-in-out rounded-lg text-lg font-semibold hover:bg-darkHoverBgColor hover:text-textHoverColor dark:hover:bg-darkHoverBgColor dark:hover:text-[#6fb8e6] "
-                // onClick={handleGetStarted}
-                >
-                Get Started
-              </Block>
+              <GetStarted />
             </div>
             <Link
               href="https://www.producthunt.com/posts/landing-page-ui?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-landing-page-ui"
@@ -85,9 +79,9 @@ export default function Home() {
                 width="250"
                 height="54"
               />
-            </Link> */}
+            </Link>
           </div>
-          <div className="relative before:absolute before:top-1/2  before:left-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:w-[100%] before:h-[100%] before:bg-[url('/rrr.svg')] before:dark:bg-[url('/ttt.svg')] before:bg-[length:80%_100%] before:lg:bg-contain before:bg-no-repeat before:bg-center before:content-[''] before:pb-7">
+          <div className="relative before:absolute before:top-1/2  before:left-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:w-[100%] before:h-[100%] before:bg-[url('/rrr.svg')] before:dark:bg-[url('/ttt.svg')] before:bg-[length:80%_100%] before:lg:bg-contain before:bg-no-repeat before:bg-center before:content-[''] before:pb-7 before:-z-[1]">
             <Image
               src={HeroImage}
               alt="Hero Image"

@@ -11,7 +11,7 @@ interface AccordionHeaderProps {
     toggleIconStyles?: string;
     iconPosition?: "before" | "after";
     iconStyles?: string;
-    id: string;
+    id?: string;
     active?: boolean;
     isActive?: boolean;
     deactivate?: boolean;

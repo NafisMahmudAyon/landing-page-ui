@@ -1,5 +1,6 @@
 'use client'
-import { Icon } from 'landing-page-ui';
+
+import { Icon } from '@/app/src';
 import React from 'react'
 
 const ClickToCopy = () => {
@@ -12,7 +13,7 @@ const ClickToCopy = () => {
       iconLibrary="font-awesome"
       iconStyles="group-hover:text-gray-950 group-hover:dark:text-[#6fb8e6]"
       onClick={handleCopy}
-      // title="Click to copy" 
+      title="Click to copy"
     />
   )
 }

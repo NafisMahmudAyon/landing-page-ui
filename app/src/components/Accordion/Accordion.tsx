@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from "react";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionDetails } from "./AccordionDetails";
@@ -5,7 +7,7 @@ import { AccordionDetails } from "./AccordionDetails";
 // import "../../../css/output.css"
 
 interface AccordionProps {
-  tagName: string;
+  tagName?: string;
   styles?: string;
   children?: React.ReactNode;
   active?: boolean;

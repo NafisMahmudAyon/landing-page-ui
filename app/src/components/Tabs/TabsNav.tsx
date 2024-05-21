@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useRef, ReactElement } from 'react';
 import { Icon } from '../Icon';
 

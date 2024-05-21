@@ -1,6 +1,6 @@
 import React from "react";
 interface AccordionProps {
-    tagName: string;
+    tagName?: string;
     styles?: string;
     children?: React.ReactNode;
     active?: boolean;

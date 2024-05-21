@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from "react";
 import { Icon } from "../Icon";
 
@@ -15,7 +17,7 @@ interface AccordionHeaderProps {
   toggleIconStyles?: string;
   iconPosition?: "before" | "after";
   iconStyles?: string;
-  id: string;
+  id?: string;
   active?: boolean;
   isActive?: boolean;
   deactivate?: boolean;

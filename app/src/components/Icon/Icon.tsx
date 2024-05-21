@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect } from 'react';
 
 // import "../../../css/output.css"
@@ -9,6 +11,7 @@ interface IconProps {
   isLink?: boolean;
   linkTo?: string;
   target?: string;
+  title?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
@@ -19,6 +22,7 @@ export const Icon: React.FC<IconProps> = ({
   isLink,
   linkTo = '',
   target = '_self',
+  title,
   onClick,
   ...rest
 }) => {

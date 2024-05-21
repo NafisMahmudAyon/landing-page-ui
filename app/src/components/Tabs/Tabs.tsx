@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, ReactElement } from 'react';
 import { TabsNav } from './TabsNav';
 import { TabsPanel } from './TabsPanel';
