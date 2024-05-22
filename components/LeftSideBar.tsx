@@ -7,12 +7,11 @@ import Links from "./Links";
 const LeftSideBar = () => {
   const pathName = usePathname()
   return (
-    <div className="pt-2">
+    <aside className="pt-2">
       {Object.entries(Links).map(([category, links]) => {
         if (category === "Home") {
           return null; // Skip rendering for category "Name"
         }
-        console.log(category);
         let active = false;
         if (
           (pathName.includes("/variations") && category === "Variations") ||
@@ -81,7 +80,7 @@ const LeftSideBar = () => {
           </Accordion>
         );
       })}
-    </div>
+    </aside>
   );
 };
 

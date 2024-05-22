@@ -11,9 +11,6 @@ import GetStarted from "@/components/GetStarted";
 
 
 export default function Home() {
-  
-  
-  
   return (
     <main className="relative w-full text-textColor dark:text-darkTextColor transition-all duration-300 ease-in-out ">
       <div className="absolute -z-[1] inset-0 bg-color bg-top bg-no-repeat bg-home h-[100%] lg:h-[100dvh]">

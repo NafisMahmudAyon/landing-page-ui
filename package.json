@@ -55,13 +55,15 @@
   },
   "homepage": "https://ui.nafisbd.com",
   "dependencies": {
-    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
+    "react-router-dom": "^6.23.1",
+    "react-syntax-highlighter": "^15.5.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-lottie": "^1.2.10",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "css-minify": "^2.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
