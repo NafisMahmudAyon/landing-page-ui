@@ -4,7 +4,7 @@ interface TableCellProps extends React.HTMLAttributes<HTMLElement> {
     header?: boolean;
     thStyles?: string;
     tdStyles?: string;
-    variant?: string;
+    variant?: number;
     scope?: string;
     children?: React.ReactNode;
     styles?: string;

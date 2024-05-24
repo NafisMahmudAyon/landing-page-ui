@@ -16,11 +16,11 @@ interface TabsNavProps {
     tabAreaStyles?: string;
     activeTabStyles?: string;
     styles?: string;
-    children: ReactElement;
+    children: ReactElement[] | ReactElement;
     buttonTextEnabled?: boolean;
-    activeTab: string;
-    onTabClick: (value: string) => void;
-    orientation: 'horizontal' | 'vertical';
+    activeTab?: number | string;
+    onTabClick?: (value: string) => void;
+    orientation?: 'horizontal' | 'vertical';
 }
 export declare const TabsNav: React.FC<TabsNavProps>;
 export {};

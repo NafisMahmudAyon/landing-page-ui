@@ -4,7 +4,7 @@ interface BadgeProps {
     badgeStyles?: string;
     position?: string;
     tagName?: string;
-    content?: number;
+    badgeValue?: number;
     maxCount?: number;
     variant?: string | boolean | number;
     children?: React.ReactNode;

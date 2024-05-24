@@ -1,11 +1,11 @@
-import React, { ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     id?: string;
     title?: string;
     type?: string;
     value?: string;
     placeholder?: string;
-    onChange?: (value: string | React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     disabled?: boolean;
     required?: boolean;
     autoComplete?: string;

@@ -79,15 +79,12 @@ interface CodeProps {
 
 const Code: React.FC<CodeProps> = ({
   // style,
-  content,
+  // content,
   tagName = "pre",
-  languages = "css",
+  // languages = "css",
   styles = "",
   children,
 }) => {
-  // const [customTag] = useState(tagName || "pre");
-  // const CustomTag = customTag.toLowerCase();
-  console.log(content,languages)
   const CustomTag = tagName.toLowerCase() as keyof JSX.IntrinsicElements;
 
   return <CustomTag className={` ${styles} `}>{children}</CustomTag>;

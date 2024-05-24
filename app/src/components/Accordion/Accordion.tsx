@@ -16,7 +16,7 @@ interface AccordionProps {
   activeHeaderStyles?: string;
   deactivateHeaderStyles?: string;
   detailsStyles?: string;
-  variant?: string;
+  variant?: string | number;
 }
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -157,13 +157,13 @@ export const Accordion: React.FC<AccordionProps> = ({
     active?: boolean,
     isActive?: boolean,
     deactivate?: boolean,
-    variant?: string;
+    variant?: string | number;
   }
   type DetailsProps = {
     id: string,
     active?: boolean,
     deactivate?: boolean,
-    variant?: string;
+    variant?: string | number;
   }
   const headerProps: HeaderProps = {
     id: id,

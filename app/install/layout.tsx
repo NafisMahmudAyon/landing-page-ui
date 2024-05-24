@@ -18,7 +18,7 @@ export default function RootLayout({
         <div className="bg-slate-100 font-sans text-slate-700 dark:text-slate-200  dark:bg-darkBgColor  min-h-screen relative ">
           <div className="flex pt-[62px] flex-nowrap flex-col md:flex-row lg:flex-row relative h-screen overflow-y-scroll">
             <Navbar className="fixed z-30 top-0 left-0 w-full" />
-            <div className="w-full lg:w-[80%] flex-1 px-3 md:pl-5 md:pr-5 ">
+            <div className="w-full lg:w-[80%] flex-1 px-3 pt-4 md:pl-5 md:pr-5 ">
               {children}
             </div>
           </div>

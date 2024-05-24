@@ -1,6 +1,6 @@
 import React from 'react';
 interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
-    variant?: string;
+    variant?: string | boolean | number;
     children?: React.ReactNode;
     styles?: string;
 }

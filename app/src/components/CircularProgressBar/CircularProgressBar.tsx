@@ -15,7 +15,7 @@ interface CircularProgressBarProps extends React.HTMLAttributes<HTMLDivElement> 
 }
 
 export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
-  value,
+  value = 75,
   styles = "",
   onVisible,
   duration = 2,

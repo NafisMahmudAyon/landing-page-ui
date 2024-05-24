@@ -9,7 +9,7 @@ interface TableCellProps extends React.HTMLAttributes<HTMLElement> {
   header?: boolean;
   thStyles?: string;
   tdStyles?: string;
-  variant?: string;
+  variant?: number;
   scope?: string;
   children?: React.ReactNode;
   styles?: string;
@@ -37,13 +37,13 @@ export const TableCell: React.FC<TableCellProps> = ({
   const CustomTag: any = customTag.toLowerCase();
 
   useEffect(() => {
-    if (variant == "1") {
+    if (variant == 1) {
       setVariantValue({
         styles: "px-6 py-4",
         thStyles: "font-bold text-gray-500 whitespace-nowrap",
         tdStyles: "",
       });
-    } else if (variant == "2") {
+    } else if (variant == 2) {
       setVariantValue({
         styles: "p-2 text-left border-0 border-b border-b-gray-500",
         thStyles: "",

@@ -9,7 +9,7 @@ interface AccordionProps {
     activeHeaderStyles?: string;
     deactivateHeaderStyles?: string;
     detailsStyles?: string;
-    variant?: string;
+    variant?: string | number;
 }
 export declare const Accordion: React.FC<AccordionProps>;
 export {};

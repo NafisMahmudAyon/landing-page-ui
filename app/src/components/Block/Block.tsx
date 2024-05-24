@@ -12,7 +12,6 @@ interface BlockProps extends React.HTMLAttributes<HTMLElement> {
   target?: string;
 }
 
-
 export const Block: React.FC<BlockProps> = ({
   tagName,
   styles = "",

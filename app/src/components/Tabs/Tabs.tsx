@@ -8,7 +8,7 @@ import { TabsPanel } from './TabsPanel';
 
 interface TabsProps {
   styles?: string;
-  children: ReactElement;
+  children: ReactElement | ReactElement[];
   active?: number;
   orientation?: 'horizontal' | 'vertical';
   navWrapStyles?: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 interface TableBodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {
-    variant?: string;
+    variant?: number;
     children?: React.ReactNode;
     styles?: string;
 }

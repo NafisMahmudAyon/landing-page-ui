@@ -22,11 +22,11 @@ interface TabsNavProps {
   tabAreaStyles?: string;
   activeTabStyles?: string;
   styles?: string;
-  children: ReactElement;
+  children: ReactElement[] | ReactElement;
   buttonTextEnabled?: boolean;
-  activeTab: string;
-  onTabClick: (value: string) => void;
-  orientation: 'horizontal' | 'vertical';
+  activeTab?: number | string;
+  onTabClick?: (value: string) => void;
+  orientation?: 'horizontal' | 'vertical';
 }
 
 export const TabsNav: React.FC<TabsNavProps> = ({
@@ -48,8 +48,8 @@ export const TabsNav: React.FC<TabsNavProps> = ({
   styles = "",
   children,
   buttonTextEnabled = false,
-  activeTab,
-  onTabClick,
+  activeTab = 1,
+  onTabClick = () => { },
   orientation,
   ...rest
 }) => {

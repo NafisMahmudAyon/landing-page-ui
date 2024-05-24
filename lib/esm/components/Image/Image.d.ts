@@ -1,7 +1,7 @@
 import React from 'react';
 interface ImageProps extends React.HTMLAttributes<HTMLDivElement | HTMLAnchorElement> {
     src?: string;
-    altText?: string;
+    alt: string;
     imageCaption?: string;
     captionEnabled?: boolean;
     isLink?: boolean;

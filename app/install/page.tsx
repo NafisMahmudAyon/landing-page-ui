@@ -7,7 +7,7 @@ const page = () => {
   return (
     <Block styles="scroll-smooth md:w-[65%] lg:w-[73%] pb-10">
       <Block styles="relative">
-        <Block styles="my-2 pt-4">
+        <Block styles="my-2">
           <Text tagName="h1" styles="text-2xl !font-medium">
             Introduction - Landing Page UI
           </Text>

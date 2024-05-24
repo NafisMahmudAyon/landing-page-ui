@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { usePathname } from 'next/navigation'
 import { Accordion, AccordionDetails, AccordionHeader } from "@/app/src";
@@ -52,7 +52,7 @@ const LeftSideBar = () => {
               toggleIconStyles=""
               toggleIcon="bi-caret-down"
               iconPosition="before"
-              styles="!bg-transparent"
+              styles="!bg-transparent font-mono"
               activeStyles=""
               variant="none">
               {category}

@@ -8,7 +8,7 @@ interface BadgeProps {
   badgeStyles?: string;
   position?: string;
   tagName?: string;
-  content?: number;
+  badgeValue?: number;
   maxCount?: number;
   variant?: string | boolean | number;
   children?: React.ReactNode;
@@ -19,7 +19,7 @@ export const Badge: React.FC<BadgeProps> = ({
   badgeStyles = "",
   position = "top right",
   tagName,
-  content = 0,
+  badgeValue = 0,
   maxCount,
   children,
   variant = "1",
@@ -76,22 +76,22 @@ export const Badge: React.FC<BadgeProps> = ({
   // const verticalClass = isTop ? "top" : isBottom ? "bottom" : "top";
   // const horizontalClass = isLeft ? "left" : isRight ? "right" : "right";
 
-  let displayContent: string = content.toString();
+  let displayContent: string = badgeValue.toString();
 
-  if (!maxCount && typeof content === 'number' && content % 100 === 0 && content !== 0) {
-    let xyz: number = content - 1;
+  if (!maxCount && typeof badgeValue === 'number' && badgeValue % 100 === 0 && badgeValue !== 0) {
+    let xyz: number = badgeValue - 1;
 
     displayContent = xyz.toString();
     displayContent += "+";
-  } else if (!maxCount && content === 0) {
+  } else if (!maxCount && badgeValue === 0) {
     displayContent = "0";
   }
 
   if (maxCount !== undefined) {
-    if (typeof content === 'number' && content > maxCount) {
+    if (typeof badgeValue === 'number' && badgeValue > maxCount) {
       displayContent = maxCount + "+";
     } else {
-      displayContent = content.toString();
+      displayContent = badgeValue.toString();
     }
   }
 

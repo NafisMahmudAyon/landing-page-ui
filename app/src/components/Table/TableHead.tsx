@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 // import "../../../css/output.css"
 
 interface TableHeadProps extends React.HTMLAttributes<HTMLTableSectionElement> {
-  variant?: string;
+  variant?: number;
   children?: React.ReactNode;
   styles?: string;
 }
@@ -14,10 +14,10 @@ export const TableHead: React.FC<TableHeadProps> = ({ children, styles = "", var
   const [variantValue, setVariantValue] = useState<string>("");
 
   useEffect(() => {
-    if (variant == "1") {
+    if (variant == 1) {
       setVariantValue("text-gray-500 uppercase bg-gray-400");
     }
-    if (variant == "2") {
+    if (variant == 2) {
       setVariantValue("font-semibold");
     }
   }, [variant]);

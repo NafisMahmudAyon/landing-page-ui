@@ -32,6 +32,12 @@ body {
   }
 } */
 
+@layer base {
+  .code {
+    @apply font-code;
+  }
+}
+
 
 
 body{
@@ -77,7 +83,7 @@ body{
 }
 
 .code {
-  font-family: 'Ubuntu Mono', monospace;
+  /* font-family: 'Ubuntu Mono'; */
   font-weight: 100;
   background-color: rgb(178, 190, 195);
   color: black;
@@ -155,4 +161,101 @@ body{
 .comment {
     color: gray;
     font-style: italic;
+}
+
+
+/* .loader {
+  width: 120px;
+  height: 20px;
+  -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) left / 20% 100%;
+  background: linear-gradient(#000 0 0) left -25% top 0 / 20% 100% no-repeat #ddd;
+  animation: l7 1s infinite steps(6);
+}
+
+@keyframes l7 {
+  100% { 
+    background-position: right -25% top 0;
+  }
+} */
+
+
+/* .loader {
+  width: 45px;
+  aspect-ratio: 1;
+  --c: conic-gradient(from -90deg,#000 90deg,#0000 0);
+  background: var(--c), var(--c);
+  background-size: 40% 40%;
+  animation: l20 1.5s infinite;
+}
+@keyframes l20 {
+ 0%,
+ 20%  {background-position: 0 0           ,0            calc(100%/3)}
+ 33%  {background-position: 0 0           ,calc(100%/3) calc(100%/3)}
+ 66%  {background-position: 0 calc(100%/3),calc(100%/3) 0  }
+ 80%,
+ 100% {background-position: 0 calc(100%/3),0            0  }
+} */
+
+/* HTML: <div class="loader"></div> */
+/* .loader {    
+  --r1: 154%;
+  --r2: 68.5%;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%; 
+  background:
+    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%),
+    radial-gradient(var(--r1) var(--r2) at bottom,#269af2 79.5%,#0000 80%),
+    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%),
+    #ccc;
+  background-size: 50.5% 220%;
+  background-position: -100% 0%,0% 0%,100% 0%;
+  background-repeat:no-repeat;
+  animation: l9 5s infinite linear;
+}
+@keyframes l9 {
+    33%  {background-position:    0% 33% ,100% 33% ,200% 33% }
+    66%  {background-position: -100%  66%,0%   66% ,100% 66% }
+    100% {background-position:    0% 100%,100% 100%,200% 100%}
+} */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 60px;
+  height: 25px;
+  border: 2px solid;
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: grid;
+  animation: l2 2s infinite linear;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  border: inherit;
+  border-radius: 50%;
+  animation: inherit;
+  animation-duration: 3s;
+}
+.loader:after {
+  --s:-1;
+}
+@keyframes l2 {
+   100% {transform:rotate(calc(var(--s,1)*1turn))}
+}
+
+.background {
+  --s: 30px; /* control the size*/
+  --c1: #ffffff;
+  --c2: #355c7d;
+  
+  --_g: 
+     var(--c2) 6%  14%,var(--c1) 16% 24%,var(--c2) 26% 34%,var(--c1) 36% 44%,
+     var(--c2) 46% 54%,var(--c1) 56% 64%,var(--c2) 66% 74%,var(--c1) 76% 84%,var(--c2) 86% 94%;
+  background:
+    radial-gradient(100% 100% at 100% 0,var(--c1) 4%,var(--_g),#0008 96%,#0000),
+    radial-gradient(100% 100% at 0 100%,#0000, #0008 4%,var(--_g),var(--c1) 96%)
+    var(--c1);
+  background-size: var(--s) var(--s);
 }

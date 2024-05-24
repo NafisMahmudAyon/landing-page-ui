@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 interface ImageProps extends React.HTMLAttributes<HTMLDivElement | HTMLAnchorElement> {
   src?: string;
-  altText?: string;
+  alt: string;
   imageCaption?: string;
   captionEnabled?: boolean;
   isLink?: boolean;
@@ -28,8 +28,8 @@ interface ImageProps extends React.HTMLAttributes<HTMLDivElement | HTMLAnchorEle
 }
 
 export const Image: React.FC<ImageProps> = ({
-  src,
-  altText,
+  src = "https://source.unsplash.com/random/600x600?nature=1",
+  alt = "Description of the image",
   imageCaption,
   captionEnabled,
   isLink,
@@ -88,7 +88,7 @@ export const Image: React.FC<ImageProps> = ({
             src ||
             "https://source.unsplash.com/random/800x600?nature"
           }
-          alt={altText || imageCaption || "Description of the image"}
+          alt={alt || imageCaption}
           onClick={linkTo ? undefined : lightBox ? openLightbox : undefined}
           {...rest}
         />
@@ -96,7 +96,7 @@ export const Image: React.FC<ImageProps> = ({
           <figcaption
             className={` ${captionStyles} text-gray-600 text-sm mt-2 `}
           >
-            {imageCaption || altText || "This is the caption for the image."}
+            {imageCaption || alt || "This is the caption for the image."}
           </figcaption>
         )}
       </figure>
@@ -117,7 +117,7 @@ export const Image: React.FC<ImageProps> = ({
                 src ||
                 "https://source.unsplash.com/random/800x600?nature"
               }
-              alt={altText || "lightbox"}
+              alt={alt || "lightbox"}
               className={` ${lightBoxImageStyles} max-w-[95%] w-full rounded-md`}
             />
             {lightBoxCaptionEnabled && (
@@ -126,7 +126,7 @@ export const Image: React.FC<ImageProps> = ({
               >
                 {lightBoxCaption ||
                   imageCaption ||
-                  altText ||
+                  alt ||
                   "This is the caption for the image."}
               </figcaption>
             )}

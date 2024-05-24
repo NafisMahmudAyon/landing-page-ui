@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     fontFamily: {
 			sans: ["Poppins"],
-			code: ['"Fira Code"'],
+			code: ['"RobotoMono"'],
 			mono: ["Anta"],
 		},
     extend: {
@@ -27,6 +27,7 @@ const config: Config = {
 				darkTextColor: "#e2e8f0",
 				darkTextHoverColor: "#f1f5f9",
 				bgColor: "#f1f5f9",
+				// bgColor: "#f2f5ff",
 				darkBgColor: "#0f172a",
 				hoverBgColor: "#1f262e66",
 				darkHoverBgColor: "#71829566",

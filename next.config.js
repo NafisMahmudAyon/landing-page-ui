@@ -8,6 +8,12 @@ module.exports = {
 				port: "",
 				pathname: "/widgets/**",
 			},
+			{
+				protocol: "https",
+				hostname: "source.unsplash.com",
+				port: "",
+				pathname: "/random/**",
+			},
 		],
 	},
 };
