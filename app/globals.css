@@ -271,7 +271,10 @@ body{
 
 :is(.dark .gradient-background){
   background: linear-gradient(115deg,#aa69a1,#72b1c7,#a9d834,#b8167a,#a48b2a);
-  
+  background-size: 300% 300%;
+  animation: gradient-animation 5s ease infinite;
+  background-clip: text;
+  color: transparent;
 }
 
 @keyframes gradient-animation {

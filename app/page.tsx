@@ -5,9 +5,9 @@ import Link from "next/link";
 import HeroImage from "@/public/hero-img.png"
 
 import { UI } from "@/components/Icons";
-import NavbarHome from "@/components/NavbarHome";
 import ClickToCopy from "@/components/ClickToCopy";
 import GetStarted from "@/components/GetStarted";
+import Navbar from "@/components/Navbar";
 
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
           className="absolute inset-0 bg-[bottom_1px_center] bg-grid dark:bg-bottom dark:border-b dark:border-slate-100/5"
           style={{ maskImage: "linear-gradient(transparent, black)" }}></div>
       </div>
-      <NavbarHome />
+      <Navbar />
       <div className=" w-full mx-auto  ">
         <div className="relative pb-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-28 lg:h-[calc(100vh-85px)] w-full max-w-[1400px] place-items-center mx-auto ">
           <div className="flex flex-col items-center pt-7 px-4">

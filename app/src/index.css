@@ -1764,10 +1764,6 @@ video {
   padding: 0.25rem;
 }
 
-.p-10 {
-  padding: 2.5rem;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -2357,12 +2353,6 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-\[-14px_-14px_1px_0px_\#C5AEA7\] {
-  --tw-shadow: -14px -14px 1px 0px #C5AEA7;
-  --tw-shadow-colored: -14px -14px 1px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -2717,12 +2707,6 @@ video {
 
 .hover\:opacity-85:hover {
   opacity: 0.85;
-}
-
-.hover\:shadow-\[-10px_-10px_6px_0px_\#C5AEA7\]:hover {
-  --tw-shadow: -10px -10px 6px 0px #C5AEA7;
-  --tw-shadow-colored: -10px -10px 6px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .hover\:drop-shadow-\[5px_5px_4px_\#0A0A0A\]:hover {

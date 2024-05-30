@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from "react";
-// import UseThemeSwitcher from "../Hooks/UseThemeSwitcher";
+import { usePathname } from 'next/navigation';
 import { Logo, MoonIcon, SunIcon, UI } from "@/components/Icons";
 import { Block, UseThemeSwitcher } from "@/app/src";
 import LeftSideBar from "./LeftSideBar";
@@ -13,7 +13,6 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const [mode, setMode] = UseThemeSwitcher();
   const [isOpen, setIsOpen] = useState(false);
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -28,31 +27,31 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     setIsOpen(!isOpen);
   };
 
+  const router = usePathname();
+  console.log(router)
+
   return (
     <>
       <div
         className={`${className} bg-slate-300/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-slate-900/30 flex justify-between items-center px-[20px] py-2  `}>
-        <button
-          className="flex flex-col items-center justify-center lg:hidden"
-          onClick={() => {
-            toggleSidebar();
-            handleClick();
-          }}>
-          <span
-            className={`bg-darkBgColor dark:bg-bgColor block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
-              } `}></span>
-          <span
-            className={`bg-darkBgColor dark:bg-bgColor block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? "opacity-0" : "opacity-100"
-              } `}></span>
-          <span
-            className={`bg-darkBgColor dark:bg-bgColor block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
-              } `}></span>
-        </button>
-        {/* <Logo
-				className="fill-darkBgColor dark:fill-bgColor cursor-pointer "
-				width={130}
-				onClick={handleLogoClick}
-			/> */}
+        {router === "/" && (
+          <button
+            className="flex flex-col items-center justify-center lg:hidden"
+            onClick={() => {
+              toggleSidebar();
+              handleClick();
+            }}>
+            <span
+              className={`bg-darkBgColor dark:bg-bgColor block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+                } `}></span>
+            <span
+              className={`bg-darkBgColor dark:bg-bgColor block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? "opacity-0" : "opacity-100"
+                } `}></span>
+            <span
+              className={`bg-darkBgColor dark:bg-bgColor block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+                } `}></span>
+          </button>
+        )}
         <Block styles="flex gap-2 items-center" onClick={handleLogoClick}>
           <UI width={45} />
           <Logo
@@ -73,10 +72,6 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
           )}
         </button>
       </div>
-      {/* <Navbar
-        toggleSidebar={toggleSidebar}
-        className="fixed z-30 top-0 left-0 w-full"
-      /> */}
       <div
         className={` ${isSidebarOpen
           ? "absolute top-[62px] left-0 w-full  h-[calc(100%_-_62px)] -z-0 bg-black/50"
@@ -87,9 +82,11 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
           } `}>
         <LeftSideBar />
       </div>
-      <div className="hidden lg:w-[20%]  lg:block border-r sticky top-0 lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 pr-5  ">
-        <LeftSideBar />
-      </div>
+      {router !== "/" && (
+        <div className="hidden lg:w-[20%]  lg:block border-r sticky top-0 lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 pr-5  ">
+          <LeftSideBar />
+        </div>
+      )}
     </>
   );
 };

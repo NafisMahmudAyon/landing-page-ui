@@ -12,7 +12,7 @@ const Loader = () => {
         setTimeout(() => {
           setIsVisible(false);
         }, 1000); // Match the duration of your CSS transition
-      }, 1500); // Change 1500 to the number of milliseconds you want
+      }, 1100); // Change 1500 to the number of milliseconds you want
 
       // Clear timeout if the component is unmounted before the timeout completes
       return () => clearTimeout(timer);
