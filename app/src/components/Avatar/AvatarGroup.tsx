@@ -8,7 +8,7 @@ import { Avatar } from './Avatar';
 interface AvatarGroupProps {
   styles?: string;
   children?: React.ReactNode;
-  variant?: string;
+  variant?: number;
 }
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({ styles = "", children, variant, ...rest }) => {
@@ -17,11 +17,11 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({ styles = "", children,
   });
 
   useEffect(() => {
-    if (variant == "1") {
+    if (variant == 1) {
       setVariantValue({
         styles: " -space-x-2",
       });
-    } else if (variant == "2" || variant == "3" || variant == "4" || variant == "5" || variant == "6") {
+    } else if (variant == 2 || variant == 3 || variant == 4 || variant == 5 || variant == 6) {
       setVariantValue({
         styles: "-space-x-2 ",
       });

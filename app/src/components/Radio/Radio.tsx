@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useState } from 'react'
+import React from 'react'
 import { Label } from '../Label';
 import { Icon } from '../Icon';
 
@@ -50,21 +48,21 @@ export const Radio: React.FC<RadioProps> = ({ checked,
   labelPosition = "before",
   labelStyles = "",
   ...rest }) => {
-  const [checkedOn, setCheckedOn] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newCheckedValue = e.target.checked;
-    setCheckedOn(newCheckedValue);
-
-    if (onChange) {
-      onChange(newCheckedValue);
+    if (onChange && e.target.checked) {
+      onChange(e);
     }
   };
   return (
     <>
-      {icon && <>
+      {icon && (
         <span className="relative">
-          {label && labelPosition === "before" && <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>{label}</Label>}
+          {label && labelPosition === "before" && (
+            <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>
+              {label}
+            </Label>
+          )}
           <input
             type="radio"
             id={id}
@@ -73,48 +71,61 @@ export const Radio: React.FC<RadioProps> = ({ checked,
             disabled={disabled}
             required={required}
             value={value}
+            checked={checked}
             onChange={handleChange}
             className={`${styles} absolute top-0 left-0 w-full h-full opacity-0`}
-            {...rest} />
-          {!checkedOn &&
-            <Icon icon={icon} iconLibrary={iconLibrary} iconStyles={iconStyle} />}
-          {checkedOn &&
-            <Icon icon={checkedIcon ? checkedIcon : icon} iconLibrary={checkedIconLibrary ? checkedIconLibrary : iconLibrary} iconStyles={checkedIconStyle} />}
-          {label && labelPosition === "after" && <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>{label}</Label>}
+            {...rest}
+          />
+          {!checked && <Icon icon={icon} iconLibrary={iconLibrary} iconStyles={iconStyle} />}
+          {checked && (
+            <Icon icon={checkedIcon ? checkedIcon : icon} iconLibrary={checkedIconLibrary ? checkedIconLibrary : iconLibrary} iconStyles={checkedIconStyle} />
+          )}
+          {label && labelPosition === "after" && (
+            <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>
+              {label}
+            </Label>
+          )}
         </span>
-      </>}
-      {!icon && <>
-        {/* {label && labelPosition === "before" && <Label htmlFor={label} className={`${labelStyles}`}>{label}</Label>} */}
-        {label && <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>
-          {labelPosition === "before" && <>{label}</>}
-          <input
-            type="radio"
-            id={id}
-            name={name}
-            title={title}
-            disabled={disabled}
-            required={required}
-            value={value}
-            onChange={handleChange}
-            className={`${styles}`}
-            {...rest} />
-          {labelPosition === "after" && <>{label}</>}
-          
-        </Label>}
-        {/* {label && labelPosition === "after" && <Label htmlFor={label} className={`${labelStyles}`}>{label}</Label>} */}
-      </>}
-      {!icon && !label && <><input
-        type="radio"
-        id={id}
-        name={name}
-        title={title}
-        disabled={disabled}
-        required={required}
-        value={value}
-        onChange={handleChange}
-        className={`${styles}`}
-        {...rest} /></>}
+      )}
+      {!icon && (
+        <>
+          {label && (
+            <Label htmlFor={id ? id : label ? label : ""} className={`${labelStyles}`}>
+              {labelPosition === "before" && <>{label}</>}
+              <input
+                type="radio"
+                id={id}
+                name={name}
+                title={title}
+                disabled={disabled}
+                required={required}
+                value={value}
+                checked={checked}
+                onChange={handleChange}
+                className={`${styles}`}
+                {...rest}
+              />
+              {labelPosition === "after" && <>{label}</>}
+            </Label>
+          )}
+        </>
+      )}
+      {!icon && !label && (
+        <input
+          type="radio"
+          id={id}
+          name={name}
+          title={title}
+          disabled={disabled}
+          required={required}
+          value={value}
+          checked={checked}
+          onChange={handleChange}
+          className={`${styles}`}
+          {...rest}
+        />
+      )}
     </>
-  )
+  );
 }
 

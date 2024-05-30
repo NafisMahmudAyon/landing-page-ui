@@ -22,7 +22,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     error?: boolean;
     helperText?: string;
     label?: string;
-    labelPosition?: "before" | "after" | "inside";
+    labelPosition?: "before" | "after";
     labelStyles?: string;
     labelRequiredIcon?: string | ReactElement;
 }

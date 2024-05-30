@@ -19,7 +19,7 @@ interface TabsNavProps {
     children: ReactElement[] | ReactElement;
     buttonTextEnabled?: boolean;
     activeTab?: number | string;
-    onTabClick?: (value: string) => void;
+    onTabClick?: (value: number) => void;
     orientation?: 'horizontal' | 'vertical';
 }
 export declare const TabsNav: React.FC<TabsNavProps>;

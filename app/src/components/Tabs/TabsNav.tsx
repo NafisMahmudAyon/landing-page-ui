@@ -3,8 +3,6 @@
 import React, { useRef, ReactElement } from 'react';
 import { Icon } from '../Icon';
 
-// import "../../../css/output.css"
-
 interface TabsNavProps {
   showButton?: boolean;
   iconStyles?: string;
@@ -25,7 +23,7 @@ interface TabsNavProps {
   children: ReactElement[] | ReactElement;
   buttonTextEnabled?: boolean;
   activeTab?: number | string;
-  onTabClick?: (value: string) => void;
+  onTabClick?: (value: number) => void;
   orientation?: 'horizontal' | 'vertical';
 }
 
@@ -56,40 +54,34 @@ export const TabsNav: React.FC<TabsNavProps> = ({
   const tabsRef = useRef<HTMLDivElement>(null);
 
   const scrollPrev = () => {
-    const tabs = tabsRef.current?.children as HTMLCollectionOf<HTMLDivElement>;
+    const tabs = tabsRef.current?.children as HTMLCollectionOf<HTMLButtonElement>;
     if (!tabs) return;
     const activeIndex = Array.from(tabs).findIndex(
-      (tab) => tab.dataset.value === activeTab
+      (tab) => parseInt(tab.dataset.value || '') === activeTab
     );
     if (activeIndex > 0) {
       const prevTab = tabs[activeIndex - 1];
-      onTabClick(prevTab.dataset.value || "");
+      onTabClick(parseInt(prevTab.dataset.value || ''));
       prevTab.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   };
 
   const scrollNext = () => {
-    const tabs = tabsRef.current?.children as HTMLCollectionOf<HTMLDivElement>;
+    const tabs = tabsRef.current?.children as HTMLCollectionOf<HTMLButtonElement>;
     if (!tabs) return;
     const activeIndex = Array.from(tabs).findIndex(
-      (tab) => tab.dataset.value === activeTab
+      (tab) => parseInt(tab.dataset.value || '') === activeTab
     );
     if (activeIndex < tabs.length - 1) {
       const nextTab = tabs[activeIndex + 1];
-      onTabClick(nextTab.dataset.value || "");
+      onTabClick(parseInt(nextTab.dataset.value || ''));
       nextTab.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   };
 
-
-  // const isFirstTabActive = activeTab === children[0]?.props?.value;
-  // const isLastTabActive = activeTab === children[children.length - 1]?.props?.value;
-
-
   const isFirstTabActive = Array.isArray(children) && children.length > 0 && activeTab === (children[0] as React.ReactElement)?.props?.value;
   const isLastTabActive = Array.isArray(children) && children.length > 0 && activeTab === (children[children.length - 1] as React.ReactElement)?.props?.value;
 
-  
   return (
     <div {...rest} className={`${styles} ${orientation === "vertical" ? "flex-col" : "flex"}`}>
       {showButton && (

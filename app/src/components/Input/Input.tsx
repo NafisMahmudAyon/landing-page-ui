@@ -28,11 +28,11 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
   helperText?: string;
   label?: string;
-  labelPosition?: "before" | "after" | "inside";
+  labelPosition?: "before" | "after";
   labelStyles?: string;
   labelRequiredIcon?: string | ReactElement;
 }
-
+// TODO: labelPosition inside 
 export const Input: React.FC<InputProps> = ({
   id,
   title,

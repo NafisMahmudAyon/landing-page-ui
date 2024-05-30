@@ -259,3 +259,29 @@ body{
     var(--c1);
   background-size: var(--s) var(--s);
 }
+
+
+.gradient-background {
+  background: linear-gradient(115deg,#312d31,#72b1c7,#a9d834,#301024,#c9a61a);
+  background-size: 300% 300%;
+  animation: gradient-animation 5s ease infinite;
+  background-clip: text;
+  color: transparent;
+}
+
+:is(.dark .gradient-background){
+  background: linear-gradient(115deg,#aa69a1,#72b1c7,#a9d834,#b8167a,#a48b2a);
+  
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

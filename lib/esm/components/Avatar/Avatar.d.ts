@@ -5,7 +5,7 @@ interface AvatarProps {
     src?: string;
     altText?: string;
     imageStyles?: string;
-    variant?: string;
+    variant?: number;
     onClick?: () => void;
 }
 export declare const Avatar: React.FC<AvatarProps>;
