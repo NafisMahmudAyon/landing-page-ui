@@ -19,6 +19,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
           {/* <link rel="icon" type="image/png" href="/favicon.png" /> */}
+        <meta name="google-site-verification" content="kzd4tEkZbSdyQePsnqGTPD9k-qeM8NDEKQQE3-ArBfA" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

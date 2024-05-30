@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+	<loc>https://ui.nafisbd.com/</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/install</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/accordion</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/avatar</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/badge</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/block</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/card</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/circular-progress-bar</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/divider</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/flex</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/grid</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/icon-button</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/image</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/image-gallery</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/input</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/label</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/list</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/progress-bar</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/tabs</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/table</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/textarea</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/text</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/accordion</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/avatar</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/badge</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<!-- <url>
+	<loc>https://ui.nafisbd.com/variations/block</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/card</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/circular-progress-bar</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/divider</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/flex</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/grid</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/icon-button</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/image</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/image-gallery</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/input</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/label</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/list</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/progress-bar</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/tabs</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/table</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/textarea</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/variations/text</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url> -->
+<!-- <url>
+	<loc>https://ui.nafisbd.com/about</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/overview</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/installation</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/usage</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/combo-list</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/carousel</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/components/code-snippet</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/playground</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/test</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ui.nafisbd.com/testing</loc>
+	<lastmod>2024-05-13T07:57:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url> -->
+</urlset>
