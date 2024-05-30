@@ -206,7 +206,15 @@ export default App; `}
           />
         </Block>
       </Block>
-      <RightSideBar id="rightSideBar">
+      <RightSideBar id="rightSideBar" data={[
+        {
+          id: "#vite-install",
+          title: "Vite React Application",
+        },{
+          id: "#next-js-install",
+          title: "Next.JS React Application",
+        }
+      ]}>
         <Text styles="text-lg !font-bold pt-3 pl-3 pb-4 ">ON THIS PAGE</Text>
         <Text
           styles="text-sm block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
