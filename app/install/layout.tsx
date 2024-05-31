@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
           <div className="flex pt-[62px] flex-nowrap flex-col md:flex-row lg:flex-row relative h-screen overflow-y-scroll">
             <Navbar className="fixed z-30 top-0 left-0 w-full" />
             <div className="w-full lg:w-[80%] flex-1 px-3 pt-4 md:pl-5 md:pr-5 ">
+              <Loader />
               {children}
             </div>
           </div>

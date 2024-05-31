@@ -76,9 +76,12 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
         className={` ${isSidebarOpen
           ? "absolute top-[62px] left-0 w-full  h-[calc(100%_-_62px)] -z-0 bg-black/50"
           : ""
-          } `}></div>
+          } `} onClick={() => {
+            toggleSidebar();
+            handleClick();
+          }}></div>
       <div
-        className={`fixed top-[62px] -left-[300px] w-[300px] transition-all duration-300 ease-in-out  pl-3 pr-5  border-r bg-darkBgColor text-darkTextColor z-50 overflow-y-scroll h-[calc(100vh_-_85px)] ${isSidebarOpen ? "left-0" : ""
+        className={`fixed top-[62px] -left-[300px] w-[300px] transition-all duration-300 ease-in-out  pl-3 pr-5  border-r bg-darkBgColor text-darkTextColor z-50 overflow-y-scroll h-[calc(100vh_-_62px)] ${isSidebarOpen ? "left-0" : ""
           } `}>
         <LeftSideBar />
       </div>
