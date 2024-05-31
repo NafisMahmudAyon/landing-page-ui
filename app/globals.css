@@ -38,7 +38,16 @@ body {
   }
 }
 
+@font-face {
+  font-family: 'Mono';
+  src: url('/fonts/mono.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+.font-mono{
+  font-family: 'Mono';
+}
 
 body{
   background-color: rgb(241 245 249);
@@ -81,6 +90,8 @@ body{
 .height{
   min-height: 100%;
 }
+
+
 
 .code {
   /* font-family: 'Ubuntu Mono'; */

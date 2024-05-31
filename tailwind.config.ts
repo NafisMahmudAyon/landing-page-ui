@@ -11,7 +11,6 @@ const config: Config = {
     fontFamily: {
 			sans: ["Poppins"],
 			code: ['"RobotoMono"'],
-			mono: ["Anta"],
 		},
     extend: {
       backgroundImage: {

@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     <>
       <div
         className={`${className} bg-slate-300/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-slate-900/30 flex justify-between items-center px-[20px] py-2  `}>
-        {router === "/" && (
+        {router !== "/" && (
           <button
             className="flex flex-col items-center justify-center lg:hidden"
             onClick={() => {
