@@ -28,7 +28,6 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
   };
 
   const router = usePathname();
-  console.log(router)
 
   return (
     <>

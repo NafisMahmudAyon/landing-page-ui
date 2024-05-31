@@ -82,6 +82,8 @@ export default function Home() {
             <Image
               src={HeroImage}
               alt="Hero Image"
+              loading="lazy"
+              // placeholder="blur"
               className="shadow-none"
             />
           </div>
