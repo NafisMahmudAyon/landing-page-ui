@@ -8,10 +8,6 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
-    fontFamily: {
-			sans: ["Poppins"],
-			code: ['"RobotoMono"'],
-		},
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
