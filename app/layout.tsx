@@ -74,7 +74,7 @@ export default function RootLayout({
         {/* <link rel="icon" type="image/png" href="/favicon.png" /> */}
         
 
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -88,7 +88,7 @@ export default function RootLayout({
               })();
             `,
           }}
-        />
+        /> */}
       </head>
       <body className="font-sans">{children}</body>
     </html>
