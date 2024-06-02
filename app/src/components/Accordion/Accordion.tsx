@@ -39,7 +39,12 @@ export const Accordion: React.FC<AccordionProps> = ({
     return uniqueId;
   }
 
-  const id = generateUniqueId();
+  // const id = generateUniqueId();
+  const [id, setId] = useState("");
+
+  useEffect(() => {
+    setId(generateUniqueId());
+  }, []);
 
   let [customTag]: any = useState(tagName || "div");
   const CustomTag: any = customTag.toLowerCase();
@@ -140,7 +145,7 @@ export const Accordion: React.FC<AccordionProps> = ({
 
 
   useEffect(() => {
-    if (active === true) {
+    if (active) {
       setIsActive(true);
     }
   }, [active]);

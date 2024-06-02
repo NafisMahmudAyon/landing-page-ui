@@ -129,12 +129,12 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
   //   }
   // };
 
-  useEffect(() => {
-    if (active) {
-      // Handle active state logic here
-      // setIsActive(true);
-    }
-  }, [active]);
+  // useEffect(() => {
+  //   if (active) {
+  //     // Handle active state logic here
+  //     // setIsActive(true);
+  //   }
+  // }, [active]);
   
   return (
     <>

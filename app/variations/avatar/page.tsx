@@ -73,7 +73,7 @@ const page = () => {
                 <Avatar
                   src={`https://source.unsplash.com/random/600x600?face=${loopIndex}`}
                   variant={index + 1}
-                  key={index + 1}
+                  key={loopIndex}
                 />
               )
             )}

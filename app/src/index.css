@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Poppins;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -135,7 +135,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: Anta;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
   font-feature-settings: normal;
   /* 2 */
@@ -961,8 +961,8 @@ video {
   height: calc(100% - 62px);
 }
 
-.h-\[calc\(100vh_-_85px\)\] {
-  height: calc(100vh - 85px);
+.h-\[calc\(100vh_-_62px\)\] {
+  height: calc(100vh - 62px);
 }
 
 .h-auto {
@@ -2020,20 +2020,12 @@ video {
   vertical-align: middle;
 }
 
-.\!font-code {
-  font-family: "RobotoMono" !important;
-}
-
-.font-code {
-  font-family: "RobotoMono";
-}
-
 .font-mono {
-  font-family: Anta;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .font-sans {
-  font-family: Poppins;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .text-2xl {
@@ -2409,6 +2401,11 @@ video {
 
 .outline-yellow-600 {
   outline-color: #ca8a04;
+}
+
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .drop-shadow-\[5px_5px_0px_\#0A0A0A\] {

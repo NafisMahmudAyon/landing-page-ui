@@ -21,7 +21,7 @@ export const ScrollTop: React.FC<ScrollTopProps> = ({
   iconStyles,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  console.log(isVisible)
+  // console.log(isVisible)
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;

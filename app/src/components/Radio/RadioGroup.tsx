@@ -42,7 +42,6 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({ styles = "", name = "", 
     <fieldset className={`${styles}`}>
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === Radio) {
-          console.log(selectedValue, child.props.value, selectedValue === child.props.value)
           const radioProps: RadioProps = {
             name: name,
             onChange: handleChange,

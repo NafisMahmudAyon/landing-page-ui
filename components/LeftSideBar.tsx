@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 import { usePathname } from 'next/navigation'
 import { Accordion, AccordionDetails, AccordionHeader } from "@/app/src";

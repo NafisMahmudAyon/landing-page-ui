@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans ">
+      <body className="font-sans">
         <div className="bg-bgColor font-sans text-slate-700 dark:text-slate-200  dark:bg-darkBgColor  min-h-screen relative ">
           {/* <div className="background bg-bgColor absolute inset-0 bg-[bottom_1px_center]"></div> */}
           <div
