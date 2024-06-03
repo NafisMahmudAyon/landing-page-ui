@@ -18,7 +18,7 @@ The Landing Page UI is a React component library with ready-to-use building bloc
 ![GitHub forks](https://img.shields.io/github/forks/NafisMahmudAyon/ui)
 ![GitHub Repo stars](https://img.shields.io/github/stars/NafisMahmudAyon/ui)</p>
 
-![Landing Page UI](https://ui.nafisbd.com/web-cover.png)
+![Landing Page UI](https://ui.nafisbd.com/hero-img.png)
 
 <!-- ## Features
 
