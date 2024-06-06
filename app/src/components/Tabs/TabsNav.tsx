@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 interface TabsNavProps {
   showButton?: boolean;
   iconStyles?: string;
-  iconLibrary?: string;
+  iconLibrary?: "bootstrap-icons" | "font-awesome";
   nextIcon?: string;
   prevIcon?: string;
   nextIconPosition?: 'left' | 'right';

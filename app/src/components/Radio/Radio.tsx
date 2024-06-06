@@ -16,11 +16,11 @@ interface RadioProps {
   id?: string;
   title?: string;
   icon?: string;
-  iconLibrary?: string;
+  iconLibrary?: "bootstrap-icons" | "font-awesome";
   iconStyle?: string;
   checkedIcon?: string;
   checkedIconStyle?: string;
-  checkedIconLibrary?: string;
+  checkedIconLibrary?: "bootstrap-icons" | "font-awesome";
   label?: string;
   labelPosition?: "before" | "after" | "inside";
   labelStyles?: string;

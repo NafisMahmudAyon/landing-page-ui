@@ -8,7 +8,7 @@ interface ListProps extends React.HTMLAttributes<HTMLElement> {
   tagName?: string;
   styles?: string;
   listStyles?: string;
-  iconLibrary?: string;
+  iconLibrary?: "bootstrap-icons" | "font-awesome";
   icon?: string;
   iconStyles?: string;
   iconPosition?: "before" | "after";

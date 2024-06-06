@@ -2,12 +2,10 @@
 
 import React, { useEffect } from 'react';
 
-// import "../../../css/output.css"
-
 interface IconProps {
   icon?: string;
   iconStyles?: string;
-  iconLibrary?: string;
+  iconLibrary?: "bootstrap-icons" | "font-awesome";
   isLink?: boolean;
   linkTo?: string;
   target?: string;

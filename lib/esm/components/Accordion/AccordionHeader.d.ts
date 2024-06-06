@@ -4,10 +4,10 @@ interface AccordionHeaderProps {
     styles?: string;
     activeStyles?: string;
     children?: React.ReactNode;
-    iconLibrary?: string;
+    iconLibrary?: "bootstrap-icons" | "font-awesome";
     icon?: string;
     toggleIcon?: string;
-    toggleIconLibrary?: string;
+    toggleIconLibrary?: "bootstrap-icons" | "font-awesome";
     toggleIconStyles?: string;
     iconPosition?: "before" | "after";
     iconStyles?: string;

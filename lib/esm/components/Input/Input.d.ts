@@ -16,7 +16,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     errorStyles?: string;
     iconEnable?: boolean;
     icon?: string;
-    iconLibrary?: string;
+    iconLibrary?: "bootstrap-icons" | "font-awesome";
     iconPosition?: string;
     iconStyles?: string;
     error?: boolean;
