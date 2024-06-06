@@ -1,6 +1,6 @@
 {
   "name": "landing-page-ui",
-  "version": "2.1.35",
+  "version": "2.1.36",
   "description": "React Landing Page UI Components",
   "files": [
     "./lib/"
