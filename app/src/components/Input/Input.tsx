@@ -93,7 +93,7 @@ export const Input: React.FC<InputProps> = ({
                 <Icon
                   icon={icon}
                   iconLibrary={iconLibrary}
-                  iconStyles={` ${iconStyles} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
+                  styles={` ${iconStyles} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
                 />
                 <input
                   id={id}
@@ -136,7 +136,7 @@ export const Input: React.FC<InputProps> = ({
                 <Icon
                   icon={icon}
                   iconLibrary={iconLibrary}
-                  iconStyles={` ${iconStyles} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
+                  styles={` ${iconStyles} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
                 />
                 <input
                   id={id}
@@ -180,7 +180,7 @@ export const Input: React.FC<InputProps> = ({
             <Icon
               icon={icon}
               iconLibrary={iconLibrary}
-              iconStyles={` ${iconStyles} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
+              styles={` ${iconStyles} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
             />
             <input
               id={id}
