@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Accordion, AccordionHeader, Text, AccordionDetails, Icon } from '@/app/src'; // adjust the import paths
+import { Accordion, AccordionHeader, Text, AccordionDetails } from '@/app/src'; // adjust the import paths
 
 const Page = () => {
   
