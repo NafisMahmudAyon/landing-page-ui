@@ -2,7 +2,7 @@ import React from 'react';
 interface IconButtonProps extends React.HTMLAttributes<HTMLElement> {
     tagName?: string;
     icon?: string;
-    iconLibrary?: "bootstrap-icons" | "font-awesome"  | "icofont-icons";
+    iconLibrary?: "bootstrap-icons" | "font-awesome" | "icofont-icons";
     iconPosition?: string;
     text?: string;
     isLink?: boolean;
