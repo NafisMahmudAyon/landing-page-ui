@@ -40,7 +40,7 @@ export const Icon: React.FC<IconProps> = ({
         case 'bootstrap-icons':
           return 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css';
         case 'font-awesome':
-          return 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+          return 'https://nafismahmudayon.github.io/bootstrap-icons/bootstrap-icons/font/bootstrap-icons.min.css';
         case 'ico-font':
           return 'https://nafismahmudayon.github.io/icofont/icofont.min.css';
         default:
