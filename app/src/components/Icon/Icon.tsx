@@ -60,38 +60,31 @@ export const Icon: React.FC<IconProps> = ({
     };
   }, [iconLibrary]);
 
-  // const [iconHtml, setIconHtml] = useState("")
-  
-  var iconHtml =""
-  if (iconLibrary === 'font-awesome') {
-    var iconHtml = `<i class="fa-solid ${icon} ${iconStyles}"></i>`
-  } else if (iconLibrary === 'bootstrap-icons') {
-    var iconHtml = `<i class="bi bi-${icon} ${iconStyles}"></i>`
-  } else if (iconLibrary === 'icofont-icons') {
-    var iconHtml = `<i class="icofont-${icon} ${iconStyles}"></i>`
-  }
+  const getIconHtml = (): string => {
+    switch (iconLibrary) {
+      case 'font-awesome':
+        return `<i class="fa-solid ${icon} ${iconStyles}"></i>`;
+      case 'bootstrap-icons':
+        return `<i class="bi bi-${icon} ${iconStyles}"></i>`;
+      case 'icofont-icons':
+        return `<i class="icofont-${icon} ${iconStyles}"></i>`;
+      default:
+        return '';
+    }
+  };
 
-  return (
-    <>
-      {(isLink || linkTo) && (
-        <a
-          href={linkTo || '#'}
-          target={target}
-          className={` ${styles} `}
-          onClick={onClick}
-          {...rest}
-          dangerouslySetInnerHTML={{ __html: iconHtml }}
-        />
-      )}
-      {(!isLink || !linkTo) && (
-        <span
-          className={` ${styles} `}
-          onClick={onClick}
-          {...rest}
-          dangerouslySetInnerHTML={{ __html: iconHtml }}
-        />
-      )}
-    </>
+  const iconHtml = getIconHtml();
+
+  const commonProps = {
+    className: `${styles}`,
+    onClick,
+    title,
+    ...rest,
+  };
+
+  return isLink ? (
+    <a href={linkTo || '#'} target={target} {...commonProps} dangerouslySetInnerHTML={{ __html: iconHtml }} />
+  ) : (
+    <span {...commonProps} dangerouslySetInnerHTML={{ __html: iconHtml }} />
   );
 };
-

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Accordion, AccordionHeader, Text, AccordionDetails } from '@/app/src'; // adjust the import paths
+import { Accordion, AccordionHeader, Text, AccordionDetails, Icon } from '@/app/src'; // adjust the import paths
 
 const Page = () => {
   
@@ -21,6 +21,7 @@ const Page = () => {
           </Text>
         </AccordionDetails>
       </Accordion>
+      <Icon icon="sun-set icofont-2x" iconLibrary='icofont-icons' iconStyles='h-10 w-10 flex items-center justify-center border rounded-full shadow-lg hover:shadow-none ' title="Sun Set" />
     </div>
   );
 };
