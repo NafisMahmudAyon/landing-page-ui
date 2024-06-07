@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 interface IconProps {
   icon?: string;
   iconStyles?: string;
-  iconLibrary?: "bootstrap-icons" | "font-awesome";
+  iconLibrary?: "bootstrap-icons" | "font-awesome" | "icofont-icons";
   isLink?: boolean;
   linkTo?: string;
   target?: string;
@@ -41,7 +41,7 @@ export const Icon: React.FC<IconProps> = ({
           return 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css';
         case 'font-awesome':
           return 'https://nafismahmudayon.github.io/bootstrap-icons/bootstrap-icons/font/bootstrap-icons.min.css';
-        case 'ico-font':
+        case 'icofont-icons':
           return 'https://nafismahmudayon.github.io/icofont/icofont.min.css';
         default:
           return '';

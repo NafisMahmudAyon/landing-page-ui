@@ -18,11 +18,11 @@ interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   title?: string;
   icon?: string;
-  iconLibrary?: "bootstrap-icons" | "font-awesome";
+  iconLibrary?: "bootstrap-icons" | "font-awesome" | "icofont-icons";
   iconStyle?: string;
   checkedIcon?: string;
   checkedIconStyle?: string;
-  checkedIconLibrary?: "bootstrap-icons" | "font-awesome";
+  checkedIconLibrary?: "bootstrap-icons" | "font-awesome" | "icofont-icons";
   label?: string;
   labelPosition?: "before" | "after" | "inside";
   labelStyles?: string;

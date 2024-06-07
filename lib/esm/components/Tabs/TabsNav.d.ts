@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 interface TabsNavProps {
     showButton?: boolean;
     iconStyles?: string;
-    iconLibrary?: "bootstrap-icons" | "font-awesome";
+    iconLibrary?: "bootstrap-icons" | "font-awesome"  | "icofont-icons";
     nextIcon?: string;
     prevIcon?: string;
     nextIconPosition?: 'left' | 'right';

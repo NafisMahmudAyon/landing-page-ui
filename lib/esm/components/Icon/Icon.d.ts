@@ -2,7 +2,7 @@ import React from 'react';
 interface IconProps {
     icon?: string;
     iconStyles?: string;
-    iconLibrary?: "bootstrap-icons" | "font-awesome";
+    iconLibrary?: "bootstrap-icons" | "font-awesome"  | "icofont-icons";
     isLink?: boolean;
     linkTo?: string;
     target?: string;

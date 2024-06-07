@@ -8,7 +8,7 @@ interface ScrollTopProps {
   styles?: string;
   iconEnable?: boolean;
   icon?: string;
-  iconLibrary?: string;
+  iconLibrary?: "bootstrap-icons" | "font-awesome" | "icofont-icons";
   iconStyles?: string;
 }
 
@@ -38,10 +38,10 @@ export const ScrollTop: React.FC<ScrollTopProps> = ({
 
   useEffect(() => {
     // if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
     // }
   }, []);
 
