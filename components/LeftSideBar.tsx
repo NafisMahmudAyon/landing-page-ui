@@ -47,10 +47,10 @@ const LeftSideBar = () => {
             detailsStyles="">
             <AccordionHeader
               iconLibrary="bootstrap-icons"
-              icon="bi-caret-right-fill"
+              icon="caret-right-fill"
               iconStyles="text-[#6fb8e6]"
               toggleIconStyles=""
-              toggleIcon="bi-caret-down"
+              toggleIcon="caret-down"
               iconPosition="before"
               styles="!bg-transparent font-mono"
               activeStyles=""
