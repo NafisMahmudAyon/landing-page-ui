@@ -12,7 +12,7 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   target?: string;
   variant?: string;
   children?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  // onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 export const Text: React.FC<TextProps> = ({
@@ -24,7 +24,7 @@ export const Text: React.FC<TextProps> = ({
   target = "_self",
   children,
   variant,
-  onClick,
+  // onClick,
   ...rest
 }) => {
   let [customTag, setCustomTag]: any = useState(tagName || "div");
@@ -51,7 +51,7 @@ export const Text: React.FC<TextProps> = ({
   return (
     <CustomTag
       {...rest}
-      onClick={onClick}
+      // onClick={onClick}
       id={id}
       className={` ${styles} ${variantValue} `}
       {...(isLink && {

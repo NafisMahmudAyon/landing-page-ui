@@ -182,13 +182,13 @@ body {
   font-family: 'Code';
 }
 
-body{
+/* body{
   background-color: rgb(241 245 249);
 }
 
 :is(.dark body) {
   background-color: #0f172a;
-}
+} */
 
 .scroller {
   scrollbar-width: none;

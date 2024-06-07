@@ -90,7 +90,7 @@ export default function RootLayout({
           }}
         /> */}
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans bg-[rgb(241_245_249)] dark:bg-[#0f172a] ">{children}</body>
     </html>
   );
 }

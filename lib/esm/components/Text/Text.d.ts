@@ -8,7 +8,6 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
     target?: string;
     variant?: string;
     children?: React.ReactNode;
-    onClick?: React.MouseEventHandler<HTMLElement>;
 }
 export declare const Text: React.FC<TextProps>;
 export {};
