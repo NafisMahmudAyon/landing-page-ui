@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface IconProps {
   icon?: string;
@@ -58,7 +58,15 @@ export const Icon: React.FC<IconProps> = ({
     };
   }, [iconLibrary]);
 
-  const iconHtml = iconLibrary === 'font-awesome' ? `<i class="fa-solid ${icon}"></i>` : `<i class="${icon}"></i>`;
+  const [iconHtml, setIconHtml] = useState("")
+
+  if (iconLibrary === 'font-awesome') {
+    setIconHtml(`<i class="fa-solid ${icon}"></i>`)
+  } else if (iconLibrary === 'bootstrap-icons') {
+    setIconHtml(`<i class="bi bi-${icon}"></i>`)
+  } else if (iconLibrary === 'icofont-icons') {
+    setIconHtml(`<i class="icofont-${icon}"></i>`)
+  }
 
   return (
     <>
