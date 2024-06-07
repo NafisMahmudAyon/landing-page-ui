@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 
 interface IconProps {
   icon?: string;
+  styles?: string;
   iconStyles?: string;
   iconLibrary?: "bootstrap-icons" | "font-awesome" | "icofont-icons";
   isLink?: boolean;
@@ -15,6 +16,7 @@ interface IconProps {
 
 export const Icon: React.FC<IconProps> = ({
   icon,
+  styles = '',
   iconStyles = '',
   iconLibrary = 'font-awesome',
   isLink,
@@ -62,11 +64,11 @@ export const Icon: React.FC<IconProps> = ({
   
   var iconHtml =""
   if (iconLibrary === 'font-awesome') {
-    var iconHtml =`<i class="fa-solid ${icon}"></i>`
+    var iconHtml = `<i class="fa-solid ${icon} ${iconStyles}"></i>`
   } else if (iconLibrary === 'bootstrap-icons') {
-    var iconHtml =`<i class="bi bi-${icon}"></i>`
+    var iconHtml = `<i class="bi bi-${icon} ${iconStyles}"></i>`
   } else if (iconLibrary === 'icofont-icons') {
-    var iconHtml =`<i class="icofont-${icon}"></i>`
+    var iconHtml = `<i class="icofont-${icon} ${iconStyles}"></i>`
   }
 
   return (
@@ -75,7 +77,7 @@ export const Icon: React.FC<IconProps> = ({
         <a
           href={linkTo || '#'}
           target={target}
-          className={` ${iconStyles} `}
+          className={` ${styles} `}
           onClick={onClick}
           {...rest}
           dangerouslySetInnerHTML={{ __html: iconHtml }}
@@ -83,7 +85,7 @@ export const Icon: React.FC<IconProps> = ({
       )}
       {(!isLink || !linkTo) && (
         <span
-          className={` ${iconStyles} `}
+          className={` ${styles} `}
           onClick={onClick}
           {...rest}
           dangerouslySetInnerHTML={{ __html: iconHtml }}

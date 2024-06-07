@@ -1,6 +1,7 @@
 import React from 'react';
 interface IconProps {
     icon?: string;
+    styles?: string;
     iconStyles?: string;
     iconLibrary?: "bootstrap-icons" | "font-awesome" | "icofont-icons";
     isLink?: boolean;
