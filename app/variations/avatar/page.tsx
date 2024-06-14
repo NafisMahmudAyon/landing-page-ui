@@ -49,6 +49,13 @@ const page = () => {
       },
     ],
   };
+  const images = [
+    "https://images.pexels.com/photos/3211476/pexels-photo-3211476.jpeg?cs=srgb&dl=pexels-manei-3211476.jpg&fm=jpg&w=640&h=640",
+    "https://images.pexels.com/photos/3936894/pexels-photo-3936894.jpeg?cs=srgb&dl=pexels-2192742-3936894.jpg&fm=jpg&w=640&h=640",
+    "",
+    "https://images.pexels.com/photos/7562139/pexels-photo-7562139.jpeg?cs=srgb&dl=pexels-vazhnik-7562139.jpg&fm=jpg&w=640&h=640"
+    ]
+
   const variationsX = parseInt(data.variations); // Convert variations to an integer
 
   const loopContentX = Array.from({ length: 6 }, (_, index) => {
@@ -71,7 +78,7 @@ const page = () => {
                 <Avatar name="John Smith" variant={index + 1} key={loopIndex} />
               ) : (
                 <Avatar
-                  src={`https://source.unsplash.com/random/600x600?face=${loopIndex}`}
+                  src={images[loopIndex]}
                   variant={index + 1}
                   key={loopIndex}
                 />

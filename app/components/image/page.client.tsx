@@ -233,7 +233,7 @@ export default App;
               value={1}
               styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
               <Block styles="flex gap-4 my-4 flex-col">
-                <Image src="https://source.unsplash.com/random/600x400?nature=1" alt="Default Image" />
+                <Image src="https://images.pexels.com/photos/259881/pexels-photo-259881.jpeg?cs=srgb&dl=pexels-pixabay-259881.jpg&fm=jpg&h=400&w=600&fit=crop" alt="Default Image" />
               </Block>
             </TabsPanel>
             <TabsPanel value={2} styles="rounded-lg !overflow-hidden ">
@@ -286,7 +286,7 @@ export default App;
               value={1}
               styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
               <Block styles="flex gap-4 my-4 flex-col">
-                <Image src="https://source.unsplash.com/random/600x400?nature=1" alt="Image With LightBox" lightBox={true} />
+                <Image src="https://images.pexels.com/photos/259881/pexels-photo-259881.jpeg?cs=srgb&dl=pexels-pixabay-259881.jpg&fm=jpg&h=400&w=600&fit=crop" alt="Image With LightBox" lightBox={true} />
               </Block>
             </TabsPanel>
             <TabsPanel value={2} styles="rounded-lg !overflow-hidden ">
@@ -340,7 +340,7 @@ export default App;
               styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
               <Block styles="flex gap-4 my-4 flex-col">
                 <Image
-                  src="https://source.unsplash.com/random/600x400?nature=1"
+                  src="https://images.pexels.com/photos/259881/pexels-photo-259881.jpeg?cs=srgb&dl=pexels-pixabay-259881.jpg&fm=jpg&h=400&w=600&fit=crop"
                   alt="Image With Caption"
                   captionEnabled={true}
                   imageCaption="This is Image Caption."

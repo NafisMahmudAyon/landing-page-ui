@@ -20,10 +20,30 @@ import RightSideBar from "@/components/RightSideBar";
 import CodeSnippet from "@/components/CodeSnippet";
 
 const pageClient = () => {
-  const gallery = Array.from({ length: 9 }, (_, index) => ({
-    src: `https://source.unsplash.com/random/800x600?nature=${index}`,
-    imageCaption: `Nature ${index + 1}`,
-  }));
+  const gallery = [
+    "https://images.pexels.com/photos/459038/pexels-photo-459038.jpeg?cs=srgb&dl=pexels-pixabay-459038.jpg&fm=jpg&h=400&w=600&fit=crop",
+    "https://images.pexels.com/photos/6877872/pexels-photo-6877872.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-6877872.jpg&fm=jpg&h=400&w=600&fit=crop",
+    "https://images.pexels.com/photos/259881/pexels-photo-259881.jpeg?cs=srgb&dl=pexels-pixabay-259881.jpg&fm=jpg&h=400&w=600&fit=crop",
+    "https://images.pexels.com/photos/957039/hut-alpine-mountains-bavaria-957039.jpeg?cs=srgb&dl=pexels-felixmittermeier-957039.jpg&fm=jpg&h=400&w=600&fit=crop",
+    "https://images.pexels.com/photos/80453/poppy-field-of-poppies-flower-flowers-80453.jpeg?cs=srgb&dl=pexels-pixabay-80453.jpg&fm=jpg&h=400&w=600&fit=crop",
+    "https://images.pexels.com/photos/1198817/pexels-photo-1198817.jpeg?cs=srgb&dl=pexels-todd-trapani-488382-1198817.jpg&fm=jpg&h=400&w=600&fit=crop",
+    "https://images.pexels.com/photos/301489/pexels-photo-301489.jpeg?cs=srgb&dl=pexels-pixabay-301489.jpg&fm=jpg&h=400&w=600&fit=crop",
+    "https://images.pexels.com/photos/365668/pexels-photo-365668.jpeg?cs=srgb&dl=pexels-dana-tentis-118658-365668.jpg&fm=jpg&h=400&w=600&fit=crop",
+    "https://images.pexels.com/photos/2757549/pexels-photo-2757549.jpeg?cs=srgb&dl=pexels-elias-tigiser-411757-2757549.jpg&fm=jpg&h=400&w=600&fit=crop"
+  ]
+  // const gallery = Array.from({ length: 9 }, (_, index) => ({
+  //   // src: `https://source.unsplash.com/random/800x600?nature=${index}`,
+  //   // src: `https://images.pexels.com/photos/459038/pexels-photo-459038.jpeg?cs=srgb&dl=pexels-pixabay-459038.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   // src: `https://images.pexels.com/photos/6877872/pexels-photo-6877872.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-6877872.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   // src: `https://images.pexels.com/photos/259881/pexels-photo-259881.jpeg?cs=srgb&dl=pexels-pixabay-259881.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   // src: `https://images.pexels.com/photos/957039/hut-alpine-mountains-bavaria-957039.jpeg?cs=srgb&dl=pexels-felixmittermeier-957039.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   // src: `https://images.pexels.com/photos/80453/poppy-field-of-poppies-flower-flowers-80453.jpeg?cs=srgb&dl=pexels-pixabay-80453.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   // src: `https://images.pexels.com/photos/1198817/pexels-photo-1198817.jpeg?cs=srgb&dl=pexels-todd-trapani-488382-1198817.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   // src: `https://images.pexels.com/photos/301489/pexels-photo-301489.jpeg?cs=srgb&dl=pexels-pixabay-301489.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   // src: `https://images.pexels.com/photos/365668/pexels-photo-365668.jpeg?cs=srgb&dl=pexels-dana-tentis-118658-365668.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   src: `https://images.pexels.com/photos/2757549/pexels-photo-2757549.jpeg?cs=srgb&dl=pexels-elias-tigiser-411757-2757549.jpg&fm=jpg&h=400&w=600&fit=crop`,
+  //   imageCaption: `Nature ${index + 1}`,
+  // }));
   const defaultGalleryContent = `
 import { Image, ImageGallery } from "landing-page-ui"
 
@@ -228,9 +248,9 @@ export default App;
                   {gallery.map((item, index) => (
                     <Image
                       key={index}
-                      src={item.src}
-                      alt={item.imageCaption}
-                      imageCaption={item.imageCaption}
+                      src={item}
+                      alt={"Nature " + index}
+                      imageCaption={"Nature " + index}
                     />
                   ))}
                 </ImageGallery>
@@ -292,9 +312,9 @@ export default App;
                   {gallery.map((item, index) => (
                     <Image
                       key={index}
-                      src={item.src}
-                      alt={item.imageCaption}
-                      imageCaption={item.imageCaption}
+                      src={item}
+                      alt={"Nature " + index}
+                      imageCaption={"Nature " + index}
                     />
                   ))}
                 </ImageGallery>
@@ -357,9 +377,9 @@ export default App;
                   {gallery.map((item, index) => (
                     <Image
                       key={index}
-                      src={item.src}
-                      alt={item.imageCaption}
-                      imageCaption={item.imageCaption}
+                      src={item}
+                      alt={"Nature " + index}
+                      imageCaption={"Nature " + index}
                     />
                   ))}
                 </ImageGallery>

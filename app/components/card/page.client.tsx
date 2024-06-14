@@ -265,7 +265,7 @@ export default App;
                   <CardMedia
                     mediaStyles="h-40 w-full "
                     badge="Nature"
-                    src="https://source.unsplash.com/random/800x600?nature"
+                    src="https://images.pexels.com/photos/6877872/pexels-photo-6877872.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-6877872.jpg&fm=jpg&h=400&w=600&fit=crop"
                     badgePosition="bottom left"
                   />
                   <CardContent>
@@ -285,7 +285,7 @@ export default App;
                   <CardMedia
                     mediaStyles="h-40 w-full "
                     badge="Nature"
-                    src="https://source.unsplash.com/random/800x600?nature"
+                    src="https://images.pexels.com/photos/365668/pexels-photo-365668.jpeg?cs=srgb&dl=pexels-dana-tentis-118658-365668.jpg&fm=jpg&h=400&w=600&fit=crop"
                     badgePosition="bottom left"
                   />
                   <CardContent>
@@ -305,7 +305,7 @@ export default App;
                   <CardMedia
                     mediaStyles="h-40 w-full "
                     badge="Nature"
-                    src="https://source.unsplash.com/random/800x600?nature"
+                    src="https://images.pexels.com/photos/259881/pexels-photo-259881.jpeg?cs=srgb&dl=pexels-pixabay-259881.jpg&fm=jpg&h=400&w=600&fit=crop"
                     badgePosition="bottom left"
                   />
                   <CardContent>
@@ -377,7 +377,7 @@ export default App;
                     <CardMedia
                       mediaStyles="h-40 w-full "
                       badge="Nature"
-                      src="https://source.unsplash.com/random/800x600?nature"
+                      src="https://images.pexels.com/photos/6877872/pexels-photo-6877872.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-6877872.jpg&fm=jpg&h=400&w=600&fit=crop"
                       badgePosition="bottom left"
                     />
                     <CardContent>
@@ -397,7 +397,7 @@ export default App;
                     <CardMedia
                       mediaStyles="h-40 w-full "
                       badge="Nature"
-                      src="https://source.unsplash.com/random/800x600?nature"
+                      src="https://images.pexels.com/photos/365668/pexels-photo-365668.jpeg?cs=srgb&dl=pexels-dana-tentis-118658-365668.jpg&fm=jpg&h=400&w=600&fit=crop"
                       badgePosition="bottom left"
                     />
                     <CardContent>
@@ -417,7 +417,7 @@ export default App;
                     <CardMedia
                       mediaStyles="h-40 w-full "
                       badge="Nature"
-                      src="https://source.unsplash.com/random/800x600?nature"
+                      src="https://images.pexels.com/photos/259881/pexels-photo-259881.jpeg?cs=srgb&dl=pexels-pixabay-259881.jpg&fm=jpg&h=400&w=600&fit=crop"
                       badgePosition="bottom left"
                     />
                     <CardContent>

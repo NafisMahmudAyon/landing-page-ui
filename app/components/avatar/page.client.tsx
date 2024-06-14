@@ -178,17 +178,17 @@ export default App;
               styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
               <Block styles="flex gap-4 my-4">
                 <Avatar
-                  src="https://source.unsplash.com/random/600x600?face=1"
+                  src="https://images.pexels.com/photos/3211476/pexels-photo-3211476.jpeg?cs=srgb&dl=pexels-manei-3211476.jpg&fm=jpg&w=640&h=640"
                   altText="Avatar 1"
                   styles="border"
                 />
                 <Avatar
-                  src="https://source.unsplash.com/random/600x600?face=2"
+                  src="https://images.pexels.com/photos/7562139/pexels-photo-7562139.jpeg?cs=srgb&dl=pexels-vazhnik-7562139.jpg&fm=jpg&h=640&w=640&fit=crop"
                   altText="Avatar 2"
                   styles="border"
                 />
                 <Avatar
-                  src="https://source.unsplash.com/random/600x600?face=3"
+                  src="https://images.pexels.com/photos/3936894/pexels-photo-3936894.jpeg?cs=srgb&dl=pexels-2192742-3936894.jpg&fm=jpg&w=640&h=640"
                   altText="Avatar 3"
                   styles="border"
                 />
@@ -300,17 +300,17 @@ export default App;
               styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
               <AvatarGroup>
                 <Avatar
-                  src="https://source.unsplash.com/random/600x600?face=1"
+                  src="https://images.pexels.com/photos/3211476/pexels-photo-3211476.jpeg?cs=srgb&dl=pexels-manei-3211476.jpg&fm=jpg&w=640&h=640"
                   altText="Avatar 1"
                   styles="border"
                 />
                 <Avatar
-                  src="https://source.unsplash.com/random/600x600?face=2"
+                  src="https://images.pexels.com/photos/3936894/pexels-photo-3936894.jpeg?cs=srgb&dl=pexels-2192742-3936894.jpg&fm=jpg&w=640&h=640"
                   altText="Avatar 2"
                   styles="border"
                 />
                 <Avatar
-                  src="https://source.unsplash.com/random/600x600?face=3"
+                  src="https://images.pexels.com/photos/7562139/pexels-photo-7562139.jpeg?cs=srgb&dl=pexels-vazhnik-7562139.jpg&fm=jpg&w=640&h=640"
                   altText="Avatar 3"
                   styles="border"
                 />

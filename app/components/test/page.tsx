@@ -4,7 +4,9 @@ import { Accordion, AccordionHeader, Text, AccordionDetails, Icon } from '@/app/
 
 const Page = () => {
   
-
+const handleClick = () => {
+  console.log("first")
+}
   return (
     <div>
       <Accordion active={true} variant="1">
@@ -22,6 +24,7 @@ const Page = () => {
         </AccordionDetails>
       </Accordion>
       <Icon icon="sun-set icofont-2x" iconLibrary='icofont-icons' iconStyles='h-10 w-10 flex items-center justify-center border rounded-full shadow-lg hover:shadow-none ' title="Sun Set" />
+      <Text onClick={handleClick}></Text>
     </div>
   );
 };
