@@ -9,7 +9,7 @@ interface IconButtonProps extends React.HTMLAttributes<HTMLElement> {
   tagName?: string;
   icon?: string;
   iconLibrary?: "bootstrap-icons" | "font-awesome" | "icofont-icons";
-  iconPosition?: string;
+  iconPosition?: "before" | "after" | "beforePrefix" | "afterPrefix" | "beforePostfix" | "afterPostfix";
   text?: string;
   isLink?: boolean;
   linkTo?: string;
