@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'
 
 // import "../../../css/output.css"
 
@@ -24,8 +25,8 @@ export const AccordionDetails: React.FC<AccordionDetailsProps> = ({
   variant = "1",
   ...rest
 }) => {
-  let [customTag]: any = useState(tagName || "div");
-  const CustomTag: any = customTag.toLowerCase();
+  // let [customTag]: any = useState(tagName || "div");
+  // const CustomTag: any = customTag.toLowerCase();
 
   const [variantValue, setVariantValue] = useState({
     styles: '',
@@ -67,11 +68,19 @@ export const AccordionDetails: React.FC<AccordionDetailsProps> = ({
       });
     }
   }, [variant]);
+  useEffect(() => {
+    console.log(active)
+  }, [active])
 
+  console.log(active)
   return (
-    <CustomTag id={id} className={` ${styles} ${variant ? variantValue.styles : ""} `} {...rest}>
-      {children}
-    </CustomTag>
+    <AnimatePresence>
+      {/* {active && ( */}
+        <motion.div initial={{ height: "0px", opacity: 0, visibility: "hidden" }} animate={{ height: "max-content", opacity: 1, visibility: "visible"  }} exit={{ height: "0px" }} transition={{ duration: 1 }} id={id} className={` ${styles} ${variant ? variantValue.styles : ""} `} {...rest}>
+          {children}
+        </motion.div>
+      {/* )} */}
+    </AnimatePresence>
   );
 };
 
